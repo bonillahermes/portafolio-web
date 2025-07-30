@@ -1,52 +1,55 @@
 "use client"
 
 import { useState } from "react"
-import { Building2, Landmark, BarChart3, ArrowRight, CheckCircle2 } from "lucide-react"
+import { Heart, Users, Shield, ArrowRight, CheckCircle2 } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 
 export default function CaseStudies() {
-  const [activeCase, setActiveCase] = useState("hdi")
+  const [activeCase, setActiveCase] = useState("health")
   const { t } = useLanguage()
 
   const cases = [
     {
-      id: "hdi",
-      icon: Building2,
-      company: t("cases.hdi.company"),
-      title: t("cases.hdi.title"),
-      description: t("cases.hdi.description"),
+      id: "health",
+      icon: Heart,
+      company: "Hospital San Vicente",
+      title: "Optimización Geográfica de Medicamentos",
+      description:
+        "Modelo de análisis geográfico y socioeconómico que identifica factores como acceso al agua, proximidad a hospitales y condiciones socioeconómicas para optimizar la distribución de medicamentos oncológicos en zonas vulnerables.",
       metrics: [
-        { label: t("cases.precision"), value: "94.2%" },
-        { label: t("cases.savings"), value: "$2.3M" },
-        { label: t("cases.lossReduction"), value: "35%" },
+        { label: "Reducción en tiempo de entrega", value: "60%" },
+        { label: "Zonas vulnerables cubiertas", value: "85%" },
+        { label: "Factores analizados", value: "12+" },
       ],
-      result: t("cases.hdi.result"),
+      result: "60% más rápido en distribución de medicamentos",
     },
     {
-      id: "senado",
-      icon: Landmark,
-      company: t("cases.senate.company"),
-      title: t("cases.senate.title"),
-      description: t("cases.senate.description"),
+      id: "politics",
+      icon: Users,
+      company: "Campaña Alcaldía",
+      title: "Segmentación Electoral",
+      description:
+        "Sistema de análisis de datos demográficos, socioeconómicos y de comportamiento electoral para identificar votantes indecisos y optimizar estrategias de campaña.",
       metrics: [
-        { label: t("cases.precision"), value: "99%" },
-        { label: t("cases.speed"), value: "1000x" },
-        { label: t("cases.documents"), value: "15K+" },
+        { label: "Precisión en segmentación", value: "92%" },
+        { label: "Optimización de recursos", value: "60%" },
+        { label: "Margen de victoria", value: "12%" },
       ],
-      result: t("cases.senate.result"),
+      result: "Victoria electoral con 12% de diferencia",
     },
     {
-      id: "electoral",
-      icon: BarChart3,
-      company: t("cases.electoral.company"),
-      title: t("cases.electoral.title"),
-      description: t("cases.electoral.description"),
+      id: "security",
+      icon: Shield,
+      company: "Senado de la República",
+      title: "Predicción de Violencia Política",
+      description:
+        "Integración de múltiples bases de datos institucionales para crear un modelo predictivo de violencia política con enfoque de género, permitiendo medidas preventivas.",
       metrics: [
-        { label: t("cases.precision"), value: "92%" },
-        { label: t("cases.voters"), value: "2.1M" },
-        { label: t("cases.savings"), value: "67%" },
+        { label: "Fuentes de datos integradas", value: "15" },
+        { label: "Precisión predictiva", value: "87%" },
+        { label: "Alertas tempranas", value: "95%" },
       ],
-      result: t("cases.electoral.result"),
+      result: "Sistema de alerta temprana implementado",
     },
   ]
 
@@ -59,11 +62,11 @@ export default function CaseStudies() {
           {/* Header */}
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-8 leading-tight">
-              {t("cases.title")}
-              <br />
-              <span className="text-slate-400">{t("cases.verifiable")}</span>
+              Casos de <span className="text-slate-400">impacto real</span>
             </h2>
-            <p className="text-xl md:text-2xl text-slate-600 font-light max-w-2xl mx-auto">{t("cases.subtitle")}</p>
+            <p className="text-xl md:text-2xl text-slate-600 font-light max-w-2xl mx-auto">
+              Proyectos que han generado cambios significativos en sectores críticos
+            </p>
           </div>
 
           {/* Case Navigation */}
@@ -137,16 +140,16 @@ export default function CaseStudies() {
           {/* CTA */}
           <div className="text-center">
             <h3 className="text-2xl md:text-3xl font-light text-slate-900 mb-4">
-              {t("cases.nextCompany")} <span className="text-blue-600">{t("cases.next")}</span>
+              ¿Tu proyecto podría ser el <span className="text-blue-600">próximo caso de éxito?</span>
             </h3>
             <p className="text-lg text-slate-600 font-light mb-8 max-w-2xl mx-auto">
-              {t("cases.transformationStarts")}
+              Cada transformación comienza con una conversación sobre tus desafíos específicos
             </p>
             <a
               href="#contacto"
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-medium rounded-full transition-all duration-300 hover:scale-105 inline-flex items-center gap-2"
             >
-              {t("cases.startConversation")}
+              Comenzar conversación
               <ArrowRight className="w-5 h-5" />
             </a>
           </div>

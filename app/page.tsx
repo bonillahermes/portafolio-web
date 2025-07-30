@@ -3,6 +3,7 @@ import Hero from "../components/hero"
 import Problems from "../components/problems"
 import Services from "../components/services"
 import CaseStudies from "../components/case-studies"
+import Testimonials from "../components/testimonials"
 import WhyMe from "../components/why-me"
 import Process from "../components/process"
 import About from "../components/about"
@@ -25,6 +26,7 @@ export default function Page() {
       <section id="casos">
         <CaseStudies />
       </section>
+      <Testimonials />
       <section id="sobre-mi">
         <WhyMe />
       </section>
