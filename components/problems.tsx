@@ -1,232 +1,198 @@
 "use client"
 import { useState, useEffect } from "react"
-import { ArrowRight, MessageCircle, User, Bot } from "lucide-react"
+import { ArrowRight, TrendingDown, Clock, AlertTriangle, Target, CheckCircle } from 'lucide-react'
 import { useLanguage } from "@/contexts/language-context"
 
 export default function Problems() {
-  const [visibleMessages, setVisibleMessages] = useState(0)
-  const [isTyping, setIsTyping] = useState(false)
+  const [currentProblem, setCurrentProblem] = useState(0)
+  const [showSolution, setShowSolution] = useState(false)
   const { t } = useLanguage()
 
-  const chatMessages = [
+  const problems = [
     {
-      type: "user",
-      message: t("problems.user1"),
-      timestamp: "10:30",
+      icon: TrendingDown,
+      title: "Decisiones lentas",
+      subtitle: "Mientras analizas, la competencia actúa",
+      description: "Tus competidores toman decisiones basadas en datos en tiempo real. Tú sigues esperando reportes manuales que llegan tarde.",
+      stat: "73%",
+      statLabel: "de las empresas pierden oportunidades por análisis tardío"
     },
     {
-      type: "bot",
-      message: t("problems.bot1"),
-      timestamp: "10:31",
+      icon: Clock,
+      title: "Procesos manuales",
+      subtitle: "Tu equipo hace trabajo de máquinas",
+      description: "Horas perdidas en tareas repetitivas que la IA puede hacer en segundos. Tu talento humano debería estar creando valor, no copiando datos.",
+      stat: "8hrs",
+      statLabel: "promedio diario perdido en tareas automatizables"
     },
     {
-      type: "user",
-      message: t("problems.user2"),
-      timestamp: "10:32",
+      icon: AlertTriangle,
+      title: "Datos dormidos",
+      subtitle: "Información valiosa sin explotar",
+      description: "Tienes terabytes de datos que podrían predecir tendencias, identificar oportunidades y optimizar procesos. Pero están ahí, sin usar.",
+      stat: "90%",
+      statLabel: "de los datos empresariales nunca se analizan"
     },
     {
-      type: "bot",
-      message: t("problems.bot2"),
-      timestamp: "10:33",
-    },
-    {
-      type: "user",
-      message: t("problems.user3"),
-      timestamp: "10:34",
-    },
-    {
-      type: "bot",
-      message: t("problems.bot3"),
-      timestamp: "10:35",
-    },
-    {
-      type: "user",
-      message: t("problems.user4"),
-      timestamp: "10:36",
-    },
-    {
-      type: "bot",
-      message: t("problems.bot4"),
-      timestamp: "10:37",
-    },
-    {
-      type: "bot",
-      message: t("problems.bot5"),
-      timestamp: "10:38",
-      highlight: true,
-    },
+      icon: Target,
+      title: "Ventaja perdida",
+      subtitle: "Cada día cuenta en la era digital",
+      description: "Mientras dudas, tus competidores implementan IA y se alejan. La brecha tecnológica se amplía cada día que pasa.",
+      stat: "2.5x",
+      statLabel: "más rápido crecen las empresas con IA"
+    }
   ]
 
   useEffect(() => {
-    if (visibleMessages < chatMessages.length) {
-      const timer = setTimeout(() => {
-        setIsTyping(true)
-        setTimeout(() => {
-          setVisibleMessages((prev) => prev + 1)
-          setIsTyping(false)
-        }, 1000)
-      }, 1500)
-      return () => clearTimeout(timer)
-    }
-  }, [visibleMessages, chatMessages.length])
+    const timer = setInterval(() => {
+      if (currentProblem < problems.length - 1) {
+        setCurrentProblem(prev => prev + 1)
+      } else if (!showSolution) {
+        setTimeout(() => setShowSolution(true), 1000)
+      }
+    }, 4000)
 
-  return (
-    <section className="py-24 md:py-32 bg-white">
-      <div className="container px-4 md:px-6">
-        <div className="max-w-4xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-8 leading-tight">
-              {t("problems.title")}
+    return () => clearInterval(timer)
+  }, [currentProblem, showSolution, problems.length])
+
+  if (showSolution) {
+    return (
+      <section className="py-32 bg-white">
+        <div className="container px-4 md:px-6 max-w-4xl mx-auto text-center">
+          <div className="animate-fade-in-up">
+            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-8">
+              <CheckCircle className="w-10 h-10 text-green-600" />
+            </div>
+            
+            <h2 className="text-5xl md:text-7xl font-light text-slate-900 mb-6 leading-tight">
+              La solución
               <br />
-              <span className="text-slate-400">{t("problems.familiar")}</span>
+              <span className="bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent font-normal">
+                ya existe
+              </span>
             </h2>
-            <p className="text-xl md:text-2xl text-slate-600 font-light max-w-2xl mx-auto">{t("problems.subtitle")}</p>
-          </div>
+            
+            <p className="text-xl md:text-2xl text-slate-600 font-light mb-16 max-w-2xl mx-auto leading-relaxed">
+              No necesitas esperar años ni invertir millones. La IA empresarial está lista para transformar tu negocio hoy.
+            </p>
 
-          {/* Chat Interface */}
-          <div className="bg-white border border-slate-200 rounded-3xl shadow-sm overflow-hidden">
-            {/* Chat Header */}
-            <div className="bg-slate-50 px-6 py-4 border-b border-slate-200">
-              <div className="flex items-center gap-3">
-                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                <div className="flex-1 text-center">
-                  <span className="text-sm text-slate-600 font-medium">Strategic Consultation</span>
-                </div>
-                <MessageCircle className="w-5 h-5 text-slate-400" />
-              </div>
-            </div>
-
-            {/* Chat Messages */}
-            <div className="p-6 space-y-6 min-h-[600px] max-h-[800px] overflow-y-auto">
-              {chatMessages.slice(0, visibleMessages).map((msg, index) => (
-                <div
-                  key={index}
-                  className={`flex gap-3 animate-fade-in ${msg.type === "user" ? "justify-end" : "justify-start"}`}
-                  style={{ animationDelay: `${index * 0.2}s` }}
-                >
-                  {msg.type === "bot" && (
-                    <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <Bot className="w-4 h-4 text-blue-600" />
-                    </div>
-                  )}
-
-                  <div className={`max-w-[80%] ${msg.type === "user" ? "order-1" : ""}`}>
-                    <div
-                      className={`px-4 py-3 rounded-2xl ${
-                        msg.type === "user"
-                          ? "bg-blue-600 text-white"
-                          : msg.highlight
-                            ? "bg-green-50 text-green-900 border border-green-200"
-                            : "bg-slate-100 text-slate-900"
-                      }`}
-                    >
-                      <p className="text-sm md:text-base leading-relaxed">{msg.message}</p>
-                    </div>
-                    <div className={`text-xs text-slate-400 mt-1 ${msg.type === "user" ? "text-right" : "text-left"}`}>
-                      {msg.timestamp}
-                    </div>
-                  </div>
-
-                  {msg.type === "user" && (
-                    <div className="w-8 h-8 bg-slate-200 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <User className="w-4 h-4 text-slate-600" />
-                    </div>
-                  )}
-                </div>
-              ))}
-
-              {/* Typing Indicator */}
-              {isTyping && (
-                <div className="flex gap-3 justify-start animate-fade-in">
-                  <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <Bot className="w-4 h-4 text-blue-600" />
-                  </div>
-                  <div className="bg-slate-100 px-4 py-3 rounded-2xl">
-                    <div className="flex gap-1">
-                      <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce"></div>
-                      <div
-                        className="w-2 h-2 bg-slate-400 rounded-full animate-bounce"
-                        style={{ animationDelay: "0.1s" }}
-                      ></div>
-                      <div
-                        className="w-2 h-2 bg-slate-400 rounded-full animate-bounce"
-                        style={{ animationDelay: "0.2s" }}
-                      ></div>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Chat Input (Disabled) */}
-            <div className="bg-slate-50 px-6 py-4 border-t border-slate-200">
-              <div className="flex items-center gap-3">
-                <div className="flex-1 bg-white border border-slate-200 rounded-full px-4 py-2">
-                  <span className="text-slate-400 text-sm">{t("problems.continuesInPerson")}</span>
-                </div>
-                <div className="w-8 h-8 bg-slate-200 rounded-full flex items-center justify-center">
-                  <ArrowRight className="w-4 h-4 text-slate-400" />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Results Preview */}
-          <div className="mt-16 text-center">
-            <div className="inline-flex items-center gap-2 bg-slate-100 border border-slate-200 rounded-full px-6 py-3 mb-8">
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-              <span className="text-slate-700 font-medium">{t("problems.verifiableResults")}</span>
-            </div>
-
-            <h3 className="text-3xl md:text-5xl font-light text-slate-900 leading-tight mb-8">
-              {t("problems.notPromises")}
-              <br />
-              <span className="text-blue-600">{t("problems.areResults")}</span>
-            </h3>
-
-            {/* Simple Stats */}
-            <div className="grid md:grid-cols-3 gap-8 max-w-2xl mx-auto mb-12">
+            <div className="grid md:grid-cols-3 gap-12 mb-16">
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-light text-slate-900 mb-2">35%</div>
-                <div className="text-sm text-slate-500">{t("problems.lossReduction")}</div>
+                <div className="text-4xl md:text-5xl font-light text-slate-900 mb-3">35%</div>
+                <div className="text-slate-600">Reducción de costos operativos</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-light text-slate-900 mb-2">1000x</div>
-                <div className="text-sm text-slate-500">{t("problems.fasterProcessing")}</div>
+                <div className="text-4xl md:text-5xl font-light text-slate-900 mb-3">10x</div>
+                <div className="text-slate-600">Velocidad en procesamiento</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-light text-slate-900 mb-2">24/7</div>
-                <div className="text-sm text-slate-500">{t("problems.alwaysWorking")}</div>
+                <div className="text-4xl md:text-5xl font-light text-slate-900 mb-3">24/7</div>
+                <div className="text-slate-600">Operación continua</div>
               </div>
             </div>
 
             <a
               href="#servicios"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-medium rounded-full transition-all duration-300 hover:scale-105 inline-flex items-center gap-2"
+              className="bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 text-lg font-medium rounded-full transition-all duration-300 hover:scale-105 inline-flex items-center gap-3 group"
             >
-              {t("problems.discoverHow")}
-              <ArrowRight className="w-5 h-5" />
+              Descubre cómo implementarla
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </a>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  const currentProblemData = problems[currentProblem]
+  const IconComponent = currentProblemData.icon
+
+  return (
+    <section className="py-32 bg-white">
+      <div className="container px-4 md:px-6 max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-8 leading-tight">
+            ¿Te suena
+            <br />
+            <span className="text-slate-400">familiar?</span>
+          </h2>
+        </div>
+
+        {/* Progress Indicator */}
+        <div className="flex justify-center mb-16">
+          <div className="flex gap-3">
+            {problems.map((_, index) => (
+              <div
+                key={index}
+                className={`h-1 rounded-full transition-all duration-500 ${
+                  index <= currentProblem ? 'bg-slate-900 w-12' : 'bg-slate-200 w-8'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Current Problem - Fixed height container */}
+        <div className="max-w-4xl mx-auto min-h-[600px] flex items-center justify-center">
+          <div 
+            key={currentProblem}
+            className="text-center w-full animate-fade-in-up"
+          >
+            {/* Icon */}
+            <div className="w-24 h-24 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-8">
+              <IconComponent className="w-12 h-12 text-slate-600" />
+            </div>
+
+            {/* Title */}
+            <h3 className="text-4xl md:text-5xl font-light text-slate-900 mb-4">
+              {currentProblemData.title}
+            </h3>
+
+            {/* Subtitle */}
+            <p className="text-xl md:text-2xl text-slate-500 font-light mb-8">
+              {currentProblemData.subtitle}
+            </p>
+
+            {/* Description */}
+            <p className="text-lg md:text-xl text-slate-600 leading-relaxed mb-12 max-w-3xl mx-auto">
+              {currentProblemData.description}
+            </p>
+
+            {/* Stat */}
+            <div className="bg-slate-50 rounded-2xl p-8 max-w-2xl mx-auto">
+              <div className="text-3xl md:text-4xl font-light text-slate-900 mb-2">
+                {currentProblemData.stat}
+              </div>
+              <div className="text-slate-600">
+                {currentProblemData.statLabel}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom indicator */}
+        <div className="text-center mt-16">
+          <div className="inline-flex items-center gap-2 text-slate-400 text-sm">
+            <div className="w-2 h-2 bg-slate-400 rounded-full animate-pulse"></div>
+            Problema {currentProblem + 1} de {problems.length}
           </div>
         </div>
       </div>
 
       <style jsx>{`
-        @keyframes fade-in {
+        @keyframes fade-in-up {
           from {
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(30px);
           }
           to {
             opacity: 1;
             transform: translateY(0);
           }
         }
-        .animate-fade-in {
-          animation: fade-in 0.6s ease-out forwards;
+        .animate-fade-in-up {
+          animation: fade-in-up 0.8s ease-out forwards;
         }
       `}</style>
     </section>

@@ -1,12 +1,11 @@
 import Navbar from "../components/navbar"
 import Hero from "../components/hero"
-import Problems from "../components/problems"
 import Services from "../components/services"
 import CaseStudies from "../components/case-studies"
+import BlogSection from "../components/blog/blog-section"
 import Testimonials from "../components/testimonials"
-import WhyMe from "../components/why-me"
-import Process from "../components/process"
 import About from "../components/about"
+import Process from "../components/process"
 import FAQ from "../components/faq"
 import CTA from "../components/cta"
 import Footer from "../components/footer"
@@ -19,21 +18,22 @@ export default function Page() {
       <section id="home">
         <Hero />
       </section>
-      <Problems />
       <section id="servicios">
         <Services />
       </section>
       <section id="casos">
         <CaseStudies />
       </section>
+      <section id="blog">
+        <BlogSection />
+      </section>
       <Testimonials />
       <section id="sobre-mi">
-        <WhyMe />
+        <About />
       </section>
       <section id="proceso">
         <Process />
       </section>
-      <About />
       <FAQ />
       <section id="contacto">
         <CTA />

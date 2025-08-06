@@ -3,18 +3,7 @@
 import React from "react"
 import { useState } from "react"
 import { Badge } from "@/components/ui/badge"
-import {
-  Search,
-  Brain,
-  Rocket,
-  TrendingUp,
-  Zap,
-  CheckCircle2,
-  ArrowUpRight,
-  Activity,
-  Cpu,
-  Database,
-} from "lucide-react"
+import { Search, Brain, Rocket, TrendingUp, Zap, CheckCircle2, ArrowUpRight, Activity, Cpu, Database } from 'lucide-react'
 
 const services = [
   {
@@ -285,26 +274,6 @@ export default function Services() {
                 </a>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Bottom Stats */}
-        <div className="mt-16 pt-16 border-t border-slate-700/50">
-          <div className="grid md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-            {[
-              { label: "Uptime del Sistema", value: "99.9%", color: "green" },
-              { label: "Proyectos Activos", value: "50+", color: "blue" },
-              { label: "Precisión Promedio", value: "96.2%", color: "purple" },
-              { label: "Satisfacción Cliente", value: "98%", color: "green" },
-            ].map((stat, index) => (
-              <div key={index} className="text-center bg-slate-900/30 rounded-xl p-6 border border-slate-700/30">
-                <div className="text-2xl font-bold text-white mb-2">{stat.value}</div>
-                <div className="text-sm text-slate-400 mb-3">{stat.label}</div>
-                <div className="w-full bg-slate-700 rounded-full h-1">
-                  <div className={`bg-${stat.color}-400 h-1 rounded-full`} style={{ width: "90%" }}></div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </div>

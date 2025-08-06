@@ -3,7 +3,7 @@ import { useState } from "react"
 import React from "react"
 import { useLanguage } from "@/contexts/language-context"
 
-import { ArrowUpRight, Mail, Phone, MapPin, Linkedin, Github, MessageCircle } from "lucide-react"
+import { ArrowUpRight, Mail, Phone, MapPin, Linkedin, Github, MessageCircle } from 'lucide-react'
 
 export default function Footer() {
   const [hoveredLink, setHoveredLink] = useState<string | null>(null)
@@ -33,14 +33,21 @@ export default function Footer() {
   const quickLinks = [
     { name: t("nav.services"), href: "#servicios" },
     { name: t("nav.cases"), href: "#casos" },
+    { name: "Blog", href: "/blog" },
     { name: t("nav.about"), href: "#sobre-mi" },
     { name: t("nav.process"), href: "#proceso" },
   ]
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+    if (href.startsWith('/')) {
+      // External link
+      window.location.href = href
+    } else {
+      // Internal anchor
+      const element = document.querySelector(href)
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" })
+      }
     }
   }
 

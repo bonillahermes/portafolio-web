@@ -1,7 +1,7 @@
 "use client"
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
+import { Menu, X } from 'lucide-react'
 import { useLanguage } from "@/contexts/language-context"
 import LanguageSelector from "./language-selector"
 
@@ -22,14 +22,21 @@ export default function Navbar() {
   const navItems = [
     { name: t("nav.services"), href: "#servicios" },
     { name: t("nav.cases"), href: "#casos" },
+    { name: "Blog", href: "/blog" },
     { name: t("nav.about"), href: "#sobre-mi" },
     { name: t("nav.process"), href: "#proceso" },
   ]
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+    if (href.startsWith('/')) {
+      // External link
+      window.location.href = href
+    } else {
+      // Internal anchor
+      const element = document.querySelector(href)
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" })
+      }
     }
     setIsMobileMenuOpen(false)
   }
