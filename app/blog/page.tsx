@@ -1,8 +1,11 @@
 import { Metadata } from "next"
+import Navbar from "@/components/navbar"
+import Footer from "@/components/footer"
+import WhatsAppFloat from "@/components/whatsapp-float"
 import BlogCard from "@/components/blog/blog-card"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
-import { Search, Filter, BookOpen, TrendingUp, Clock } from 'lucide-react'
+import { Search, Filter, BookOpen, TrendingUp, Clock, User, Calendar } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: "Blog - Hermes Bonilla | Data Science e Inteligencia Artificial",
@@ -51,21 +54,19 @@ const blogPosts = [
 ]
 
 const categories = [
+  "Todos",
   "Inteligencia Artificial",
-  "Data Science Fundamentals", 
-  "Herramientas y Tecnologías",
-  "Casos de Estudio",
-  "Machine Learning"
-]
-
-const popularTags = [
-  "IA", "Data Science", "Machine Learning", "Colombia", "ROI", "Transformación Digital"
+  "Data Science", 
+  "Machine Learning",
+  "Casos de Estudio"
 ]
 
 export default function BlogPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
+      <Navbar />
+      
+      {/* Hero Section - Mantener igual */}
       <section className="pt-32 pb-16 bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
@@ -110,145 +111,131 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="py-16">
-        <div className="container px-4 md:px-6">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-4 gap-12">
-              {/* Main Content */}
-              <div className="lg:col-span-3">
-                {/* Search and Filters */}
-                <div className="mb-12">
-                  <div className="flex flex-col md:flex-row gap-4 mb-6">
-                    <div className="relative flex-1">
-                      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
-                      <Input 
-                        placeholder="Buscar artículos..." 
-                        className="pl-10 py-3 rounded-full border-slate-200 focus:border-blue-500"
-                      />
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Filter className="w-5 h-5 text-slate-400" />
-                      <span className="text-slate-600 text-sm">Filtrar por:</span>
-                    </div>
-                  </div>
-                  
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="secondary" className="cursor-pointer hover:bg-blue-100">
-                      Todos
-                    </Badge>
-                    {categories.map((category) => (
-                      <Badge 
-                        key={category} 
-                        variant="outline" 
-                        className="cursor-pointer hover:bg-blue-50 hover:border-blue-300"
-                      >
-                        {category}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Blog Posts */}
-                <div className="grid md:grid-cols-2 gap-8">
-                  {blogPosts.map((post) => (
-                    <BlogCard key={post.slug} post={post} />
-                  ))}
-                </div>
-              </div>
-
-              {/* Sidebar */}
-              <div className="lg:col-span-1">
-                <div className="sticky top-24 space-y-8">
-                  {/* About */}
-                  <div className="bg-slate-50 rounded-2xl p-6">
-                    <h3 className="text-lg font-semibold text-slate-900 mb-4">Sobre el autor</h3>
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold">
-                        HB
-                      </div>
-                      <div>
-                        <div className="font-medium text-slate-900">Hermes Bonilla</div>
-                        <div className="text-sm text-slate-600">Data Scientist Senior</div>
-                      </div>
-                    </div>
-                    <p className="text-sm text-slate-600 mb-4">
-                      Especialista en transformar datos en ventajas competitivas para empresas colombianas.
-                    </p>
-                    <div className="grid grid-cols-2 gap-4 text-center">
-                      <div>
-                        <div className="text-lg font-bold text-slate-900">8+</div>
-                        <div className="text-xs text-slate-600">Años exp.</div>
-                      </div>
-                      <div>
-                        <div className="text-lg font-bold text-slate-900">50+</div>
-                        <div className="text-xs text-slate-600">Proyectos</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Popular Posts */}
-                  <div className="bg-white border border-slate-200 rounded-2xl p-6">
-                    <h3 className="text-lg font-semibold text-slate-900 mb-4 flex items-center gap-2">
-                      <TrendingUp className="w-5 h-5 text-blue-600" />
-                      Más populares
-                    </h3>
-                    <div className="space-y-4">
-                      {blogPosts.slice(0, 3).map((post, index) => (
-                        <div key={post.slug} className="flex gap-3">
-                          <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-semibold text-sm flex-shrink-0">
-                            {index + 1}
-                          </div>
-                          <div>
-                            <h4 className="text-sm font-medium text-slate-900 hover:text-blue-600 cursor-pointer line-clamp-2">
-                              {post.title}
-                            </h4>
-                            <div className="flex items-center gap-2 text-xs text-slate-500 mt-1">
-                              <Clock className="w-3 h-3" />
-                              <span>{post.readTime}</span>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Categories */}
-                  <div className="bg-white border border-slate-200 rounded-2xl p-6">
-                    <h3 className="text-lg font-semibold text-slate-900 mb-4">Categorías</h3>
-                    <div className="space-y-2">
-                      {categories.map((category) => (
-                        <div key={category} className="flex items-center justify-between py-2 px-3 rounded-lg hover:bg-slate-50 cursor-pointer transition-colors">
-                          <span className="text-sm text-slate-700">{category}</span>
-                          <Badge variant="secondary" className="text-xs">
-                            {Math.floor(Math.random() * 10) + 1}
-                          </Badge>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Tags */}
-                  <div className="bg-white border border-slate-200 rounded-2xl p-6">
-                    <h3 className="text-lg font-semibold text-slate-900 mb-4">Tags populares</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {popularTags.map((tag) => (
-                        <Badge 
-                          key={tag} 
-                          variant="outline" 
-                          className="cursor-pointer hover:bg-blue-50 hover:border-blue-300 text-xs"
-                        >
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
+      {/* Main Content - Estilo OpenAI */}
+      <section className="py-20">
+        <div className="max-w-4xl mx-auto px-6">
+          
+          {/* Search Bar - Estilo OpenAI */}
+          <div className="mb-16">
+            <div className="relative max-w-2xl mx-auto">
+              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
+              <Input 
+                placeholder="Buscar artículos sobre Data Science, IA, Machine Learning..." 
+                className="w-full pl-12 pr-4 py-4 text-lg border-slate-200 rounded-xl focus:border-slate-300 focus:ring-0 shadow-sm"
+              />
             </div>
+          </div>
+
+          {/* Categories - Estilo OpenAI */}
+          <div className="mb-16">
+            <div className="flex flex-wrap justify-center gap-3">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  className="px-4 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-full border border-slate-200 hover:border-slate-300 transition-all duration-200"
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Blog Posts - Estilo OpenAI */}
+          <div className="space-y-12">
+            {blogPosts.map((post, index) => (
+              <article 
+                key={post.slug} 
+                className="group cursor-pointer"
+              >
+                <div className="border-b border-slate-100 pb-12 hover:border-slate-200 transition-colors duration-200">
+                  
+                  {/* Post Header */}
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="flex items-center gap-2 text-sm text-slate-500">
+                      <Calendar className="w-4 h-4" />
+                      <time dateTime={post.date}>
+                        {new Date(post.date).toLocaleDateString('es-ES', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric'
+                        })}
+                      </time>
+                    </div>
+                    <div className="w-1 h-1 bg-slate-300 rounded-full"></div>
+                    <div className="flex items-center gap-2 text-sm text-slate-500">
+                      <Clock className="w-4 h-4" />
+                      <span>{post.readTime}</span>
+                    </div>
+                    <div className="w-1 h-1 bg-slate-300 rounded-full"></div>
+                    <span className="text-sm text-blue-600 font-medium">
+                      {post.category}
+                    </span>
+                  </div>
+
+                  {/* Post Content */}
+                  <div className="grid md:grid-cols-3 gap-8">
+                    <div className="md:col-span-2">
+                      <h2 className="text-2xl font-semibold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors duration-200 leading-tight">
+                        {post.title}
+                      </h2>
+                      <p className="text-slate-600 text-lg leading-relaxed mb-6">
+                        {post.excerpt}
+                      </p>
+                      
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-2">
+                        {post.tags.slice(0, 3).map((tag) => (
+                          <span 
+                            key={tag}
+                            className="px-3 py-1 text-xs font-medium text-slate-600 bg-slate-100 rounded-full hover:bg-slate-200 transition-colors duration-200"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    {/* Post Image */}
+                    <div className="md:col-span-1">
+                      <div className="aspect-video bg-slate-100 rounded-lg overflow-hidden group-hover:shadow-md transition-shadow duration-200">
+                        <img 
+                          src={post.image || "/placeholder.svg"} 
+                          alt={post.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Author */}
+                  <div className="flex items-center gap-3 mt-6 pt-6 border-t border-slate-50">
+                    <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold text-sm">
+                      HB
+                    </div>
+                    <div>
+                      <div className="font-medium text-slate-900 text-sm">{post.author}</div>
+                      <div className="text-slate-500 text-xs">Data Scientist Senior</div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          {/* Load More - Estilo OpenAI */}
+          <div className="text-center mt-16">
+            <button className="px-8 py-3 text-slate-600 hover:text-slate-900 border border-slate-200 hover:border-slate-300 rounded-full font-medium transition-all duration-200 hover:shadow-sm">
+              Cargar más artículos
+            </button>
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <Footer />
+
+      {/* WhatsApp Float */}
+      <WhatsAppFloat />
     </div>
   )
 }

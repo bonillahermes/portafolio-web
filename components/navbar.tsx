@@ -1,5 +1,6 @@
 "use client"
 import { useState, useEffect } from "react"
+import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from 'lucide-react'
 import { useLanguage } from "@/contexts/language-context"
@@ -9,6 +10,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { t } = useLanguage()
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,11 +31,41 @@ export default function Navbar() {
 
   const scrollToSection = (href: string) => {
     if (href.startsWith('/')) {
-      // External link
+      // External link (like /blog)
       window.location.href = href
     } else {
-      // Internal anchor
-      const element = document.querySelector(href)
+      // Internal anchor - check if we're on blog page
+      if (pathname.startsWith('/blog')) {
+        // If on blog page, go to home page with anchor
+        window.location.href = `/${href}`
+      } else {
+        // If on home page, scroll to section
+        const element = document.querySelector(href)
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" })
+        }
+      }
+    }
+    setIsMobileMenuOpen(false)
+  }
+
+  const handleLogoClick = () => {
+    if (pathname === '/') {
+      // If on home page, scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } else {
+      // If on other page, go to home
+      window.location.href = '/'
+    }
+  }
+
+  const handleContactClick = () => {
+    if (pathname.startsWith('/blog')) {
+      // If on blog page, go to home page with contact anchor
+      window.location.href = '/#contacto'
+    } else {
+      // If on home page, scroll to contact section
+      const element = document.querySelector('#contacto')
       if (element) {
         element.scrollIntoView({ behavior: "smooth" })
       }
@@ -53,7 +85,7 @@ export default function Navbar() {
             {/* Logo */}
             <div className="flex-shrink-0">
               <button
-                onClick={() => scrollToSection("#home")}
+                onClick={handleLogoClick}
                 className="text-xl md:text-2xl font-light text-slate-900 hover:text-blue-600 transition-colors duration-300"
               >
                 Hermes Bonilla
@@ -78,7 +110,7 @@ export default function Navbar() {
             <div className="hidden md:flex items-center gap-4">
               <LanguageSelector />
               <Button
-                onClick={() => scrollToSection("#contacto")}
+                onClick={handleContactClick}
                 className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-medium transition-all duration-300 hover:scale-105"
               >
                 {t("nav.start")}
@@ -138,7 +170,7 @@ export default function Navbar() {
             {/* Mobile CTA */}
             <div className="mt-12 pt-8 border-t border-slate-200">
               <Button
-                onClick={() => scrollToSection("#contacto")}
+                onClick={handleContactClick}
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-full font-medium transition-all duration-300"
               >
                 {t("nav.startProject")}
