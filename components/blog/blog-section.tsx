@@ -103,18 +103,18 @@ export default function BlogSection() {
   const otherPosts = blogPosts.filter((_, index) => index !== activePost)
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 relative overflow-hidden parallax-bg" data-speed="0.1">
-      {/* Background Effects con parallax */}
-      <div className="absolute inset-0 parallax-medium">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-float-delayed"></div>
+    <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
       <div className="container px-4 md:px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
           
-          {/* Header con fade-in */}
-          <div className="text-center mb-16 fade-in-scroll">
+          {/* Header */}
+          <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
               <BookOpen className="w-4 h-4" />
               <span>Insights y Conocimiento</span>
@@ -136,8 +136,8 @@ export default function BlogSection() {
           {/* Main Content - Magazine Style Layout */}
           <div className="grid lg:grid-cols-12 gap-8 mb-16">
             
-            {/* Featured Article - Large con slide-left */}
-            <div className="lg:col-span-8 slide-left">
+            {/* Featured Article - Large */}
+            <div className="lg:col-span-8">
               <div className="relative group cursor-pointer overflow-hidden rounded-3xl bg-white shadow-xl hover:shadow-2xl transition-all duration-500">
                 
                 {/* Image Container */}
@@ -230,8 +230,8 @@ export default function BlogSection() {
               </div>
             </div>
 
-            {/* Sidebar - Other Articles con slide-right */}
-            <div className="lg:col-span-4 space-y-6 slide-right">
+            {/* Sidebar - Other Articles */}
+            <div className="lg:col-span-4 space-y-6">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-xl font-semibold text-slate-900">Más Artículos</h3>
                 <Link 
@@ -246,7 +246,7 @@ export default function BlogSection() {
               {otherPosts.slice(0, 3).map((post, index) => (
                 <div
                   key={post.slug}
-                  className={`group cursor-pointer fade-in-scroll stagger-${index + 1}`}
+                  className="group cursor-pointer"
                   onMouseEnter={() => setHoveredPost(index)}
                   onMouseLeave={() => setHoveredPost(null)}
                 >
@@ -295,10 +295,10 @@ export default function BlogSection() {
             </div>
           </div>
 
-          {/* Interactive Stats Bar con scale animation */}
-          <div className="bg-white/80 backdrop-blur-sm border border-slate-200/50 rounded-2xl p-6 mb-12 scale-on-scroll">
+          {/* Interactive Stats Bar */}
+          <div className="bg-white/80 backdrop-blur-sm border border-slate-200/50 rounded-2xl p-6 mb-12">
             <div className="grid md:grid-cols-4 gap-6">
-              <div className="text-center group cursor-pointer fade-in-scroll stagger-1">
+              <div className="text-center group cursor-pointer">
                 <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:bg-blue-200 transition-colors">
                   <BookOpen className="w-6 h-6 text-blue-600" />
                 </div>
@@ -306,7 +306,7 @@ export default function BlogSection() {
                 <div className="text-sm text-slate-600">Artículos Publicados</div>
               </div>
               
-              <div className="text-center group cursor-pointer fade-in-scroll stagger-2">
+              <div className="text-center group cursor-pointer">
                 <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:bg-green-200 transition-colors">
                   <TrendingUp className="w-6 h-6 text-green-600" />
                 </div>
@@ -314,7 +314,7 @@ export default function BlogSection() {
                 <div className="text-sm text-slate-600">Lecturas Mensuales</div>
               </div>
               
-              <div className="text-center group cursor-pointer fade-in-scroll stagger-3">
+              <div className="text-center group cursor-pointer">
                 <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:bg-purple-200 transition-colors">
                   <Sparkles className="w-6 h-6 text-purple-600" />
                 </div>
@@ -322,7 +322,7 @@ export default function BlogSection() {
                 <div className="text-sm text-slate-600">Contenido Aplicable</div>
               </div>
               
-              <div className="text-center group cursor-pointer fade-in-scroll stagger-4">
+              <div className="text-center group cursor-pointer">
                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:bg-orange-200 transition-colors">
                   <Eye className="w-6 h-6 text-orange-600" />
                 </div>
@@ -332,8 +332,8 @@ export default function BlogSection() {
             </div>
           </div>
 
-          {/* CTA con fade-in */}
-          <div className="text-center fade-in-scroll">
+          {/* CTA */}
+          <div className="text-center">
             <Link href="/blog">
               <Button 
                 size="lg" 

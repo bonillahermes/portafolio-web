@@ -185,19 +185,19 @@ export default function Services() {
   }
 
   return (
-    <section className="py-24 bg-slate-950 relative overflow-hidden parallax-bg" data-speed="0.2">
-      {/* Background Effects con parallax */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-950/20 via-slate-950 to-purple-950/20 parallax-medium"></div>
-      <div className="absolute inset-0 bg-[url('/placeholder.svg?height=1080&width=1920')] opacity-5 parallax-slow"></div>
+    <section className="py-24 bg-slate-950 relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-950/20 via-slate-950 to-purple-950/20"></div>
+      <div className="absolute inset-0 bg-[url('/placeholder.svg?height=1080&width=1920')] opacity-5"></div>
 
-      {/* Floating Particles con animación mejorada */}
-      <div className="absolute top-20 left-20 w-2 h-2 bg-blue-400 rounded-full animate-float"></div>
-      <div className="absolute top-40 right-32 w-1 h-1 bg-green-400 rounded-full animate-float-delayed"></div>
-      <div className="absolute bottom-32 left-16 w-3 h-3 bg-purple-400 rounded-full animate-float"></div>
+      {/* Floating Particles */}
+      <div className="absolute top-20 left-20 w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+      <div className="absolute top-40 right-32 w-1 h-1 bg-green-400 rounded-full animate-ping"></div>
+      <div className="absolute bottom-32 left-16 w-3 h-3 bg-purple-400 rounded-full animate-bounce"></div>
 
       <div className="container px-4 md:px-6 relative z-10">
-        {/* Header con fade-in */}
-        <div className="text-center mb-16 fade-in-scroll">
+        {/* Header */}
+        <div className="text-center mb-16">
           <Badge
             variant="secondary"
             className="bg-slate-900/50 text-slate-300 border-slate-700/50 backdrop-blur-sm mb-4"
@@ -216,11 +216,11 @@ export default function Services() {
           </p>
         </div>
 
-        {/* Main Dashboard con slide animations */}
+        {/* Main Dashboard */}
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-12 gap-8 min-h-[600px]">
-            {/* Left Panel con slide-left */}
-            <div className="lg:col-span-4 space-y-4 slide-left">
+            {/* Left Panel - Services List */}
+            <div className="lg:col-span-4 space-y-4">
               <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
@@ -260,8 +260,8 @@ export default function Services() {
               </div>
             </div>
 
-            {/* Right Panel con slide-right */}
-            <div className="lg:col-span-8 slide-right">
+            {/* Right Panel - Metrics Dashboard */}
+            <div className="lg:col-span-8">
               <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 h-full">
                 {/* Service Header */}
                 <div className="flex items-center justify-between mb-8">

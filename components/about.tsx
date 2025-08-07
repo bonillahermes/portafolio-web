@@ -3,11 +3,11 @@ import Image from "next/image"
 
 export default function About() {
   return (
-    <section className="py-32 bg-gradient-to-b from-white to-gray-50/50 parallax-bg" data-speed="0.1">
+    <section className="py-32 bg-gradient-to-b from-white to-gray-50/50">
       <div className="container px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
-          {/* Header con fade-in */}
-          <div className="text-center mb-20 fade-in-scroll">
+          {/* Header */}
+          <div className="text-center mb-20">
             <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
               <Users className="w-4 h-4" />
               Conoce al experto
@@ -26,8 +26,8 @@ export default function About() {
 
           {/* Main Content */}
           <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-            {/* Image con slide-right */}
-            <div className="relative order-2 lg:order-1 slide-right">
+            {/* Image */}
+            <div className="relative order-2 lg:order-1">
               <div className="relative aspect-square max-w-md mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-purple-100 rounded-3xl"></div>
                 <div className="relative overflow-hidden rounded-3xl">
@@ -50,8 +50,8 @@ export default function About() {
               </div>
             </div>
 
-            {/* Content con slide-left */}
-            <div className="space-y-8 order-1 lg:order-2 slide-left">
+            {/* Content */}
+            <div className="space-y-8 order-1 lg:order-2">
               <div className="space-y-6">
                 <p className="text-lg text-gray-700 leading-relaxed">
                   Me especializo en <strong className="text-gray-900">gestión ágil de proyectos</strong>, 
@@ -107,7 +107,7 @@ export default function About() {
 
           {/* Key Differentiators */}
           <div className="space-y-12">
-            <div className="text-center fade-in-scroll">
+            <div className="text-center">
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
                 Lo que realmente me{" "}
                 <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -120,7 +120,7 @@ export default function About() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="group p-8 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 fade-in-scroll stagger-1">
+              <div className="group p-8 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center group-hover:bg-blue-200 transition-colors">
                     <Lightbulb className="w-6 h-6 text-blue-600" />
@@ -134,7 +134,7 @@ export default function About() {
                 </div>
               </div>
 
-              <div className="group p-8 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 fade-in-scroll stagger-2">
+              <div className="group p-8 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center group-hover:bg-green-200 transition-colors">
                     <Target className="w-6 h-6 text-green-600" />
@@ -148,7 +148,7 @@ export default function About() {
                 </div>
               </div>
 
-              <div className="group p-8 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 fade-in-scroll stagger-3">
+              <div className="group p-8 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center group-hover:bg-purple-200 transition-colors">
                     <BarChart3 className="w-6 h-6 text-purple-600" />
@@ -162,7 +162,7 @@ export default function About() {
                 </div>
               </div>
 
-              <div className="group p-8 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 fade-in-scroll stagger-4">
+              <div className="group p-8 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center group-hover:bg-orange-200 transition-colors">
                     <Users className="w-6 h-6 text-orange-600" />
@@ -178,8 +178,8 @@ export default function About() {
             </div>
           </div>
 
-          {/* Philosophy Quote con scale animation */}
-          <div className="mt-20 text-center scale-on-scroll">
+          {/* Philosophy Quote */}
+          <div className="mt-20 text-center">
             <div className="max-w-3xl mx-auto p-8 bg-gradient-to-r from-blue-50 to-purple-50 rounded-3xl border border-blue-100">
               <blockquote className="text-xl md:text-2xl text-gray-700 leading-relaxed">
                 "Mi objetivo no es impresionarte con tecnología compleja, sino{" "}

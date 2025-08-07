@@ -3,7 +3,7 @@
 import React from "react"
 
 import { useState } from "react"
-import { ChevronDown, Search, Clock, DollarSign, Settings, Users, CheckCircle, ArrowRight } from 'lucide-react'
+import { ChevronDown, Search, Clock, DollarSign, Settings, Users, CheckCircle, ArrowRight } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 
@@ -151,10 +151,10 @@ export default function FAQ() {
   }
 
   return (
-    <section className="py-24 bg-slate-50 parallax-bg" data-speed="0.1">
+    <section className="py-24 bg-slate-50">
       <div className="container px-4 md:px-6">
-        {/* Header con fade-in */}
-        <div className="text-center mb-16 fade-in-scroll">
+        {/* Header */}
+        <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6">
             Preguntas <span className="text-blue-600">Frecuentes</span>
           </h2>
@@ -164,8 +164,8 @@ export default function FAQ() {
         </div>
 
         <div className="max-w-6xl mx-auto">
-          {/* Search con slide-up */}
-          <div className="mb-8 fade-in-scroll stagger-1">
+          {/* Search */}
+          <div className="mb-8">
             <div className="relative max-w-md mx-auto">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-400" />
               <Input
@@ -178,9 +178,9 @@ export default function FAQ() {
             </div>
           </div>
 
-          {/* Category Tabs con stagger */}
+          {/* Category Tabs */}
           <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {faqCategories.map((category, index) => (
+            {faqCategories.map((category) => (
               <button
                 key={category.id}
                 onClick={() => {
@@ -188,7 +188,7 @@ export default function FAQ() {
                   setOpenFAQ(null)
                   setSearchTerm("")
                 }}
-                className={`flex items-center gap-2 px-6 py-3 rounded-xl border-2 font-medium transition-all duration-300 hover:scale-105 fade-in-scroll stagger-${index + 1} ${
+                className={`flex items-center gap-2 px-6 py-3 rounded-xl border-2 font-medium transition-all duration-300 hover:scale-105 ${
                   activeCategory === category.id
                     ? getActiveColor(category.color)
                     : `${getCategoryColor(category.color)} hover:border-current`
@@ -206,7 +206,7 @@ export default function FAQ() {
           {/* FAQ Items */}
           <div className="space-y-4">
             {filteredFAQs.length === 0 ? (
-              <div className="text-center py-12 fade-in-scroll">
+              <div className="text-center py-12">
                 <p className="text-slate-500 text-lg">No se encontraron preguntas que coincidan con tu búsqueda.</p>
                 <button
                   onClick={() => setSearchTerm("")}
@@ -223,7 +223,7 @@ export default function FAQ() {
                 return (
                   <div
                     key={index}
-                    className={`bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 fade-in-scroll stagger-${index + 1}`}
+                    className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all duration-300"
                   >
                     <button
                       onClick={() => toggleFAQ(index)}
@@ -260,8 +260,8 @@ export default function FAQ() {
             )}
           </div>
 
-          {/* Contact CTA con scale animation */}
-          <div className="mt-16 text-center bg-white rounded-2xl p-8 border border-slate-200 scale-on-scroll">
+          {/* Contact CTA */}
+          <div className="mt-16 text-center bg-white rounded-2xl p-8 border border-slate-200">
             <h3 className="text-2xl font-bold text-slate-900 mb-4">¿No encuentras tu pregunta?</h3>
             <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
               Cada proyecto es único. Hablemos directamente sobre tu situación específica.

@@ -41,20 +41,15 @@ export default function Hero() {
   }
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-white relative overflow-hidden pt-24 pb-24 parallax-bg" data-speed="0.3">
-      {/* Subtle Background Pattern con parallax */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.03),transparent_50%)] parallax-slow"></div>
-      
-      {/* Floating elements con animación mejorada */}
-      <div className="absolute top-20 left-20 w-2 h-2 bg-blue-400 rounded-full animate-float"></div>
-      <div className="absolute top-40 right-32 w-1 h-1 bg-purple-400 rounded-full animate-float-delayed"></div>
-      <div className="absolute bottom-32 left-16 w-3 h-3 bg-pink-400 rounded-full animate-float"></div>
+    <section className="min-h-screen flex items-center justify-center bg-white relative overflow-hidden pt-24 pb-24">
+      {/* Subtle Background Pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.03),transparent_50%)]"></div>
       
       <div className="container px-4 md:px-6 relative z-10 max-w-4xl mx-auto">
         <div className="text-center space-y-12">
 
-          {/* Main Question con fade-in */}
-          <div className="space-y-4 fade-in-scroll">
+          {/* Main Question */}
+          <div className="space-y-4">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal text-slate-900 leading-tight">
               ¿Cómo puedo transformar tu empresa con{" "}
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-medium">
@@ -63,8 +58,8 @@ export default function Hero() {
             </h1>
           </div>
 
-          {/* Interactive Input con slide-up */}
-          <div className="max-w-2xl mx-auto space-y-6 fade-in-scroll stagger-1">
+          {/* Interactive Input */}
+          <div className="max-w-2xl mx-auto space-y-6">
             <div className="relative">
               <div className="relative bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 focus-within:shadow-lg focus-within:border-blue-300">
                 <input
@@ -83,13 +78,13 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Suggestion Pills con stagger */}
+            {/* Suggestion Pills */}
             <div className="flex flex-wrap justify-center gap-3">
               {suggestions.map((suggestion, index) => (
                 <button
                   key={index}
                   onClick={() => handleSuggestionClick(suggestion)}
-                  className={`bg-slate-50 hover:bg-slate-100 border border-slate-200 hover:border-slate-300 text-slate-700 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105 fade-in-scroll stagger-${index + 2}`}
+                  className="bg-slate-50 hover:bg-slate-100 border border-slate-200 hover:border-slate-300 text-slate-700 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105"
                 >
                   {suggestion}
                 </button>
@@ -97,8 +92,8 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* CTA Buttons con scale animation */}
-          <div className="flex justify-center pt-8 scale-on-scroll">
+          {/* CTA Buttons - SOLO EL PRINCIPAL */}
+          <div className="flex justify-center pt-8">
             <a
               href="https://calendly.com/bonillahermes/30min"
               target="_blank"
@@ -111,17 +106,17 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* Trust Indicators con slide desde los lados */}
+          {/* Trust Indicators */}
           <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-slate-500 pt-4">
-            <div className="flex items-center gap-2 slide-left">
+            <div className="flex items-center gap-2">
               <CheckCircle className="w-4 h-4 text-green-500" />
               <span>Consulta 100% gratuita</span>
             </div>
-            <div className="flex items-center gap-2 fade-in-scroll stagger-1">
+            <div className="flex items-center gap-2">
               <CheckCircle className="w-4 h-4 text-green-500" />
               <span>Sin compromisos</span>
             </div>
-            <div className="flex items-center gap-2 slide-right">
+            <div className="flex items-center gap-2">
               <CheckCircle className="w-4 h-4 text-green-500" />
               <span>Te respondo en menos de 12 horas</span>
             </div>
