@@ -8,6 +8,7 @@ import WhatsAppFloat from "@/components/whatsapp-float"
 import StickyCTA from "@/components/sticky-cta"
 import Navbar from "@/components/navbar"
 import { Analytics } from '@vercel/analytics/next'
+import { Suspense } from 'react'
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -45,6 +46,11 @@ export const metadata: Metadata = {
     generator: 'v0.dev'
 }
 
+// Componente de fallback para Suspense
+function LoadingFallback() {
+  return <div className="min-h-screen bg-white" />
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -61,12 +67,18 @@ export default function RootLayout({
         >
           <LanguageProvider>
             <main>
-              <Navbar />
-              {children}
+              <Suspense fallback={<LoadingFallback />}>
+                <Navbar />
+                {children}
+              </Suspense>
             </main>
             <Footer />
-            <WhatsAppFloat />
-            <StickyCTA />
+            <Suspense fallback={null}>
+              <WhatsAppFloat />
+            </Suspense>
+            <Suspense fallback={null}>
+              <StickyCTA />
+            </Suspense>
             <Analytics />
           </LanguageProvider>
         </ThemeProvider>
