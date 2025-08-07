@@ -7,6 +7,7 @@ import Footer from "@/components/footer"
 import WhatsAppFloat from "@/components/whatsapp-float"
 import StickyCTA from "@/components/sticky-cta"
 import Navbar from "@/components/navbar"
+import { Analytics } from '@vercel/analytics/next'
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -66,6 +67,7 @@ export default function RootLayout({
             <Footer />
             <WhatsAppFloat />
             <StickyCTA />
+            <Analytics />
           </LanguageProvider>
         </ThemeProvider>
       </body>
