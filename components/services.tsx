@@ -14,10 +14,34 @@ const services = [
     description:
       "Descubre el potencial oculto en tus datos con análisis rápido y preciso que revela oportunidades inmediatas.",
     metrics: [
-      { label: "Oportunidades Identificadas", value: "3-5", unit: "insights", progress: 75, trend: "+12%" },
-      { label: "ROI Estimado", value: "250", unit: "%", progress: 85, trend: "+35%" },
-      { label: "Precisión Diagnóstico", value: "94", unit: "%", progress: 94, trend: "+8%" },
-      { label: "Tiempo de Análisis", value: "72", unit: "hrs", progress: 60, trend: "-40%" },
+      { 
+        indicator: "Oportunidades Identificadas", 
+        before: "1-2", 
+        after: "3-5", 
+        impact: "+150%",
+        unit: "insights"
+      },
+      { 
+        indicator: "Tiempo de Análisis", 
+        before: "2-3", 
+        after: "3", 
+        impact: "-50%",
+        unit: "días"
+      },
+      { 
+        indicator: "Precisión Diagnóstico", 
+        before: "85%", 
+        after: "94%", 
+        impact: "+9%",
+        unit: "%"
+      },
+      { 
+        indicator: "ROI Estimado", 
+        before: "180%", 
+        after: "250%", 
+        impact: "+70%",
+        unit: "%"
+      },
     ],
     features: [
       "Análisis exploratorio avanzado",
@@ -38,10 +62,34 @@ const services = [
     description:
       "Solución integral de inteligencia artificial lista para producción que transforma completamente tu operación.",
     metrics: [
-      { label: "Precisión del Modelo", value: "96.2", unit: "%", progress: 96, trend: "+4%" },
-      { label: "Reducción de Costos", value: "35", unit: "%", progress: 90, trend: "+15%" },
-      { label: "Automatización", value: "80", unit: "%", progress: 80, trend: "+25%" },
-      { label: "Uptime del Sistema", value: "99.9", unit: "%", progress: 100, trend: "0%" },
+      { 
+        indicator: "Precisión del Modelo", 
+        before: "92%", 
+        after: "96.2%", 
+        impact: "+4.2%",
+        unit: "%"
+      },
+      { 
+        indicator: "Reducción de Costos", 
+        before: "Baseline", 
+        after: "35%", 
+        impact: "35%",
+        unit: "menos"
+      },
+      { 
+        indicator: "Automatización", 
+        before: "20%", 
+        after: "80%", 
+        impact: "+60%",
+        unit: "procesos"
+      },
+      { 
+        indicator: "Uptime del Sistema", 
+        before: "95%", 
+        after: "99.9%", 
+        impact: "+4.9%",
+        unit: "disponibilidad"
+      },
     ],
     features: [
       "Modelo ML en producción 24/7",
@@ -62,10 +110,34 @@ const services = [
     description:
       "Revolución completa de tu ecosistema de datos con inteligencia artificial avanzada y arquitectura escalable.",
     metrics: [
-      { label: "Modelos Implementados", value: "5-8", unit: "sistemas", progress: 100, trend: "+200%" },
-      { label: "Eficiencia Operativa", value: "150", unit: "%", progress: 95, trend: "+75%" },
-      { label: "Ventaja Competitiva", value: "∞", unit: "valor", progress: 100, trend: "∞" },
-      { label: "ROI Acumulado", value: "500", unit: "%", progress: 100, trend: "+300%" },
+      { 
+        indicator: "Modelos Implementados", 
+        before: "1-2", 
+        after: "5-8", 
+        impact: "+300%",
+        unit: "sistemas"
+      },
+      { 
+        indicator: "Eficiencia Operativa", 
+        before: "Baseline", 
+        after: "150%", 
+        impact: "+150%",
+        unit: "mejora"
+      },
+      { 
+        indicator: "ROI Acumulado", 
+        before: "100%", 
+        after: "500%", 
+        impact: "+400%",
+        unit: "retorno"
+      },
+      { 
+        indicator: "Tiempo de Decisión", 
+        before: "Días", 
+        after: "Minutos", 
+        impact: "-95%",
+        unit: "velocidad"
+      },
     ],
     features: [
       "Suite completa de modelos IA",
@@ -113,19 +185,19 @@ export default function Services() {
   }
 
   return (
-    <section className="py-24 bg-slate-950 relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-950/20 via-slate-950 to-purple-950/20"></div>
-      <div className="absolute inset-0 bg-[url('/placeholder.svg?height=1080&width=1920')] opacity-5"></div>
+    <section className="py-24 bg-slate-950 relative overflow-hidden parallax-bg" data-speed="0.2">
+      {/* Background Effects con parallax */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-950/20 via-slate-950 to-purple-950/20 parallax-medium"></div>
+      <div className="absolute inset-0 bg-[url('/placeholder.svg?height=1080&width=1920')] opacity-5 parallax-slow"></div>
 
-      {/* Floating Particles */}
-      <div className="absolute top-20 left-20 w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-      <div className="absolute top-40 right-32 w-1 h-1 bg-green-400 rounded-full animate-ping"></div>
-      <div className="absolute bottom-32 left-16 w-3 h-3 bg-purple-400 rounded-full animate-bounce"></div>
+      {/* Floating Particles con animación mejorada */}
+      <div className="absolute top-20 left-20 w-2 h-2 bg-blue-400 rounded-full animate-float"></div>
+      <div className="absolute top-40 right-32 w-1 h-1 bg-green-400 rounded-full animate-float-delayed"></div>
+      <div className="absolute bottom-32 left-16 w-3 h-3 bg-purple-400 rounded-full animate-float"></div>
 
       <div className="container px-4 md:px-6 relative z-10">
-        {/* Header */}
-        <div className="text-center mb-16">
+        {/* Header con fade-in */}
+        <div className="text-center mb-16 fade-in-scroll">
           <Badge
             variant="secondary"
             className="bg-slate-900/50 text-slate-300 border-slate-700/50 backdrop-blur-sm mb-4"
@@ -144,11 +216,11 @@ export default function Services() {
           </p>
         </div>
 
-        {/* Main Dashboard */}
+        {/* Main Dashboard con slide animations */}
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-12 gap-8 min-h-[600px]">
-            {/* Left Panel - Services List */}
-            <div className="lg:col-span-4 space-y-4">
+            {/* Left Panel con slide-left */}
+            <div className="lg:col-span-4 space-y-4 slide-left">
               <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
@@ -188,8 +260,8 @@ export default function Services() {
               </div>
             </div>
 
-            {/* Right Panel - Metrics Dashboard */}
-            <div className="lg:col-span-8">
+            {/* Right Panel con slide-right */}
+            <div className="lg:col-span-8 slide-right">
               <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 h-full">
                 {/* Service Header */}
                 <div className="flex items-center justify-between mb-8">
@@ -212,36 +284,47 @@ export default function Services() {
                 <p className="text-slate-300 mb-8 leading-relaxed">{currentService.description}</p>
 
                 {/* Metrics Grid */}
-                <div className="grid md:grid-cols-2 gap-6 mb-8">
+                <div className="grid gap-6 mb-8">
                   {currentService.metrics.map((metric, index) => (
                     <div key={index} className="bg-slate-800/50 rounded-xl p-6 border border-slate-700/50">
-                      <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center justify-between mb-6">
                         <div className="flex items-center gap-2">
                           <Cpu className="w-4 h-4 text-blue-400" />
-                          <span className="text-sm text-slate-400">{metric.label}</span>
+                          <span className="text-sm font-semibold text-white">{metric.indicator}</span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <span className="text-xs text-green-400">{metric.trend}</span>
-                          <TrendingUp className="w-3 h-3 text-green-400" />
+                          <span className={`text-xs px-2 py-1 rounded-full ${
+                            metric.impact.startsWith('+') ? 'bg-green-500/20 text-green-400' : 
+                            metric.impact.startsWith('-') ? 'bg-blue-500/20 text-blue-400' : 
+                            'bg-purple-500/20 text-purple-400'
+                          }`}>
+                            {metric.impact}
+                          </span>
                         </div>
                       </div>
 
-                      <div className="flex items-end gap-3 mb-4">
-                        <span className="text-3xl font-bold text-white">{metric.value}</span>
-                        <span className="text-sm text-slate-400 mb-1">{metric.unit}</span>
+                      <div className="grid grid-cols-3 gap-4">
+                        <div className="text-center">
+                          <div className="text-xs text-slate-500 mb-1">ANTES</div>
+                          <div className="text-lg font-semibold text-slate-300">{metric.before}</div>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-xs text-slate-500 mb-1">DESPUÉS</div>
+                          <div className="text-2xl font-bold text-white">{metric.after}</div>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-xs text-slate-500 mb-1">UNIDAD</div>
+                          <div className="text-sm text-slate-400">{metric.unit}</div>
+                        </div>
                       </div>
 
-                      <div className="relative">
+                      <div className="mt-4 pt-4 border-t border-slate-700/50">
                         <div className="w-full bg-slate-700 rounded-full h-2">
                           <div
                             className="bg-gradient-to-r from-blue-500 to-green-500 h-2 rounded-full transition-all duration-1000"
-                            style={{ width: `${metric.progress}%` }}
+                            style={{ width: `${Math.min(100, Math.abs(parseFloat(metric.impact)) * 2)}%` }}
                           ></div>
                         </div>
-                        <div
-                          className="absolute -top-1 bg-white w-1 h-4 rounded-full shadow-lg transition-all duration-1000"
-                          style={{ left: `${metric.progress}%` }}
-                        ></div>
                       </div>
                     </div>
                   ))}

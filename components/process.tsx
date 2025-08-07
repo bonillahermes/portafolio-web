@@ -2,505 +2,356 @@
 
 import React from "react"
 import { useState, useEffect } from "react"
-import { Badge } from "@/components/ui/badge"
-import { Search, FileText, Code, Rocket, ArrowRight, CheckCircle, Zap, Brain, Target, Sparkles, Play, Clock, Users, TrendingUp } from 'lucide-react'
-
-const processSteps = [
-  {
-    id: "discovery",
-    number: "01",
-    icon: Search,
-    title: "Descubrimiento",
-    subtitle: "Análisis Profundo",
-    description: "Conversación estratégica para entender tu problema, objetivos y el potencial real de tus datos.",
-    details: [
-      "Evaluación de datos existentes",
-      "Identificación de oportunidades",
-      "Definición de objetivos claros",
-      "Análisis de viabilidad técnica",
-    ],
-    color: "blue",
-    status: "Gratuito",
-    duration: "1-2 días",
-    outcome: "Roadmap claro y viable",
-  },
-  {
-    id: "proposal",
-    number: "02",
-    icon: FileText,
-    title: "Propuesta",
-    subtitle: "Estrategia Personalizada",
-    description: "Diseño de solución específica con arquitectura técnica, metodología y ROI proyectado.",
-    details: [
-      "Arquitectura de solución detallada",
-      "Metodología de implementación",
-      "ROI y métricas esperadas",
-      "Timeline y entregables claros",
-    ],
-    color: "green",
-    status: "Incluido",
-    duration: "2-3 días",
-    outcome: "Propuesta técnica completa",
-  },
-  {
-    id: "execution",
-    number: "03",
-    icon: Code,
-    title: "Ejecución",
-    subtitle: "Desarrollo Ágil",
-    description: "Implementación iterativa con reportes constantes, pruebas continuas y ajustes en tiempo real.",
-    details: [
-      "Desarrollo iterativo y ágil",
-      "Reportes de progreso semanales",
-      "Pruebas y validación continua",
-      "Ajustes basados en feedback",
-    ],
-    color: "purple",
-    status: "En Progreso",
-    duration: "4-12 semanas",
-    outcome: "Solución funcionando",
-  },
-  {
-    id: "delivery",
-    number: "04",
-    icon: Rocket,
-    title: "Entrega",
-    subtitle: "Valor Perpetuo",
-    description: "Modelo funcionando en producción, equipo capacitado y documentación completa para autonomía.",
-    details: [
-      "Modelo en producción 24/7",
-      "Capacitación completa del equipo",
-      "Documentación técnica y de usuario",
-      "Soporte post-implementación",
-    ],
-    color: "orange",
-    status: "Garantizado",
-    duration: "1-2 semanas",
-    outcome: "Autonomía total",
-  },
-]
-
-const getColorClasses = (color: string) => {
-  const colors = {
-    blue: {
-      bg: "bg-blue-50/80",
-      border: "border-blue-200/60",
-      icon: "bg-blue-100 text-blue-600",
-      accent: "text-blue-600",
-      gradient: "from-blue-500 to-blue-600",
-      glow: "shadow-blue-500/25",
-      particle: "bg-blue-400",
-    },
-    green: {
-      bg: "bg-green-50/80",
-      border: "border-green-200/60",
-      icon: "bg-green-100 text-green-600",
-      accent: "text-green-600",
-      gradient: "from-green-500 to-green-600",
-      glow: "shadow-green-500/25",
-      particle: "bg-green-400",
-    },
-    purple: {
-      bg: "bg-purple-50/80",
-      border: "border-purple-200/60",
-      icon: "bg-purple-100 text-purple-600",
-      accent: "text-purple-600",
-      gradient: "from-purple-500 to-purple-600",
-      glow: "shadow-purple-500/25",
-      particle: "bg-purple-400",
-    },
-    orange: {
-      bg: "bg-orange-50/80",
-      border: "border-orange-200/60",
-      icon: "bg-orange-100 text-orange-600",
-      accent: "text-orange-600",
-      gradient: "from-orange-500 to-orange-600",
-      glow: "shadow-orange-500/25",
-      particle: "bg-orange-400",
-    },
-  }
-  return colors[color as keyof typeof colors]
-}
+import { Search, FileText, Cog, Rocket, CheckCircle, ArrowRight, Clock, Users, Target, Zap } from 'lucide-react'
 
 export default function Process() {
-  const [activeStep, setActiveStep] = useState("discovery")
+  const [activeStep, setActiveStep] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
-  const [progress, setProgress] = useState(0)
-  const [visibleSteps, setVisibleSteps] = useState<string[]>([])
 
-  const currentStep = processSteps.find((step) => step.id === activeStep) || processSteps[0]
-  const currentIndex = processSteps.findIndex((step) => step.id === activeStep)
+  const steps = [
+    {
+      id: 1,
+      icon: Search,
+      title: "Descubrimiento",
+      subtitle: "Análisis Profundo",
+      description: "Entendemos tu negocio, objetivos y desafíos específicos para diseñar la solución perfecta.",
+      duration: "1-2 semanas",
+      status: "Gratuito",
+      color: "blue",
+      details: [
+        "Análisis profundo de tu modelo de negocio",
+        "Identificación de oportunidades de IA",
+        "Evaluación de datos disponibles",
+        "Definición de objetivos y KPIs"
+      ],
+      deliverables: [
+        "Diagnóstico completo",
+        "Roadmap personalizado",
+        "Estimación de ROI"
+      ]
+    },
+    {
+      id: 2,
+      icon: FileText,
+      title: "Propuesta",
+      subtitle: "Estrategia Personalizada",
+      description: "Diseñamos una estrategia detallada con cronograma, recursos y resultados esperados.",
+      duration: "3-5 días",
+      status: "Incluido",
+      color: "green",
+      details: [
+        "Propuesta técnica detallada",
+        "Cronograma de implementación",
+        "Definición de métricas de éxito",
+        "Análisis de riesgo y mitigación"
+      ],
+      deliverables: [
+        "Propuesta ejecutiva",
+        "Plan de trabajo",
+        "Acuerdo de nivel de servicio"
+      ]
+    },
+    {
+      id: 3,
+      icon: Cog,
+      title: "Ejecución",
+      subtitle: "Desarrollo Ágil",
+      description: "Desarrollamos e implementamos la solución con metodología ágil y reportes constantes.",
+      duration: "4-8 semanas",
+      status: "En Progreso",
+      color: "purple",
+      details: [
+        "Desarrollo iterativo con sprints",
+        "Reportes semanales de progreso",
+        "Pruebas y validación continua",
+        "Integración con sistemas existentes"
+      ],
+      deliverables: [
+        "Modelo funcionando",
+        "Dashboard ejecutivo",
+        "Documentación técnica"
+      ]
+    },
+    {
+      id: 4,
+      icon: Rocket,
+      title: "Entrega",
+      subtitle: "Valor Perpetuo",
+      description: "Desplegamos la solución final con capacitación completa y soporte continuo.",
+      duration: "1-2 semanas",
+      status: "Garantizado",
+      color: "orange",
+      details: [
+        "Despliegue en producción",
+        "Capacitación del equipo",
+        "Transferencia de conocimiento",
+        "Monitoreo y optimización"
+      ],
+      deliverables: [
+        "Sistema en producción",
+        "Equipo capacitado",
+        "Soporte continuo"
+      ]
+    }
+  ]
 
-  // Auto-play functionality
+  // Auto-advance steps
   useEffect(() => {
     if (!isAutoPlaying) return
 
     const interval = setInterval(() => {
-      setActiveStep((current) => {
-        const currentIndex = processSteps.findIndex((step) => step.id === current)
-        const nextIndex = (currentIndex + 1) % processSteps.length
-        return processSteps[nextIndex].id
-      })
+      setActiveStep((prev) => (prev + 1) % steps.length)
     }, 4000)
 
     return () => clearInterval(interval)
-  }, [isAutoPlaying])
+  }, [isAutoPlaying, steps.length])
 
-  // Progress bar animation
-  useEffect(() => {
-    setProgress(0)
-    const progressInterval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(progressInterval)
-          return 100
-        }
-        return prev + (isAutoPlaying ? 2.5 : 0)
-      })
-    }, 100)
+  const currentStep = steps[activeStep]
 
-    return () => clearInterval(progressInterval)
-  }, [activeStep, isAutoPlaying])
+  const getStepColor = (color: string, isActive: boolean) => {
+    const colors = {
+      blue: isActive 
+        ? "bg-blue-500/20 border-blue-500 text-blue-400" 
+        : "border-slate-700 text-slate-400 hover:border-blue-500/50",
+      green: isActive 
+        ? "bg-green-500/20 border-green-500 text-green-400" 
+        : "border-slate-700 text-slate-400 hover:border-green-500/50",
+      purple: isActive 
+        ? "bg-purple-500/20 border-purple-500 text-purple-400" 
+        : "border-slate-700 text-slate-400 hover:border-purple-500/50",
+      orange: isActive 
+        ? "bg-orange-500/20 border-orange-500 text-orange-400" 
+        : "border-slate-700 text-slate-400 hover:border-orange-500/50",
+    }
+    return colors[color as keyof typeof colors]
+  }
 
-  // Reveal steps on scroll
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const stepId = entry.target.getAttribute('data-step-id')
-            if (stepId && !visibleSteps.includes(stepId)) {
-              setVisibleSteps(prev => [...prev, stepId])
-            }
-          }
-        })
-      },
-      { threshold: 0.3 }
-    )
-
-    const stepElements = document.querySelectorAll('[data-step-id]')
-    stepElements.forEach(el => observer.observe(el))
-
-    return () => observer.disconnect()
-  }, [visibleSteps])
-
-  const handleStepClick = (stepId: string) => {
-    setActiveStep(stepId)
-    setIsAutoPlaying(false)
-    setTimeout(() => setIsAutoPlaying(true), 8000) // Resume auto-play after 8 seconds
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case "Gratuito":
+        return "bg-green-500/20 text-green-400 border-green-500/30"
+      case "Incluido":
+        return "bg-blue-500/20 text-blue-400 border-blue-500/30"
+      case "En Progreso":
+        return "bg-purple-500/20 text-purple-400 border-purple-500/30"
+      case "Garantizado":
+        return "bg-orange-500/20 text-orange-400 border-orange-500/30"
+      default:
+        return "bg-slate-500/20 text-slate-400 border-slate-500/30"
+    }
   }
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50/30 to-blue-50/20"></div>
-      
-      {/* Floating Particles */}
-      <div className="absolute top-20 left-20 w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-20 animate-pulse"></div>
-      <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-100 rounded-full blur-3xl opacity-15 animate-bounce"></div>
-      <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-green-100 rounded-full blur-2xl opacity-25 animate-ping"></div>
+    <section id="proceso" className="py-24 bg-slate-950 relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-950/20 via-slate-950 to-purple-950/20"></div>
+      <div className="absolute inset-0 bg-[url('/placeholder.svg?height=1080&width=1920')] opacity-5"></div>
 
-      {/* Animated Connection Lines */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <svg className="w-full h-full opacity-10">
-          <defs>
-            <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#3B82F6" />
-              <stop offset="25%" stopColor="#10B981" />
-              <stop offset="50%" stopColor="#8B5CF6" />
-              <stop offset="100%" stopColor="#F59E0B" />
-            </linearGradient>
-          </defs>
-          <path
-            d="M 100 300 Q 400 200 800 300 T 1400 300"
-            stroke="url(#lineGradient)"
-            strokeWidth="2"
-            fill="none"
-            className="animate-pulse"
-          />
-        </svg>
-      </div>
+      {/* Floating Particles */}
+      <div className="absolute top-20 left-20 w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+      <div className="absolute top-40 right-32 w-1 h-1 bg-green-400 rounded-full animate-ping"></div>
+      <div className="absolute bottom-32 left-16 w-3 h-3 bg-purple-400 rounded-full animate-bounce"></div>
 
       <div className="container px-4 md:px-6 relative z-10">
-        {/* Header with Play/Pause Control */}
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <Badge variant="secondary" className="bg-slate-100 text-slate-700 border-slate-200">
-              <Target className="w-4 h-4 mr-2" />
-              Metodología Probada
-            </Badge>
-            <button
-              onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-              className="flex items-center gap-2 px-4 py-2 bg-blue-50 hover:bg-blue-100 rounded-full transition-colors"
-            >
-              {isAutoPlaying ? (
-                <>
-                  <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
-                  <span className="text-sm text-blue-600 font-medium">Auto</span>
-                </>
-              ) : (
-                <>
-                  <Play className="w-4 h-4 text-blue-600" />
-                  <span className="text-sm text-blue-600 font-medium">Manual</span>
-                </>
-              )}
-            </button>
-          </div>
+        <div className="max-w-7xl mx-auto">
           
-          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6">
-            Mi Proceso de{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Transformación
-            </span>
-          </h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Metodología estructurada y transparente que garantiza resultados excepcionales
-          </p>
-        </div>
-
-        {/* Interactive Timeline */}
-        <div className="max-w-6xl mx-auto">
-          {/* Progress Indicator */}
-          <div className="relative mb-8">
-            <div className="h-1 bg-slate-200 rounded-full overflow-hidden">
-              <div 
-                className="h-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-100 ease-linear"
-                style={{ width: `${(currentIndex + 1) * 25}%` }}
-              ></div>
+          {/* Header */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-slate-900/50 text-slate-300 border border-slate-700/50 rounded-full px-6 py-3 mb-6 backdrop-blur-sm">
+              <Target className="w-4 h-4" />
+              <span>Metodología Probada</span>
             </div>
-            <div className="absolute top-0 left-0 w-full h-1">
-              <div 
-                className="h-full bg-gradient-to-r from-blue-400 to-purple-400 opacity-50 transition-all duration-100 ease-linear"
-                style={{ width: `${((currentIndex) * 25) + (progress * 0.25)}%` }}
-              ></div>
-            </div>
+            
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+              Mi Proceso de{" "}
+              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                Transformación
+              </span>
+            </h2>
+            
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+              Metodología estructurada y transparente que garantiza resultados excepcionales
+            </p>
           </div>
 
-          {/* Step Navigation with Animations */}
-          <div className="relative mb-16">
-            <div className="grid md:grid-cols-4 gap-4">
-              {processSteps.map((step, index) => {
-                const colorClasses = getColorClasses(step.color)
-                const isActive = activeStep === step.id
-                const isVisible = visibleSteps.includes(step.id)
-                const isPast = index < currentIndex
-                const isFuture = index > currentIndex
+          {/* Process Dashboard */}
+          <div className="grid lg:grid-cols-12 gap-8">
+            
+            {/* Left Panel - Steps Navigation */}
+            <div className="lg:col-span-4 space-y-4">
+              <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                  <h3 className="text-lg font-semibold text-white">Fases del Proyecto</h3>
+                  <div className="ml-auto text-xs text-slate-400">4 ETAPAS</div>
+                </div>
 
-                return (
-                  <div 
-                    key={step.id} 
-                    className="relative"
-                    data-step-id={step.id}
-                  >
-                    <button
-                      onClick={() => handleStepClick(step.id)}
-                      className={`w-full p-6 rounded-2xl border-2 transition-all duration-500 transform ${
-                        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-                      } ${
-                        isActive
-                          ? `${colorClasses.bg} ${colorClasses.border} shadow-2xl ${colorClasses.glow} scale-105`
-                          : isPast
-                          ? "bg-slate-50 border-slate-300 shadow-md hover:shadow-lg"
-                          : isFuture
-                          ? "bg-white border-slate-200 shadow-sm hover:shadow-md opacity-75"
-                          : "bg-white border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-md"
-                      } hover:scale-105`}
-                      style={{ 
-                        animationDelay: `${index * 200}ms`,
-                        transitionDelay: `${index * 100}ms`
+                <div className="space-y-3">
+                  {steps.map((step, index) => (
+                    <div
+                      key={step.id}
+                      onClick={() => {
+                        setActiveStep(index)
+                        setIsAutoPlaying(false)
                       }}
+                      className={`p-4 rounded-xl border-2 cursor-pointer transition-all duration-300 hover:scale-105 ${getStepColor(step.color, activeStep === index)}`}
                     >
-                      {/* Animated Progress Ring */}
-                      <div className="relative mb-4">
-                        <div
-                          className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl transition-all duration-300 ${
-                            isActive ? colorClasses.icon : isPast ? "bg-slate-200 text-slate-600" : "bg-slate-100 text-slate-500"
-                          }`}
-                        >
-                          {isPast && !isActive ? (
-                            <CheckCircle className="w-8 h-8" />
-                          ) : (
-                            <span className="text-xl font-bold">{step.number}</span>
-                          )}
+                      <div className="flex items-start gap-3">
+                        <div className={`p-2 rounded-lg ${activeStep === index ? "bg-current/20" : "bg-slate-800"}`}>
+                          {React.createElement(step.icon, {
+                            className: `w-5 h-5 ${activeStep === index ? "text-current" : "text-slate-400"}`,
+                          })}
                         </div>
-                        
-                        {/* Floating Particles */}
-                        {isActive && (
-                          <>
-                            <div className={`absolute -top-1 -right-1 w-3 h-3 ${colorClasses.particle} rounded-full animate-ping`}></div>
-                            <div className={`absolute -bottom-1 -left-1 w-2 h-2 ${colorClasses.particle} rounded-full animate-bounce`}></div>
-                          </>
-                        )}
-                      </div>
-
-                      {/* Step Info */}
-                      <h3 className={`text-lg font-semibold mb-2 transition-colors ${
-                        isActive ? colorClasses.accent : isPast ? "text-slate-700" : "text-slate-600"
-                      }`}>
-                        {step.title}
-                      </h3>
-                      <p className="text-sm text-slate-600 mb-3">{step.subtitle}</p>
-
-                      {/* Status and Duration */}
-                      <div className="flex items-center justify-between">
-                        <Badge
-                          className={`text-xs ${
-                            isActive
-                              ? `${colorClasses.accent} bg-transparent border-current`
-                              : "bg-slate-100 text-slate-600 border-slate-200"
-                          }`}
-                        >
-                          {step.status}
-                        </Badge>
-                        <div className="flex items-center gap-1 text-xs text-slate-500">
-                          <Clock className="w-3 h-3" />
-                          {step.duration}
-                        </div>
-                      </div>
-
-                      {/* Active Indicator */}
-                      {isActive && (
-                        <div className="absolute -top-2 -right-2">
-                          <div className={`w-6 h-6 rounded-full bg-gradient-to-r ${colorClasses.gradient} animate-pulse flex items-center justify-center`}>
-                            <div className="w-2 h-2 bg-white rounded-full"></div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center justify-between mb-1">
+                            <h4 className="font-semibold text-white text-sm">{step.title}</h4>
+                            {activeStep === index && (
+                              <div className="w-2 h-2 bg-current rounded-full animate-pulse"></div>
+                            )}
+                          </div>
+                          <p className="text-xs text-slate-400 mb-2">{step.subtitle}</p>
+                          <div className="flex items-center justify-between">
+                            <span className={`text-xs px-2 py-1 rounded-full border ${getStatusColor(step.status)}`}>
+                              {step.status}
+                            </span>
+                            <span className="text-xs text-slate-500">{step.duration}</span>
                           </div>
                         </div>
-                      )}
-                    </button>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-
-          {/* Active Step Details with Enhanced Animations */}
-          <div className="bg-gradient-to-br from-white to-slate-50 rounded-3xl p-8 md:p-12 border border-slate-200 shadow-2xl relative overflow-hidden">
-            {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-5">
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-500/10 to-purple-500/10"></div>
-              <div className="absolute top-4 right-4 w-32 h-32 border border-slate-200 rounded-full"></div>
-              <div className="absolute bottom-4 left-4 w-24 h-24 border border-slate-200 rounded-full"></div>
-            </div>
-
-            <div className="grid lg:grid-cols-2 gap-12 items-center relative z-10">
-              {/* Left Side - Content */}
-              <div className="space-y-6">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className={`p-4 rounded-2xl ${getColorClasses(currentStep.color).icon} shadow-lg transform hover:scale-110 transition-transform`}>
-                    {React.createElement(currentStep.icon, { className: "w-8 h-8" })}
-                  </div>
-                  <div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-slate-900">{currentStep.title}</h3>
-                    <p className={`text-lg ${getColorClasses(currentStep.color).accent} font-medium`}>
-                      {currentStep.subtitle}
-                    </p>
-                  </div>
-                </div>
-
-                <p className="text-lg text-slate-700 leading-relaxed">{currentStep.description}</p>
-
-                {/* Enhanced Stats */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-slate-200">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Clock className="w-5 h-5 text-blue-600" />
-                      <span className="text-sm font-medium text-slate-600">Duración</span>
-                    </div>
-                    <p className="text-lg font-bold text-slate-900">{currentStep.duration}</p>
-                  </div>
-                  <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-slate-200">
-                    <div className="flex items-center gap-2 mb-2">
-                      <TrendingUp className="w-5 h-5 text-green-600" />
-                      <span className="text-sm font-medium text-slate-600">Resultado</span>
-                    </div>
-                    <p className="text-lg font-bold text-slate-900">{currentStep.outcome}</p>
-                  </div>
-                </div>
-
-                {/* Details List with Animations */}
-                <div className="space-y-4">
-                  <h4 className="text-lg font-semibold text-slate-900 flex items-center gap-2">
-                    <Sparkles className="w-5 h-5 text-yellow-500" />
-                    Qué incluye esta fase
-                  </h4>
-                  {currentStep.details.map((detail, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-xl border border-slate-100 transform hover:scale-105 transition-all duration-200"
-                      style={{ animationDelay: `${index * 100}ms` }}
-                    >
-                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                      <span className="text-slate-700">{detail}</span>
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
+            </div>
 
-              {/* Right Side - Enhanced Visual */}
-              <div className="relative">
-                <div
-                  className={`aspect-square rounded-3xl bg-gradient-to-br ${getColorClasses(currentStep.color).gradient} p-1 shadow-2xl ${getColorClasses(currentStep.color).glow} transform hover:scale-105 transition-all duration-500`}
-                >
-                  <div className="w-full h-full bg-white rounded-3xl flex items-center justify-center relative overflow-hidden">
-                    {React.createElement(currentStep.icon, {
-                      className: `w-32 h-32 ${getColorClasses(currentStep.color).accent} transform hover:rotate-12 transition-transform duration-300`,
-                    })}
-                    
-                    {/* Animated Background Elements */}
-                    <div className="absolute inset-0 opacity-10">
-                      <div className={`absolute top-4 right-4 w-16 h-16 ${getColorClasses(currentStep.color).particle} rounded-full animate-pulse`}></div>
-                      <div className={`absolute bottom-4 left-4 w-12 h-12 ${getColorClasses(currentStep.color).particle} rounded-full animate-bounce`}></div>
-                      <div className={`absolute top-1/2 left-4 w-8 h-8 ${getColorClasses(currentStep.color).particle} rounded-full animate-ping`}></div>
+            {/* Right Panel - Active Step Details */}
+            <div className="lg:col-span-8">
+              <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 h-full">
+                
+                {/* Step Header */}
+                <div className="flex items-center justify-between mb-8">
+                  <div className="flex items-center gap-4">
+                    <div className="p-3 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl border border-slate-600">
+                      {React.createElement(currentStep.icon, { className: "w-8 h-8 text-white" })}
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-white">{currentStep.title}</h3>
+                      <p className="text-slate-400">{currentStep.subtitle}</p>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className={`text-xs px-3 py-1 rounded-full border ${getStatusColor(currentStep.status)} mb-2`}>
+                      {currentStep.status}
+                    </div>
+                    <div className="text-sm text-slate-400">{currentStep.duration}</div>
+                  </div>
+                </div>
+
+                {/* Description */}
+                <p className="text-slate-300 mb-8 text-lg leading-relaxed">{currentStep.description}</p>
+
+                {/* Details Grid */}
+                <div className="grid md:grid-cols-2 gap-8 mb-8">
+                  
+                  {/* What's Included */}
+                  <div>
+                    <div className="flex items-center gap-2 mb-4">
+                      <Cog className="w-4 h-4 text-blue-400" />
+                      <h4 className="text-sm font-semibold text-white">QUÉ INCLUYE</h4>
+                    </div>
+                    <div className="space-y-3">
+                      {currentStep.details.map((detail, index) => (
+                        <div key={index} className="flex items-start gap-3 p-3 bg-slate-800/30 rounded-lg">
+                          <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
+                          <span className="text-sm text-slate-300">{detail}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Deliverables */}
+                  <div>
+                    <div className="flex items-center gap-2 mb-4">
+                      <Rocket className="w-4 h-4 text-purple-400" />
+                      <h4 className="text-sm font-semibold text-white">ENTREGABLES</h4>
+                    </div>
+                    <div className="space-y-3">
+                      {currentStep.deliverables.map((deliverable, index) => (
+                        <div key={index} className="flex items-center gap-3 p-3 bg-slate-800/30 rounded-lg">
+                          <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                          <span className="text-sm text-slate-300 font-medium">{deliverable}</span>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
 
-                {/* Floating Elements */}
-                <div className="absolute -top-4 -right-4 bg-white rounded-full p-3 shadow-lg border border-slate-200 animate-bounce">
-                  <Brain className="w-6 h-6 text-blue-600" />
+                {/* Progress Indicator */}
+                <div className="mb-8">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm text-slate-400">Progreso del Proceso</span>
+                    <span className="text-sm text-white font-medium">{activeStep + 1} de {steps.length}</span>
+                  </div>
+                  <div className="w-full bg-slate-700 rounded-full h-2">
+                    <div
+                      className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full transition-all duration-500"
+                      style={{ width: `${((activeStep + 1) / steps.length) * 100}%` }}
+                    ></div>
+                  </div>
                 </div>
-                <div className="absolute -bottom-4 -left-4 bg-white rounded-full p-3 shadow-lg border border-slate-200 animate-pulse">
-                  <Zap className="w-6 h-6 text-purple-600" />
-                </div>
-                <div className="absolute top-1/2 -right-6 bg-white rounded-full p-2 shadow-lg border border-slate-200 animate-ping">
-                  <Users className="w-4 h-4 text-green-600" />
+
+                {/* Auto-play Controls */}
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    <button
+                      onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+                      className="flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors"
+                    >
+                      {isAutoPlaying ? (
+                        <>
+                          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                          <span>Auto-avance activo</span>
+                        </>
+                      ) : (
+                        <>
+                          <div className="w-2 h-2 bg-slate-500 rounded-full"></div>
+                          <span>Auto-avance pausado</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+                  
+                  <div className="flex items-center gap-2">
+                    <Clock className="w-4 h-4 text-slate-400" />
+                    <span className="text-sm text-slate-400">Duración total: 8-15 semanas</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Enhanced CTA Section */}
-          <div className="text-center mt-16 pt-16 border-t border-slate-200 relative">
-            {/* Background Glow */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 via-purple-50/50 to-blue-50/50 rounded-3xl blur-3xl"></div>
+          {/* CTA Section */}
+          <div className="text-center mt-16">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              ¿Listo para comenzar tu{" "}
+              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                transformación?
+              </span>
+            </h3>
+            <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
+              El primer paso es siempre gratuito. Hablemos sobre cómo puedo ayudarte a alcanzar tus objetivos.
+            </p>
             
-            <div className="relative z-10">
-              <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
-                ¿Listo para comenzar tu{" "}
-                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  transformación?
-                </span>
-              </h3>
-              <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
-                El primer paso es siempre gratuito. Hablemos sobre cómo puedo ayudarte a alcanzar tus objetivos.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a
-                  href="#contacto"
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 shadow-lg hover:shadow-xl transition-all hover:scale-105 inline-flex items-center gap-2 rounded-full group"
-                >
-                  <Target className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-                  Iniciar Proceso
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </a>
-                
-                <div className="flex items-center gap-2 text-sm text-slate-500">
-                  <CheckCircle className="w-4 h-4 text-green-500" />
-                  <span>Primera consulta gratuita</span>
-                </div>
-              </div>
-            </div>
+            <a
+              href="https://calendly.com/bonillahermes/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 hover:from-blue-700 hover:via-purple-700 hover:to-blue-700 text-white px-8 py-4 text-lg font-semibold rounded-2xl shadow-lg shadow-blue-500/25 transition-all hover:scale-105 inline-flex items-center gap-3"
+            >
+              <Zap className="w-5 h-5" />
+              <span>Iniciar Proceso</span>
+              <ArrowRight className="w-5 h-5" />
+            </a>
           </div>
         </div>
       </div>

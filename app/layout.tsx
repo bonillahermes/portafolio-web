@@ -1,50 +1,48 @@
-import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from 'next/font/google'
-import { GeistSans } from "geist/font/sans"
-import { GeistMono } from "geist/font/mono"
-import { LanguageProvider } from "@/contexts/language-context"
 import "./globals.css"
+import { ThemeProvider } from "@/components/theme-provider"
+import { LanguageProvider } from "@/contexts/language-context"
+import Footer from "@/components/footer"
+import WhatsAppFloat from "@/components/whatsapp-float"
+import StickyCTA from "@/components/sticky-cta"
+import Navbar from "@/components/navbar"
+import ScrollEffects from "@/components/scroll-effects"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Hermes Bonilla | Data Scientist Senior - Transformación Digital con IA",
-  description:
-    "Especialista en Data Science e Inteligencia Artificial en Colombia. Transformo datos en decisiones inteligentes para empresas. Modelos predictivos, automatización y análisis avanzado con resultados verificables. Atención virtual y presencial en todo el país.",
-  keywords:
-    "data science, inteligencia artificial, machine learning, análisis de datos, automatización, modelos predictivos, consultor IA, Colombia, transformación digital, consultoría virtual, data scientist colombia",
+  title: "Hermes Bonilla - Especialista en Data Science e IA",
+  description: "Transformo datos en decisiones inteligentes. Especialista en Data Science e Inteligencia Artificial para empresas colombianas.",
+  keywords: "data science, inteligencia artificial, machine learning, colombia, consultor ia, análisis de datos",
   authors: [{ name: "Hermes Bonilla" }],
   creator: "Hermes Bonilla",
-  publisher: "Hermes Bonilla",
-  robots: "index, follow",
   openGraph: {
     type: "website",
     locale: "es_CO",
-    url: "https://bonillahermes.com",
-    title: "Hermes Bonilla | Data Scientist Senior - Transformación Digital con IA",
-    description:
-      "Especialista en Data Science e Inteligencia Artificial. Transformo datos en decisiones inteligentes para empresas con resultados verificables. Atención virtual y presencial en todo el país.",
-    siteName: "Hermes Bonilla - Data Scientist",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Hermes Bonilla - Data Scientist Senior",
-      },
-    ],
+    url: "https://hermesbonilla.com",
+    title: "Hermes Bonilla - Especialista en Data Science e IA",
+    description: "Transformo datos en decisiones inteligentes. Especialista en Data Science e Inteligencia Artificial para empresas colombianas.",
+    siteName: "Hermes Bonilla",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hermes Bonilla | Data Scientist Senior",
-    description: "Transformo datos en decisiones inteligentes para empresas. Especialista en IA y Machine Learning.",
-    images: ["/og-image.jpg"],
+    title: "Hermes Bonilla - Especialista en Data Science e IA",
+    description: "Transformo datos en decisiones inteligentes. Especialista en Data Science e Inteligencia Artificial para empresas colombianas.",
+    creator: "@hermesbonilla",
   },
-  alternates: {
-    canonical: "https://bonillahermes.com",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
-  generator: 'v0.dev'
+    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -53,26 +51,25 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" className="scroll-smooth">
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#1e293b" />
-        <style>{`
-html {
-  font-family: ${GeistSans.style.fontFamily}, ${inter.style.fontFamily};
-  --font-sans: ${GeistSans.variable};
-  --font-mono: ${GeistMono.variable};
-}
-        `}</style>
-      </head>
-      <body className={`${inter.className} antialiased`}>
-        <div className="flex flex-col min-h-screen w-full">
+    <html lang="es" suppressHydrationWarning>
+      <body className={inter.className}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
           <LanguageProvider>
-            {children}
+            <ScrollEffects />
+            <main>
+              <Navbar />
+              {children}
+            </main>
+            <Footer />
+            <WhatsAppFloat />
+            <StickyCTA />
           </LanguageProvider>
-        </div>
+        </ThemeProvider>
       </body>
     </html>
   )

@@ -1,7 +1,4 @@
 import { Metadata } from "next"
-import Navbar from "@/components/navbar"
-import Footer from "@/components/footer"
-import WhatsAppFloat from "@/components/whatsapp-float"
 import BlogCard from "@/components/blog/blog-card"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
@@ -64,7 +61,6 @@ const categories = [
 export default function BlogPage() {
   return (
     <div className="min-h-screen bg-white">
-      <Navbar />
       
       {/* Hero Section - Mantener igual */}
       <section className="pt-32 pb-16 bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden">
@@ -230,12 +226,6 @@ export default function BlogPage() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <Footer />
-
-      {/* WhatsApp Float */}
-      <WhatsAppFloat />
     </div>
   )
 }

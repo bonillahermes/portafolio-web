@@ -1,4 +1,3 @@
-import Navbar from "../components/navbar"
 import Hero from "../components/hero"
 import Services from "../components/services"
 import CaseStudies from "../components/case-studies"
@@ -8,13 +7,10 @@ import About from "../components/about"
 import Process from "../components/process"
 import FAQ from "../components/faq"
 import CTA from "../components/cta"
-import Footer from "../components/footer"
-import WhatsAppFloat from "../components/whatsapp-float"
 
 export default function Page() {
   return (
     <div className="min-h-screen bg-white">
-      <Navbar />
       <section id="home">
         <Hero />
       </section>
@@ -27,19 +23,21 @@ export default function Page() {
       <section id="blog">
         <BlogSection />
       </section>
-      <Testimonials />
+      <section id="testimonials">
+        <Testimonials />
+      </section>
       <section id="sobre-mi">
         <About />
       </section>
       <section id="proceso">
         <Process />
       </section>
-      <FAQ />
+      <section id="faq">
+        <FAQ />
+      </section>
       <section id="contacto">
         <CTA />
       </section>
-      <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

@@ -3,7 +3,7 @@ import { useState } from "react"
 import React from "react"
 import { useLanguage } from "@/contexts/language-context"
 
-import { ArrowUpRight, Mail, Phone, MapPin, Linkedin, Github, MessageCircle } from 'lucide-react'
+import { ArrowUpRight, Mail, Phone, MapPin, Linkedin, Github, MessageCircle, Calendar } from 'lucide-react'
 
 export default function Footer() {
   const [hoveredLink, setHoveredLink] = useState<string | null>(null)
@@ -98,23 +98,17 @@ export default function Footer() {
                   </p>
                 </div>
 
-                {/* CTA */}
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <button
-                    onClick={() => scrollToSection("#contacto")}
-                    className="group bg-white text-slate-900 px-8 py-4 rounded-full font-medium transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
-                  >
-                    <span>{t("footer.startProject")}</span>
-                    <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                  </button>
+                {/* CTA - SOLO EL PRINCIPAL */}
+                <div className="flex justify-start">
                   <a
-                    href="https://wa.me/573009769468"
+                    href="https://calendly.com/bonillahermes/30min"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group border border-white/20 text-white px-8 py-4 rounded-full font-medium transition-all duration-300 hover:bg-white/10 hover:border-white/40 flex items-center justify-center gap-2"
+                    className="bg-white hover:bg-slate-50 text-slate-900 hover:text-slate-700 px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-2"
                   >
-                    <MessageCircle className="w-5 h-5" />
-                    <span>{t("footer.whatsapp")}</span>
+                    <Calendar className="w-5 h-5" />
+                    <span>Agenda una Consulta Estratégica</span>
+                    <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </a>
                 </div>
               </div>

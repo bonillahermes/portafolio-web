@@ -66,20 +66,20 @@ export default function Testimonials() {
   const currentTestimonial = testimonials[activeTestimonial]
 
   return (
-    <section className="py-24 bg-slate-950 relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-950/20 via-slate-950 to-purple-950/20"></div>
-      <div className="absolute inset-0 bg-[url('/placeholder.svg?height=1080&width=1920')] opacity-5"></div>
+    <section className="py-24 bg-slate-950 relative overflow-hidden parallax-bg" data-speed="0.3">
+      {/* Background Effects con parallax */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-950/20 via-slate-950 to-purple-950/20 parallax-medium"></div>
+      <div className="absolute inset-0 bg-[url('/placeholder.svg?height=1080&width=1920')] opacity-5 parallax-slow"></div>
 
       {/* Floating Particles */}
-      <div className="absolute top-20 left-20 w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-      <div className="absolute top-40 right-32 w-1 h-1 bg-green-400 rounded-full animate-ping"></div>
-      <div className="absolute bottom-32 left-16 w-3 h-3 bg-purple-400 rounded-full animate-bounce"></div>
+      <div className="absolute top-20 left-20 w-2 h-2 bg-blue-400 rounded-full animate-float"></div>
+      <div className="absolute top-40 right-32 w-1 h-1 bg-green-400 rounded-full animate-float-delayed"></div>
+      <div className="absolute bottom-32 left-16 w-3 h-3 bg-purple-400 rounded-full animate-float"></div>
 
       <div className="container px-4 md:px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-16">
+          {/* Header con fade-in */}
+          <div className="text-center mb-16 fade-in-scroll">
             <div className="inline-flex items-center gap-2 bg-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-full px-6 py-3 mb-6">
               <div className="flex items-center gap-1">
                 {[...Array(5)].map((_, i) => (
@@ -100,8 +100,8 @@ export default function Testimonials() {
             </p>
           </div>
 
-          {/* Main Testimonial */}
-          <div className="relative">
+          {/* Main Testimonial con scale animation */}
+          <div className="relative scale-on-scroll">
             <div className="bg-slate-900/50 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-slate-700/50 shadow-xl transition-all duration-500">
               {/* Quote Icon */}
               <div className="absolute top-8 right-8 opacity-10">
@@ -110,8 +110,8 @@ export default function Testimonials() {
 
               <div className="relative z-10">
                 <div className="grid lg:grid-cols-3 gap-8 items-center">
-                  {/* Company Info */}
-                  <div className="text-center lg:text-left">
+                  {/* Company Info con slide-left */}
+                  <div className="text-center lg:text-left slide-left">
                     <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-500/20 text-blue-400 rounded-2xl mb-4 border border-blue-500/30">
                       <currentTestimonial.icon className="w-8 h-8" />
                     </div>
@@ -122,8 +122,8 @@ export default function Testimonials() {
                     </div>
                   </div>
 
-                  {/* Testimonial Content */}
-                  <div className="lg:col-span-2">
+                  {/* Testimonial Content con slide-right */}
+                  <div className="lg:col-span-2 slide-right">
                     <div className="flex items-center gap-1 mb-4">
                       {[...Array(currentTestimonial.rating)].map((_, i) => (
                         <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
@@ -151,8 +151,8 @@ export default function Testimonials() {
               </div>
             </div>
 
-            {/* Navigation */}
-            <div className="flex items-center justify-center gap-4 mt-8">
+            {/* Navigation con fade-in */}
+            <div className="flex items-center justify-center gap-4 mt-8 fade-in-scroll stagger-1">
               <button
                 onClick={prevTestimonial}
                 className="p-3 bg-slate-800/50 border border-slate-700/50 rounded-full hover:bg-slate-700/50 transition-colors shadow-sm backdrop-blur-sm"
@@ -184,7 +184,7 @@ export default function Testimonials() {
             </div>
           </div>
 
-          {/* All Testimonials Preview */}
+          {/* All Testimonials Preview con stagger */}
           <div className="grid md:grid-cols-3 gap-6 mt-16">
             {testimonials.map((testimonial, index) => (
               <button
@@ -193,7 +193,7 @@ export default function Testimonials() {
                   setActiveTestimonial(index)
                   setIsAutoPlaying(false)
                 }}
-                className={`p-6 rounded-2xl border-2 transition-all duration-300 text-left ${
+                className={`p-6 rounded-2xl border-2 transition-all duration-300 text-left fade-in-scroll stagger-${index + 1} ${
                   index === activeTestimonial
                     ? "bg-slate-800/50 border-blue-500/50 scale-105"
                     : "bg-slate-900/30 border-slate-700/50 hover:border-slate-600/50 hover:shadow-md"

@@ -1,6 +1,6 @@
 "use client"
 import { useState, useEffect } from "react"
-import { ArrowRight, CheckCircle, Star, Send, Calendar, Rocket } from 'lucide-react'
+import { ArrowRight, CheckCircle, Send, Calendar, MessageCircle } from 'lucide-react'
 import { useLanguage } from "@/contexts/language-context"
 
 export default function Hero() {
@@ -41,25 +41,20 @@ export default function Hero() {
   }
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-white relative overflow-hidden pb-24">
-      {/* Subtle Background Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.03),transparent_50%)]"></div>
+    <section className="min-h-screen flex items-center justify-center bg-white relative overflow-hidden pt-24 pb-24 parallax-bg" data-speed="0.3">
+      {/* Subtle Background Pattern con parallax */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.03),transparent_50%)] parallax-slow"></div>
+      
+      {/* Floating elements con animación mejorada */}
+      <div className="absolute top-20 left-20 w-2 h-2 bg-blue-400 rounded-full animate-float"></div>
+      <div className="absolute top-40 right-32 w-1 h-1 bg-purple-400 rounded-full animate-float-delayed"></div>
+      <div className="absolute bottom-32 left-16 w-3 h-3 bg-pink-400 rounded-full animate-float"></div>
       
       <div className="container px-4 md:px-6 relative z-10 max-w-4xl mx-auto">
         <div className="text-center space-y-12">
-          
-          {/* Trust Badge */}
-          <div className="inline-flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-full px-4 py-2 text-sm text-slate-600">
-            <div className="flex items-center gap-1">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
-              ))}
-            </div>
-            <span>Calificación 5.0 • 50+ proyectos exitosos</span>
-          </div>
 
-          {/* Main Question */}
-          <div className="space-y-4">
+          {/* Main Question con fade-in */}
+          <div className="space-y-4 fade-in-scroll">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal text-slate-900 leading-tight">
               ¿Cómo puedo transformar tu empresa con{" "}
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-medium">
@@ -68,8 +63,8 @@ export default function Hero() {
             </h1>
           </div>
 
-          {/* Interactive Input */}
-          <div className="max-w-2xl mx-auto space-y-6">
+          {/* Interactive Input con slide-up */}
+          <div className="max-w-2xl mx-auto space-y-6 fade-in-scroll stagger-1">
             <div className="relative">
               <div className="relative bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 focus-within:shadow-lg focus-within:border-blue-300">
                 <input
@@ -88,13 +83,13 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Suggestion Pills */}
+            {/* Suggestion Pills con stagger */}
             <div className="flex flex-wrap justify-center gap-3">
               {suggestions.map((suggestion, index) => (
                 <button
                   key={index}
                   onClick={() => handleSuggestionClick(suggestion)}
-                  className="bg-slate-50 hover:bg-slate-100 border border-slate-200 hover:border-slate-300 text-slate-700 px-4 py-2 rounded-full text-sm transition-all duration-200 hover:scale-105"
+                  className={`bg-slate-50 hover:bg-slate-100 border border-slate-200 hover:border-slate-300 text-slate-700 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105 fade-in-scroll stagger-${index + 2}`}
                 >
                   {suggestion}
                 </button>
@@ -102,44 +97,33 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
+          {/* CTA Buttons con scale animation */}
+          <div className="flex justify-center pt-8 scale-on-scroll">
             <a
               href="https://calendly.com/bonillahermes/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="group bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 hover:from-blue-700 hover:via-purple-700 hover:to-blue-700 text-white px-8 py-4 text-lg font-semibold rounded-2xl transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl hover:shadow-blue-500/25 inline-flex items-center gap-3"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl inline-flex items-center gap-3 text-lg"
             >
               <Calendar className="w-5 h-5" />
-              <span>Consulta Gratuita</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
-
-            <a
-              href="https://calendly.com/bonillahermes/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group bg-white border-2 border-slate-200 hover:border-slate-300 text-slate-700 hover:text-slate-900 px-8 py-4 text-lg font-semibold rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-lg inline-flex items-center gap-3"
-            >
-              <Rocket className="w-5 h-5" />
-              <span>Comenzar Proyecto</span>
+              <span>Agenda una Consulta Estratégica</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
 
-          {/* Trust Indicators */}
+          {/* Trust Indicators con slide desde los lados */}
           <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-slate-500 pt-4">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 slide-left">
               <CheckCircle className="w-4 h-4 text-green-500" />
               <span>Consulta 100% gratuita</span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 fade-in-scroll stagger-1">
               <CheckCircle className="w-4 h-4 text-green-500" />
               <span>Sin compromisos</span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 slide-right">
               <CheckCircle className="w-4 h-4 text-green-500" />
-              <span>Respuesta en 24h</span>
+              <span>Te respondo en menos de 12 horas</span>
             </div>
           </div>
 
