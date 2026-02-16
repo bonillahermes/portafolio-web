@@ -1,4 +1,5 @@
 import Hero from "@/components/hero"
+import TrustBar from "@/components/trust-bar"
 import Services from "@/components/services"
 import Methodology from "@/components/methodology"
 import CaseStudies from "@/components/case-studies"
@@ -11,6 +12,7 @@ export default function Page() {
       <section id="inicio">
         <Hero />
       </section>
+      <TrustBar />
       <section id="servicios">
         <Services />
       </section>

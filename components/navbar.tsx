@@ -91,10 +91,10 @@ export default function Navbar() {
               href="https://calendly.com/bonillahermes/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className={`text-sm font-medium px-5 py-2.5 rounded-sm transition-colors ${
+              className={`text-sm font-semibold px-5 py-2.5 transition-colors ${
                 isScrolled
-                  ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                  : "bg-primary-foreground text-primary hover:bg-primary-foreground/90"
+                  ? "bg-accent text-accent-foreground hover:bg-accent/90"
+                  : "bg-accent text-accent-foreground hover:bg-accent/90"
               }`}
             >
               Agendar consulta
@@ -133,7 +133,7 @@ export default function Navbar() {
               href="https://calendly.com/bonillahermes/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-primary-foreground bg-primary px-5 py-3 rounded-sm hover:bg-primary/90 transition-colors text-center mt-2"
+              className="text-sm font-semibold text-accent-foreground bg-accent px-5 py-3 hover:bg-accent/90 transition-colors text-center mt-2"
             >
               Agendar consulta
             </a>
