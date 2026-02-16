@@ -60,9 +60,9 @@ export default function Hero() {
         {/* Stats bar */}
         <div className="mt-20 pt-8 border-t border-primary-foreground/10 grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
-            { value: "5", label: "Profesionales" },
             { value: "4", label: "Disciplinas" },
             { value: "3", label: "Sectores atendidos" },
+            { value: "End-to-end", label: "Acompanamiento" },
             { value: "LATAM", label: "Cobertura" },
           ].map((stat) => (
             <div key={stat.label}>
