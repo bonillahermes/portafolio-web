@@ -1,7 +1,8 @@
 import Hero from "@/components/hero"
 import Services from "@/components/services"
+import Methodology from "@/components/methodology"
 import CaseStudies from "@/components/case-studies"
-import About from "@/components/about"
+import Team from "@/components/team"
 import CTA from "@/components/cta"
 
 export default function Page() {
@@ -13,11 +14,14 @@ export default function Page() {
       <section id="servicios">
         <Services />
       </section>
+      <section id="metodologia">
+        <Methodology />
+      </section>
       <section id="resultados">
         <CaseStudies />
       </section>
-      <section id="sobre-mi">
-        <About />
+      <section id="equipo">
+        <Team />
       </section>
       <section id="contacto">
         <CTA />

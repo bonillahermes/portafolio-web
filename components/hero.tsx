@@ -2,30 +2,79 @@ import { ArrowRight } from "lucide-react"
 
 export default function Hero() {
   return (
-    <section className="flex items-center justify-center min-h-[90vh] bg-background pt-16">
-      <div className="mx-auto max-w-3xl px-6 py-24 text-center">
-        <p className="text-sm font-medium tracking-widest uppercase text-secondary mb-6">
-          Analista de Datos para Politica y Gobierno
-        </p>
+    <section className="relative flex items-end min-h-screen bg-primary overflow-hidden">
+      {/* Subtle grid pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage:
+            "linear-gradient(hsl(0 0% 100%) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 100%) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+        }}
+      />
 
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground leading-tight text-balance mb-6">
-          Datos que deciden.
-        </h1>
+      {/* Decorative gold accent line */}
+      <div className="absolute top-0 left-0 w-full h-[2px] bg-accent" />
 
-        <p className="text-lg md:text-xl text-secondary leading-relaxed max-w-2xl mx-auto mb-12">
-          Convierto datos en ventaja estrategica para campanas, gobiernos e
-          instituciones publicas.
-        </p>
+      <div className="relative mx-auto max-w-6xl px-6 pb-20 pt-40 lg:pb-28 lg:pt-48 w-full">
+        <div className="max-w-4xl">
+          {/* Eyebrow */}
+          <p className="font-mono text-xs tracking-[0.3em] uppercase text-primary-foreground/50 mb-8">
+            Consultoria en analitica de datos para politica y gobierno
+          </p>
 
-        <a
-          href="https://calendly.com/bonillahermes/30min"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 text-sm font-medium tracking-wide rounded-sm hover:bg-primary/90 transition-colors"
-        >
-          Agendar consulta
-          <ArrowRight className="w-4 h-4" />
-        </a>
+          {/* Main headline */}
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold text-primary-foreground leading-[1.1] text-balance mb-8">
+            Datos que
+            <br />
+            deciden.
+          </h1>
+
+          {/* Subtitle */}
+          <p className="text-lg md:text-xl text-primary-foreground/70 leading-relaxed max-w-2xl mb-12">
+            Un equipo multidisciplinario que convierte datos en ventaja
+            estrategica para campanas, gobiernos e instituciones publicas.
+          </p>
+
+          {/* CTA row */}
+          <div className="flex flex-col sm:flex-row items-start gap-4">
+            <a
+              href="https://calendly.com/bonillahermes/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 bg-primary-foreground text-primary px-8 py-4 text-sm font-medium tracking-wide rounded-sm hover:bg-primary-foreground/90 transition-colors"
+            >
+              Agendar consulta
+              <ArrowRight className="w-4 h-4" />
+            </a>
+            <a
+              href="#servicios"
+              className="inline-flex items-center gap-2 text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors px-2 py-4"
+            >
+              Conocer servicios
+              <ArrowRight className="w-3.5 h-3.5" />
+            </a>
+          </div>
+        </div>
+
+        {/* Stats bar */}
+        <div className="mt-20 pt-8 border-t border-primary-foreground/10 grid grid-cols-2 md:grid-cols-4 gap-8">
+          {[
+            { value: "5", label: "Profesionales" },
+            { value: "4", label: "Disciplinas" },
+            { value: "3", label: "Sectores atendidos" },
+            { value: "LATAM", label: "Cobertura" },
+          ].map((stat) => (
+            <div key={stat.label}>
+              <p className="font-mono text-2xl md:text-3xl font-semibold text-accent mb-1">
+                {stat.value}
+              </p>
+              <p className="text-xs text-primary-foreground/50 uppercase tracking-wider">
+                {stat.label}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )

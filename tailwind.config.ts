@@ -53,6 +53,14 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      colors: {
+        ...({} as any),
+        navy: {
+          DEFAULT: "hsl(var(--navy))",
+          light: "hsl(var(--navy-light))",
+        },
+        gold: "hsl(var(--gold))",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
