@@ -1,25 +1,25 @@
 const cases = [
   {
-    sector: "Campana electoral",
+    sector: "Campaña electoral",
     tag: "Inteligencia electoral",
     description:
-      "Segmentacion cuantitativa de votantes y optimizacion de la inversion en territorio. Modelo predictivo de comportamiento electoral por zona.",
+      "Segmentación cuantitativa de votantes y optimización de la inversión en territorio. Modelo predictivo de comportamiento electoral por zona.",
     result: "Victoria con +12%",
     resultDetail: "sobre proyecciones iniciales",
   },
   {
-    sector: "Senado de la Republica",
-    tag: "Politicas publicas",
+    sector: "Senado de la República",
+    tag: "Políticas públicas",
     description:
-      "Integracion de bases de datos institucionales y desarrollo de un modelo predictivo de violencia politica con enfoque de genero.",
+      "Integración de bases de datos institucionales y desarrollo de un modelo predictivo de violencia política con enfoque de género.",
     result: "Sistema operativo",
     resultDetail: "de alertas tempranas activo",
   },
   {
     sector: "Sector Salud",
-    tag: "Analisis geoespacial",
+    tag: "Análisis geoespacial",
     description:
-      "Optimizacion geografica de la cadena de distribucion de medicamentos oncologicos en zonas rurales de dificil acceso.",
+      "Optimización geográfica de la cadena de distribución de medicamentos oncológicos en zonas rurales de difícil acceso.",
     result: "-60% tiempos",
     resultDetail: "de entrega a zonas rurales",
   },

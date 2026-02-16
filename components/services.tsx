@@ -6,45 +6,45 @@ const services = [
     number: "01",
     title: "Inteligencia Electoral",
     description:
-      "Microsegmentacion de votantes, modelos predictivos de comportamiento electoral y optimizacion de recursos de campana basada en datos.",
+      "Microsegmentación de votantes, modelos predictivos de comportamiento electoral y optimización de recursos de campaña basada en datos.",
     capabilities: [
-      "Segmentacion cuantitativa",
+      "Segmentación cuantitativa",
       "Modelos predictivos",
-      "Optimizacion de inversion",
+      "Optimización de inversión",
     ],
   },
   {
     icon: FileText,
     number: "02",
-    title: "Analisis de Politicas Publicas",
+    title: "Análisis de Políticas Públicas",
     description:
-      "Evaluacion cuantitativa de impacto, diseno basado en evidencia, analisis territorial y socioeconomico para toma de decisiones gubernamentales.",
+      "Evaluación cuantitativa de impacto, diseño basado en evidencia, análisis territorial y socioeconómico para toma de decisiones gubernamentales.",
     capabilities: [
-      "Evaluacion de impacto",
-      "Diseno basado en evidencia",
-      "Analisis territorial",
+      "Evaluación de impacto",
+      "Diseño basado en evidencia",
+      "Análisis territorial",
     ],
   },
   {
     icon: Database,
     number: "03",
-    title: "Integracion de Datos Institucionales",
+    title: "Integración de Datos Institucionales",
     description:
-      "Consolidacion de bases de datos dispersas, limpieza y estandarizacion, construccion de pipelines para entidades publicas y organizaciones.",
+      "Consolidación de bases de datos dispersas, limpieza y estandarización, construcción de pipelines para entidades públicas y organizaciones.",
     capabilities: [
-      "Consolidacion de datos",
+      "Consolidación de datos",
       "Pipelines automatizados",
-      "Estandarizacion",
+      "Estandarización",
     ],
   },
   {
     icon: MapPin,
     number: "04",
-    title: "Analisis Geoespacial y de Riesgo",
+    title: "Análisis Geoespacial y de Riesgo",
     description:
-      "Modelos de prediccion territorial, analisis de violencia politica, mapeo de vulnerabilidad con enfoque diferencial (genero, etnia, region).",
+      "Modelos de predicción territorial, análisis de violencia política, mapeo de vulnerabilidad con enfoque diferencial (género, etnia, región).",
     capabilities: [
-      "Prediccion territorial",
+      "Predicción territorial",
       "Mapeo de vulnerabilidad",
       "Enfoque diferencial",
     ],
@@ -62,7 +62,7 @@ export default function Services() {
               Servicios
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground text-balance leading-tight">
-              Acompanamiento integral
+              Acompañamiento integral
               <br className="hidden md:block" />
               basado en datos
             </h2>

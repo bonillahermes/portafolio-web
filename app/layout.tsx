@@ -16,27 +16,27 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Hermes Bonilla — Consultoria en Analitica de Datos para Politica y Gobierno",
+  title: "Hermes Bonilla — Consultoría en Analítica de Datos para Política y Gobierno",
   description:
-    "Equipo multidisciplinario que convierte datos en ventaja estrategica para campanas, gobiernos e instituciones publicas. Modelado predictivo, microsegmentacion electoral y analisis geoespacial.",
+    "Equipo multidisciplinario que convierte datos en ventaja estratégica para campañas, gobiernos e instituciones públicas. Modelado predictivo, microsegmentación electoral y análisis geoespacial.",
   keywords:
-    "analista de datos, politica, gobierno, inteligencia electoral, microsegmentacion, analisis geoespacial, Colombia",
+    "analista de datos, política, gobierno, inteligencia electoral, microsegmentación, análisis geoespacial, Colombia",
   authors: [{ name: "Hermes Bonilla" }],
   creator: "Hermes Bonilla",
   openGraph: {
     type: "website",
     locale: "es_CO",
     url: "https://hermesbonilla.com",
-    title: "Hermes Bonilla — Consultoria en Analitica de Datos para Politica y Gobierno",
+    title: "Hermes Bonilla — Consultoría en Analítica de Datos para Política y Gobierno",
     description:
-      "Equipo multidisciplinario que convierte datos en ventaja estrategica para campanas, gobiernos e instituciones publicas.",
+      "Equipo multidisciplinario que convierte datos en ventaja estratégica para campañas, gobiernos e instituciones públicas.",
     siteName: "Hermes Bonilla",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hermes Bonilla — Consultoria en Analitica de Datos para Politica y Gobierno",
+    title: "Hermes Bonilla — Consultoría en Analítica de Datos para Política y Gobierno",
     description:
-      "Equipo multidisciplinario que convierte datos en ventaja estrategica para campanas, gobiernos e instituciones publicas.",
+      "Equipo multidisciplinario que convierte datos en ventaja estratégica para campañas, gobiernos e instituciones públicas.",
   },
   robots: {
     index: true,
@@ -70,21 +70,21 @@ export default function RootLayout({
               "@type": "ProfessionalService",
               name: "Hermes Bonilla",
               description:
-                "Consultoria en analitica de datos para politica y gobierno. Equipo multidisciplinario especializado en modelado predictivo, microsegmentacion electoral y analisis geoespacial.",
+                "Consultoría en analítica de datos para política y gobierno. Equipo multidisciplinario especializado en modelado predictivo, microsegmentación electoral y análisis geoespacial.",
               url: "https://hermesbonilla.com",
               telephone: "+573009769468",
               email: "consulta@hermesbonilla.com",
               address: {
                 "@type": "PostalAddress",
-                addressLocality: "Bogota",
+                addressLocality: "Bogotá",
                 addressCountry: "CO",
               },
               areaServed: ["Colombia", "LATAM"],
               serviceType: [
                 "Inteligencia Electoral",
-                "Analisis de Politicas Publicas",
-                "Integracion de Datos Institucionales",
-                "Analisis Geoespacial y de Riesgo",
+                "Análisis de Políticas Públicas",
+                "Integración de Datos Institucionales",
+                "Análisis Geoespacial y de Riesgo",
               ],
             }),
           }}

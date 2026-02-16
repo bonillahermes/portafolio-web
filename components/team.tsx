@@ -5,25 +5,25 @@ const disciplines = [
     icon: BarChart3,
     name: "Ciencia de datos",
     description:
-      "Modelado predictivo, machine learning aplicado, integracion de datos a gran escala y analisis cuantitativo para entornos de alta complejidad.",
+      "Modelado predictivo, machine learning aplicado, integración de datos a gran escala y análisis cuantitativo para entornos de alta complejidad.",
   },
   {
     icon: Globe,
-    name: "Ciencia politica",
+    name: "Ciencia política",
     description:
-      "Lectura del contexto politico-institucional, analisis de actores y traduccion de hallazgos cuantitativos en narrativas estrategicas.",
+      "Lectura del contexto político-institucional, análisis de actores y traducción de hallazgos cuantitativos en narrativas estratégicas.",
   },
   {
     icon: FileText,
-    name: "Periodismo y comunicacion",
+    name: "Periodismo y comunicación",
     description:
-      "Construccion de reportes ejecutivos, visualizacion de datos y comunicacion de hallazgos complejos para audiencias no tecnicas.",
+      "Construcción de reportes ejecutivos, visualización de datos y comunicación de hallazgos complejos para audiencias no técnicas.",
   },
   {
     icon: Settings,
-    name: "Gestion y operaciones",
+    name: "Gestión y operaciones",
     description:
-      "Coordinacion de entregas, relacion con el cliente y aseguramiento de calidad en cada fase del proyecto.",
+      "Coordinación de entregas, relación con el cliente y aseguramiento de calidad en cada fase del proyecto.",
   },
 ]
 
@@ -80,12 +80,12 @@ export default function Team() {
           <div className="flex-1">
             <p className="text-lg md:text-xl font-semibold text-primary-foreground leading-relaxed mb-3">
               No contratamos perfiles aislados. Operamos como una unidad
-              integrada donde cada disciplina complementa a las demas.
+              integrada donde cada disciplina complementa a las demás.
             </p>
             <p className="text-sm text-primary-foreground/60 leading-relaxed">
-              Desde el diagnostico inicial hasta la entrega de resultados,
-              combinamos ciencia de datos, analisis politico, comunicacion
-              estrategica y gestion profesional en un solo equipo.
+              Desde el diagnóstico inicial hasta la entrega de resultados,
+              combinamos ciencia de datos, análisis político, comunicación
+              estratégica y gestión profesional en un solo equipo.
             </p>
           </div>
           <a

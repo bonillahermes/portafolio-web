@@ -13,7 +13,7 @@ export default function Footer() {
             <span className="hidden md:inline text-primary-foreground/20">
               |
             </span>
-            <span>Consultoria en analitica de datos</span>
+            <span>Consultoría en analítica de datos</span>
             <span className="hidden md:inline text-primary-foreground/20">
               |
             </span>

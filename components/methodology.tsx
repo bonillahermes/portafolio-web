@@ -1,25 +1,25 @@
 const steps = [
   {
     number: "01",
-    title: "Diagnostico",
+    title: "Diagnóstico",
     description:
-      "Analizamos la situacion actual: que datos existen, que preguntas necesitan respuesta y que decisiones dependen de los resultados.",
+      "Analizamos la situación actual: qué datos existen, qué preguntas necesitan respuesta y qué decisiones dependen de los resultados.",
   },
   {
     number: "02",
     title: "Arquitectura de datos",
     description:
-      "Disenamos la estructura de recoleccion, integracion y procesamiento. Consolidamos fuentes dispersas en un sistema coherente.",
+      "Diseñamos la estructura de recolección, integración y procesamiento. Consolidamos fuentes dispersas en un sistema coherente.",
   },
   {
     number: "03",
-    title: "Modelado y analisis",
+    title: "Modelado y análisis",
     description:
-      "Aplicamos modelos estadisticos, machine learning o analisis geoespacial segun la necesidad. Cada modelo se valida rigurosamente.",
+      "Aplicamos modelos estadísticos, machine learning o análisis geoespacial según la necesidad. Cada modelo se valida rigurosamente.",
   },
   {
     number: "04",
-    title: "Entrega estrategica",
+    title: "Entrega estratégica",
     description:
       "Presentamos resultados accionables: reportes ejecutivos, dashboards interactivos y recomendaciones con sustento cuantitativo.",
   },
@@ -32,7 +32,7 @@ export default function Methodology() {
         {/* Section header */}
         <div className="mb-20">
           <p className="font-mono text-xs tracking-[0.3em] uppercase text-accent mb-4">
-            Metodologia
+            Metodología
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-primary-foreground text-balance leading-tight max-w-3xl">
             Un proceso riguroso

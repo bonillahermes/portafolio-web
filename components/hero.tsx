@@ -20,7 +20,7 @@ export default function Hero() {
         <div className="max-w-4xl">
           {/* Eyebrow */}
           <p className="font-mono text-xs tracking-[0.3em] uppercase text-primary-foreground/50 mb-8">
-            Consultoria en analitica de datos para politica y gobierno
+            Consultoría en analítica de datos para política y gobierno
           </p>
 
           {/* Main headline */}
@@ -33,7 +33,7 @@ export default function Hero() {
           {/* Subtitle */}
           <p className="text-lg md:text-xl text-primary-foreground/70 leading-relaxed max-w-2xl mb-12">
             Un equipo multidisciplinario que convierte datos en ventaja
-            estrategica para campanas, gobiernos e instituciones publicas.
+            estratégica para campañas, gobiernos e instituciones públicas.
           </p>
 
           {/* CTA row */}
@@ -62,7 +62,7 @@ export default function Hero() {
           {[
             { value: "4", label: "Disciplinas" },
             { value: "3", label: "Sectores atendidos" },
-            { value: "End-to-end", label: "Acompanamiento" },
+            { value: "End-to-end", label: "Acompañamiento" },
             { value: "LATAM", label: "Cobertura" },
           ].map((stat) => (
             <div key={stat.label}>

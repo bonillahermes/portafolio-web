@@ -26,8 +26,8 @@ export default function CTA() {
               tu proyecto
             </h2>
             <p className="text-base text-primary-foreground/70 leading-relaxed max-w-lg mb-10">
-              Cada proyecto comienza con una conversacion sobre tus datos,
-              tus objetivos y el contexto de tu organizacion. Agenda una
+              Cada proyecto comienza con una conversación sobre tus datos,
+              tus objetivos y el contexto de tu organización. Agenda una
               consulta inicial sin costo.
             </p>
 
@@ -75,10 +75,10 @@ export default function CTA() {
 
             <div>
               <p className="text-xs uppercase tracking-wider text-primary-foreground/40 mb-3">
-                Ubicacion
+                Ubicación
               </p>
               <p className="text-base text-primary-foreground">
-                Bogota, Colombia
+                Bogotá, Colombia
               </p>
               <p className="text-sm text-primary-foreground/50 mt-1">
                 Disponible en toda Colombia y LATAM

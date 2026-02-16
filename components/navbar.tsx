@@ -6,7 +6,7 @@ import { Menu, X } from "lucide-react"
 
 const navItems = [
   { name: "Servicios", href: "#servicios" },
-  { name: "Metodologia", href: "#metodologia" },
+  { name: "Metodología", href: "#metodologia" },
   { name: "Resultados", href: "#resultados" },
   { name: "Equipo", href: "#equipo" },
   { name: "Contacto", href: "#contacto" },
@@ -64,7 +64,7 @@ export default function Navbar() {
               Hermes Bonilla
             </span>
             <span className={`text-[10px] font-mono uppercase tracking-[0.2em] transition-colors ${isScrolled ? "text-secondary" : "text-primary-foreground/60"}`}>
-              Consultoria en datos
+              Consultoría en datos
             </span>
           </button>
 
@@ -105,7 +105,7 @@ export default function Navbar() {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={`lg:hidden transition-colors ${isScrolled ? "text-foreground" : "text-primary-foreground"}`}
-            aria-label={isMobileMenuOpen ? "Cerrar menu" : "Abrir menu"}
+            aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
           >
             {isMobileMenuOpen ? (
               <X className="w-5 h-5" />
