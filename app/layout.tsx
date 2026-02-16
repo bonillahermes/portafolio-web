@@ -1,36 +1,42 @@
 import type { Metadata } from "next"
-import { Inter } from 'next/font/google'
+import { Inter, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import { LanguageProvider } from "@/contexts/language-context"
-import Footer from "@/components/footer"
-import WhatsAppFloat from "@/components/whatsapp-float"
-import StickyCTA from "@/components/sticky-cta"
 import Navbar from "@/components/navbar"
-import { Analytics } from '@vercel/analytics/next'
-import { Suspense } from 'react'
+import Footer from "@/components/footer"
+import { Analytics } from "@vercel/analytics/next"
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+})
 
 export const metadata: Metadata = {
-  title: "Hermes Bonilla - Especialista en Data Science e IA",
-  description: "Transformo datos en decisiones inteligentes. Especialista en Data Science e Inteligencia Artificial para empresas colombianas.",
-  keywords: "data science, inteligencia artificial, machine learning, colombia, consultor ia, análisis de datos",
+  title: "Hermes Bonilla — Analista de Datos para Politica y Gobierno",
+  description:
+    "Convierto datos en ventaja estrategica para campanas, gobiernos e instituciones publicas. Modelado predictivo, microsegmentacion electoral y analisis geoespacial.",
+  keywords:
+    "analista de datos, politica, gobierno, inteligencia electoral, microsegmentacion, analisis geoespacial, Colombia",
   authors: [{ name: "Hermes Bonilla" }],
   creator: "Hermes Bonilla",
   openGraph: {
     type: "website",
     locale: "es_CO",
     url: "https://hermesbonilla.com",
-    title: "Hermes Bonilla - Especialista en Data Science e IA",
-    description: "Transformo datos en decisiones inteligentes. Especialista en Data Science e Inteligencia Artificial para empresas colombianas.",
+    title: "Hermes Bonilla — Analista de Datos para Politica y Gobierno",
+    description:
+      "Convierto datos en ventaja estrategica para campanas, gobiernos e instituciones publicas.",
     siteName: "Hermes Bonilla",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hermes Bonilla - Especialista en Data Science e IA",
-    description: "Transformo datos en decisiones inteligentes. Especialista en Data Science e Inteligencia Artificial para empresas colombianas.",
-    creator: "@hermesbonilla",
+    title: "Hermes Bonilla — Analista de Datos para Politica y Gobierno",
+    description:
+      "Convierto datos en ventaja estrategica para campanas, gobiernos e instituciones publicas.",
   },
   robots: {
     index: true,
@@ -43,12 +49,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-    generator: 'v0.dev'
-}
-
-// Componente de fallback para Suspense
-function LoadingFallback() {
-  return <div className="min-h-screen bg-white" />
 }
 
 export default function RootLayout({
@@ -57,31 +57,44 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <LanguageProvider>
-            <main>
-              <Suspense fallback={<LoadingFallback />}>
-                <Navbar />
-                {children}
-              </Suspense>
-            </main>
-            <Footer />
-            <Suspense fallback={null}>
-              <WhatsAppFloat />
-            </Suspense>
-            <Suspense fallback={null}>
-              <StickyCTA />
-            </Suspense>
-            <Analytics />
-          </LanguageProvider>
-        </ThemeProvider>
+    <html
+      lang="es"
+      className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
+    >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ProfessionalService",
+              name: "Hermes Bonilla",
+              description:
+                "Analista de Datos para Politica y Gobierno. Modelado predictivo, microsegmentacion electoral y analisis geoespacial.",
+              url: "https://hermesbonilla.com",
+              telephone: "+573009769468",
+              email: "consulta@hermesbonilla.com",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Bogota",
+                addressCountry: "CO",
+              },
+              areaServed: ["Colombia", "LATAM"],
+              serviceType: [
+                "Inteligencia Electoral",
+                "Analisis de Politicas Publicas",
+                "Integracion de Datos Institucionales",
+                "Analisis Geoespacial y de Riesgo",
+              ],
+            }),
+          }}
+        />
+      </head>
+      <body className="font-sans">
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
+        <Analytics />
       </body>
     </html>
   )
