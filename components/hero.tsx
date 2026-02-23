@@ -2,6 +2,8 @@
 
 import { ArrowRight, ChevronDown } from "lucide-react"
 import { motion } from "framer-motion"
+import { AnimatedNumber } from "./motion"
+import Image from "next/image"
 
 const stats = [
   { value: "4", label: "Disciplinas integradas" },
@@ -13,6 +15,16 @@ const stats = [
 export default function Hero() {
   return (
     <section className="relative flex flex-col justify-end min-h-screen bg-primary overflow-hidden">
+      {/* Background image */}
+      <Image
+        src="/images/hero.jpg"
+        alt="Visualización de datos sobre panorámica de Bogotá"
+        fill
+        className="object-cover object-center"
+        priority
+      />
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-primary/75" />
       {/* Grid pattern */}
       <div
         className="absolute inset-0 opacity-[0.03]"
@@ -46,23 +58,40 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="flex items-center gap-4 mb-10"
         >
-          <div className="w-12 h-px bg-accent" />
+          <motion.div
+            className="h-px bg-accent"
+            initial={{ width: 0 }}
+            animate={{ width: 48 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
+          />
           <p className="font-mono text-xs tracking-[0.3em] uppercase text-accent">
             Consultoría en analítica de datos
           </p>
         </motion.div>
 
         {/* Main headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold text-primary-foreground leading-[0.95] tracking-tight text-balance mb-8"
-        >
-          Datos que
+        <h1 className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold text-primary-foreground leading-[0.95] tracking-tight text-balance mb-8">
+          {["Datos", "que"].map((word, i) => (
+            <motion.span
+              key={word}
+              initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.5, delay: 0.3 + i * 0.12 }}
+              className="inline-block mr-[0.3em]"
+            >
+              {word}
+            </motion.span>
+          ))}
           <br />
-          <span className="text-accent">deciden.</span>
-        </motion.h1>
+          <motion.span
+            initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.5, delay: 0.55 }}
+            className="inline-block text-accent"
+          >
+            deciden.
+          </motion.span>
+        </h1>
 
         {/* Subtitle */}
         <motion.p
@@ -83,10 +112,10 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-start gap-5 mb-20"
         >
           <a
-            href="https://calendly.com/bonillahermes/30min"
+            href="https://wa.me/573009769468?text=Hola%2C%20me%20interesa%20una%20consulta%20estrat%C3%A9gica"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-3 bg-accent text-accent-foreground px-8 py-4 text-sm font-semibold tracking-wide hover:bg-accent/90 transition-all"
+            className="shimmer-cta group inline-flex items-center gap-3 bg-accent text-accent-foreground px-8 py-4 text-sm font-semibold tracking-wide hover:bg-accent/90 transition-all"
           >
             Agendar consulta estratégica
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -106,21 +135,29 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.6 }}
           className="pt-10 border-t border-primary-foreground/10 grid grid-cols-2 lg:grid-cols-4 gap-10"
         >
-          {stats.map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.7 + i * 0.1 }}
-            >
-              <p className="font-mono text-3xl md:text-4xl font-bold text-primary-foreground mb-2">
-                {stat.value}
-              </p>
-              <p className="text-xs text-primary-foreground/40 uppercase tracking-widest">
-                {stat.label}
-              </p>
-            </motion.div>
-          ))}
+          {stats.map((stat, i) => {
+            const numericValue = Number(stat.value)
+            const isNumeric = !isNaN(numericValue)
+            return (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.7 + i * 0.1 }}
+              >
+                <p className="font-mono text-3xl md:text-4xl font-bold text-primary-foreground mb-2">
+                  {isNumeric ? (
+                    <AnimatedNumber value={numericValue} delay={0.9 + i * 0.1} />
+                  ) : (
+                    stat.value
+                  )}
+                </p>
+                <p className="text-xs text-primary-foreground/40 uppercase tracking-widest">
+                  {stat.label}
+                </p>
+              </motion.div>
+            )
+          })}
         </motion.div>
       </div>
 

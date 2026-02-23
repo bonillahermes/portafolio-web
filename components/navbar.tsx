@@ -9,6 +9,7 @@ const navItems = [
   { name: "Metodología", href: "#metodologia" },
   { name: "Resultados", href: "#resultados" },
   { name: "Equipo", href: "#equipo" },
+  { name: "Blog", href: "/blog" },
   { name: "Contacto", href: "#contacto" },
 ]
 
@@ -47,6 +48,7 @@ export default function Navbar() {
 
   return (
     <nav
+      aria-label="Navegación principal"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-background/95 backdrop-blur-sm border-b border-border shadow-sm"
@@ -71,9 +73,15 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
             {navItems.map((item) => (
-              <button
+              <a
                 key={item.name}
-                onClick={() => scrollToSection(item.href)}
+                href={item.href}
+                onClick={(e) => {
+                  if (item.href.startsWith("#")) {
+                    e.preventDefault()
+                    scrollToSection(item.href)
+                  }
+                }}
                 className={`text-sm tracking-wide transition-colors ${
                   isScrolled
                     ? "text-secondary hover:text-foreground"
@@ -81,14 +89,14 @@ export default function Navbar() {
                 }`}
               >
                 {item.name}
-              </button>
+              </a>
             ))}
           </div>
 
           {/* CTA */}
           <div className="hidden lg:block">
             <a
-              href="https://calendly.com/bonillahermes/30min"
+              href="https://wa.me/573009769468?text=Hola%2C%20me%20interesa%20una%20consulta"
               target="_blank"
               rel="noopener noreferrer"
               className={`text-sm font-semibold px-5 py-2.5 transition-colors ${
@@ -121,16 +129,24 @@ export default function Navbar() {
         <div className="lg:hidden bg-background border-b border-border shadow-lg">
           <div className="px-6 py-6 flex flex-col gap-4">
             {navItems.map((item) => (
-              <button
+              <a
                 key={item.name}
-                onClick={() => scrollToSection(item.href)}
+                href={item.href}
+                onClick={(e) => {
+                  if (item.href.startsWith("#")) {
+                    e.preventDefault()
+                    scrollToSection(item.href)
+                  } else {
+                    setIsMobileMenuOpen(false)
+                  }
+                }}
                 className="text-sm text-secondary hover:text-foreground transition-colors text-left py-1"
               >
                 {item.name}
-              </button>
+              </a>
             ))}
             <a
-              href="https://calendly.com/bonillahermes/30min"
+              href="https://wa.me/573009769468?text=Hola%2C%20me%20interesa%20una%20consulta"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm font-semibold text-accent-foreground bg-accent px-5 py-3 hover:bg-accent/90 transition-colors text-center mt-2"

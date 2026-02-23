@@ -1,7 +1,5 @@
-"use client"
-
 import { ArrowRight, Mail, Phone, MapPin } from "lucide-react"
-import { FadeIn } from "./motion"
+import { FadeIn, AnimatedLine } from "./motion"
 
 export default function CTA() {
   return (
@@ -24,7 +22,7 @@ export default function CTA() {
           {/* Left - Main message */}
           <FadeIn>
             <div className="flex items-center gap-4 mb-6">
-              <div className="w-12 h-px bg-accent" />
+              <AnimatedLine />
               <p className="font-mono text-xs tracking-[0.3em] uppercase text-accent">
                 Contacto
               </p>
@@ -43,10 +41,10 @@ export default function CTA() {
             {/* CTA buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-16">
               <a
-                href="https://calendly.com/bonillahermes/30min"
+                href="https://wa.me/573009769468?text=Hola%2C%20me%20interesa%20una%20consulta%20gratuita"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-3 bg-accent text-accent-foreground px-8 py-4 text-sm font-semibold tracking-wide hover:bg-accent/90 transition-all"
+                className="shimmer-cta group inline-flex items-center gap-3 bg-accent text-accent-foreground px-8 py-4 text-sm font-semibold tracking-wide hover:bg-accent/90 transition-all"
               >
                 Agendar consulta gratuita
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

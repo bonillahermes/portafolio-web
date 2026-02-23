@@ -1,5 +1,3 @@
-"use client"
-
 import { FadeIn } from "./motion"
 
 const sectors = [

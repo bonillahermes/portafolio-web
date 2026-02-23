@@ -1,7 +1,7 @@
 "use client"
 
-import { motion, useInView } from "framer-motion"
-import { useRef, type ReactNode } from "react"
+import { motion, useInView, useReducedMotion } from "framer-motion"
+import { useRef, useState, useEffect, type ReactNode } from "react"
 
 export function FadeIn({
   children,
@@ -16,6 +16,7 @@ export function FadeIn({
 }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-80px" })
+  const shouldReduce = useReducedMotion()
 
   const directionMap = {
     up: { y: 40, x: 0 },
@@ -23,6 +24,10 @@ export function FadeIn({
     left: { y: 0, x: 40 },
     right: { y: 0, x: -40 },
     none: { y: 0, x: 0 },
+  }
+
+  if (shouldReduce) {
+    return <div className={className}>{children}</div>
   }
 
   return (
@@ -86,5 +91,83 @@ export function CountUp({ target, suffix = "" }: { target: string; suffix?: stri
     >
       {target}{suffix}
     </motion.span>
+  )
+}
+
+export function AnimatedNumber({
+  value,
+  prefix = "",
+  suffix = "",
+  delay = 0,
+}: {
+  value: number
+  prefix?: string
+  suffix?: string
+  delay?: number
+}) {
+  const ref = useRef<HTMLSpanElement>(null)
+  const isInView = useInView(ref, { once: true })
+  const shouldReduce = useReducedMotion()
+  const [display, setDisplay] = useState(0)
+  const hasAnimated = useRef(false)
+
+  useEffect(() => {
+    if (!isInView || shouldReduce || hasAnimated.current) return
+    hasAnimated.current = true
+
+    const timeout = setTimeout(() => {
+      const duration = 1500
+      const startTime = performance.now()
+
+      const tick = (now: number) => {
+        const elapsed = now - startTime
+        const progress = Math.min(elapsed / duration, 1)
+        const eased = 1 - Math.pow(1 - progress, 3)
+        setDisplay(Math.round(eased * value))
+        if (progress < 1) requestAnimationFrame(tick)
+      }
+
+      requestAnimationFrame(tick)
+    }, delay * 1000)
+
+    return () => clearTimeout(timeout)
+  }, [isInView, value, shouldReduce, delay])
+
+  if (shouldReduce) {
+    return (
+      <span>
+        {prefix}
+        {value}
+        {suffix}
+      </span>
+    )
+  }
+
+  return (
+    <span ref={ref}>
+      {prefix}
+      {display}
+      {suffix}
+    </span>
+  )
+}
+
+export function AnimatedLine({ className }: { className?: string }) {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-80px" })
+  const shouldReduce = useReducedMotion()
+
+  if (shouldReduce) {
+    return <div className={`w-12 h-px bg-accent ${className || ""}`} />
+  }
+
+  return (
+    <motion.div
+      ref={ref}
+      className={`h-px bg-accent ${className || ""}`}
+      initial={{ width: 0 }}
+      animate={isInView ? { width: 48 } : { width: 0 }}
+      transition={{ duration: 0.8, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
+    />
   )
 }

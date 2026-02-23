@@ -1,6 +1,4 @@
-"use client"
-
-import { FadeIn } from "./motion"
+import { FadeIn, AnimatedLine } from "./motion"
 
 const steps = [
   {
@@ -43,7 +41,7 @@ export default function Methodology() {
         {/* Section header */}
         <FadeIn>
           <div className="flex items-center gap-4 mb-6">
-            <div className="w-12 h-px bg-accent" />
+            <AnimatedLine />
             <p className="font-mono text-xs tracking-[0.3em] uppercase text-accent">
               Metodología
             </p>
