@@ -1,103 +1,131 @@
 "use client"
 
-import React from "react"
-import { Calendar, MessageCircle, Mail, ArrowRight, CheckCircle } from 'lucide-react'
+import { ArrowRight, Mail, Phone, MapPin } from "lucide-react"
+import { FadeIn } from "./motion"
 
 export default function CTA() {
   return (
-    <section className="py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-hidden">
-      {/* Background Effects - Simplificado */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-      </div>
+    <section className="py-28 lg:py-36 bg-primary text-primary-foreground relative overflow-hidden">
+      {/* Background pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.02]"
+        style={{
+          backgroundImage:
+            "linear-gradient(hsl(0 0% 100%) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 100%) 1px, transparent 1px)",
+          backgroundSize: "80px 80px",
+        }}
+      />
 
-      <div className="container px-4 md:px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          
-          {/* Header Simplificado */}
-          <div className="mb-12">
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-              ¿Listo para{" "}
-              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                transformar
-              </span>{" "}
-              tu negocio?
+      {/* Large accent block */}
+      <div className="absolute bottom-0 right-0 w-1/3 h-1/2 bg-accent/5" />
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="grid lg:grid-cols-[1.2fr_1fr] gap-16 lg:gap-24">
+          {/* Left - Main message */}
+          <FadeIn>
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-12 h-px bg-accent" />
+              <p className="font-mono text-xs tracking-[0.3em] uppercase text-accent">
+                Contacto
+              </p>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-primary-foreground text-balance leading-[1.05] mb-8">
+              Hablemos de
+              <br />
+              su proyecto
             </h2>
-            
-            <p className="text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed">
-              Agenda una consulta estratégica gratuita y descubre cómo la IA puede revolucionar tu empresa.
+            <p className="text-lg text-primary-foreground/50 leading-relaxed max-w-lg mb-12">
+              Cada proyecto comienza con una conversación sobre sus datos,
+              sus objetivos y el contexto de su organización. Agende una
+              consulta inicial sin costo para evaluar cómo podemos aportar.
             </p>
-          </div>
 
-          {/* Acción Principal - MÁS PROMINENTE */}
-          <div className="mb-12">
-            <a
-              href="https://calendly.com/bonillahermes/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-white hover:bg-gray-50 text-slate-900 px-12 py-6 text-xl font-bold rounded-2xl shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-white/10"
-            >
-              <Calendar className="w-6 h-6" />
-              <span>Agenda tu Consulta Gratuita</span>
-              <ArrowRight className="w-6 h-6" />
-            </a>
-            
-            <div className="flex items-center justify-center gap-6 mt-6 text-blue-100">
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-green-400" />
-                <span>100% Gratuita</span>
+            {/* CTA buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 mb-16">
+              <a
+                href="https://calendly.com/bonillahermes/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-3 bg-accent text-accent-foreground px-8 py-4 text-sm font-semibold tracking-wide hover:bg-accent/90 transition-all"
+              >
+                Agendar consulta gratuita
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a
+                href="mailto:consulta@hermesbonilla.com"
+                className="inline-flex items-center gap-2 text-sm text-primary-foreground/50 hover:text-primary-foreground transition-colors px-3 py-4 border border-primary-foreground/10 hover:border-primary-foreground/30"
+              >
+                Enviar correo
+              </a>
+            </div>
+
+            {/* Trust note */}
+            <div className="border-t border-primary-foreground/10 pt-8">
+              <p className="text-xs text-primary-foreground/30 uppercase tracking-widest mb-3">
+                Compromiso
+              </p>
+              <p className="text-sm text-primary-foreground/50 leading-relaxed max-w-md">
+                Consulta confidencial y sin compromiso. Evaluamos su caso y le
+                indicamos con honestidad si podemos aportar valor antes de
+                cualquier acuerdo comercial.
+              </p>
+            </div>
+          </FadeIn>
+
+          {/* Right - Contact details */}
+          <FadeIn delay={0.2}>
+            <div className="flex flex-col gap-0 border border-primary-foreground/10">
+              {/* Email */}
+              <div className="p-8 lg:p-10 border-b border-primary-foreground/10">
+                <div className="flex items-center gap-3 mb-4">
+                  <Mail className="w-4 h-4 text-accent" />
+                  <p className="text-xs uppercase tracking-widest text-primary-foreground/30">
+                    Email
+                  </p>
+                </div>
+                <a
+                  href="mailto:consulta@hermesbonilla.com"
+                  className="text-lg text-primary-foreground hover:text-accent transition-colors"
+                >
+                  consulta@hermesbonilla.com
+                </a>
               </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-green-400" />
-                <span>30 minutos</span>
+
+              {/* WhatsApp */}
+              <div className="p-8 lg:p-10 border-b border-primary-foreground/10">
+                <div className="flex items-center gap-3 mb-4">
+                  <Phone className="w-4 h-4 text-accent" />
+                  <p className="text-xs uppercase tracking-widest text-primary-foreground/30">
+                    WhatsApp
+                  </p>
+                </div>
+                <a
+                  href="https://wa.me/573009769468"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-lg text-primary-foreground hover:text-accent transition-colors"
+                >
+                  +57 300 976 9468
+                </a>
               </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-green-400" />
-                <span>Sin compromisos</span>
+
+              {/* Location */}
+              <div className="p-8 lg:p-10">
+                <div className="flex items-center gap-3 mb-4">
+                  <MapPin className="w-4 h-4 text-accent" />
+                  <p className="text-xs uppercase tracking-widest text-primary-foreground/30">
+                    Ubicación
+                  </p>
+                </div>
+                <p className="text-lg text-primary-foreground">
+                  Bogotá, Colombia
+                </p>
+                <p className="text-sm text-primary-foreground/40 mt-2">
+                  Disponible en toda Colombia y LATAM
+                </p>
               </div>
             </div>
-          </div>
-
-          {/* Separador */}
-          <div className="flex items-center gap-4 my-8">
-            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-            <span className="text-white/70 text-sm bg-white/5 px-4 py-2 rounded-full backdrop-blur-sm">
-              o contáctame directamente
-            </span>
-            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-          </div>
-
-          {/* Opciones de Contacto Directo - SIMPLIFICADAS */}
-          <div className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
-            <a
-              href="https://wa.me/573009769468?text=Hola%20Hermes,%20estoy%20interesado%20en%20una%20consulta%20sobre%20Data%20Science%20para%20mi%20empresa"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group bg-white/10 border border-white/20 text-white hover:bg-white/20 hover:border-white/30 py-4 rounded-xl backdrop-blur-sm transition-all hover:scale-105 inline-flex items-center gap-3 px-6 justify-center"
-            >
-              <MessageCircle className="w-5 h-5 text-green-400" />
-              <span className="font-medium">WhatsApp</span>
-              <ArrowRight className="w-4 h-4 ml-auto group-hover:translate-x-1 transition-transform" />
-            </a>
-
-            <a
-              href="mailto:consulta@bonillahermes.com?subject=Consulta%20sobre%20servicios%20de%20Data%20Science"
-              className="group bg-white/10 border border-white/20 text-white hover:bg-white/20 hover:border-white/30 py-4 rounded-xl backdrop-blur-sm transition-all hover:scale-105 inline-flex items-center gap-3 px-6 justify-center"
-            >
-              <Mail className="w-5 h-5 text-blue-400" />
-              <span className="font-medium">Email</span>
-              <ArrowRight className="w-4 h-4 ml-auto group-hover:translate-x-1 transition-transform" />
-            </a>
-          </div>
-
-          {/* Información de Contacto - MÍNIMA */}
-          <div className="text-center pt-8 border-t border-white/10 mt-12">
-            <div className="text-blue-100 text-sm">
-              <span className="font-medium">+57 300 976 9468</span> • <span className="font-medium">consulta@bonillahermes.com</span>
-            </div>
-            <p className="text-white/60 text-xs mt-2">Te respondo en menos de 12 horas</p>
-          </div>
+          </FadeIn>
         </div>
       </div>
     </section>

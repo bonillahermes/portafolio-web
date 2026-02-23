@@ -1,43 +1,33 @@
-import Hero from "../components/hero"
-import Services from "../components/services"
-import CaseStudies from "../components/case-studies"
-import BlogSection from "../components/blog/blog-section"
-import Testimonials from "../components/testimonials"
-import About from "../components/about"
-import Process from "../components/process"
-import FAQ from "../components/faq"
-import CTA from "../components/cta"
+import Hero from "@/components/hero"
+import TrustBar from "@/components/trust-bar"
+import Services from "@/components/services"
+import Methodology from "@/components/methodology"
+import CaseStudies from "@/components/case-studies"
+import Team from "@/components/team"
+import CTA from "@/components/cta"
 
 export default function Page() {
   return (
-    <div className="min-h-screen bg-white">
-      <section id="home">
+    <>
+      <section id="inicio">
         <Hero />
       </section>
+      <TrustBar />
       <section id="servicios">
         <Services />
       </section>
-      <section id="casos">
+      <section id="metodologia">
+        <Methodology />
+      </section>
+      <section id="resultados">
         <CaseStudies />
       </section>
-      <section id="blog">
-        <BlogSection />
-      </section>
-      <section id="testimonials">
-        <Testimonials />
-      </section>
-      <section id="sobre-mi">
-        <About />
-      </section>
-      <section id="proceso">
-        <Process />
-      </section>
-      <section id="faq">
-        <FAQ />
+      <section id="equipo">
+        <Team />
       </section>
       <section id="contacto">
         <CTA />
       </section>
-    </div>
+    </>
   )
 }
