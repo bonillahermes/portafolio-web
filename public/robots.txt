@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /.next/
+Disallow: /api/
 
-Sitemap: https://bonillahermes.com/sitemap.xml
+Sitemap: https://hermesbonilla.com/sitemap.xml
