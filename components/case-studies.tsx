@@ -1,41 +1,32 @@
 import Image from "next/image"
-import { FadeIn, AnimatedNumber, AnimatedLine } from "./motion"
+import { FadeIn, AnimatedLine } from "./motion"
 
 const cases = [
   {
-    sector: "Campaña electoral",
-    tag: "Inteligencia electoral",
+    sector: "Ministerio del Interior",
+    tag: "Plataforma de gestión",
     description:
-      "Segmentación cuantitativa de votantes y optimización de la inversión en territorio. Modelo predictivo de comportamiento electoral por zona.",
-    metricPrefix: "+",
-    metricValue: 12,
-    metricSuffix: "%",
-    metricLabel: "sobre proyecciones iniciales",
-    result: "Victoria electoral",
+      "Sistema de monitoreo del Puesto de Mando Unificado electoral. Digitalización del seguimiento operativo durante jornadas electorales en todo el territorio nacional.",
+    metricText: "PMU Electoral",
+    result: "En operación",
     image: "/images/electoral.jpg",
   },
   {
-    sector: "Senado de la República",
-    tag: "Políticas públicas",
+    sector: "Ministerio del Interior",
+    tag: "Plataforma institucional",
     description:
-      "Integración de bases de datos institucionales y desarrollo de un modelo predictivo de violencia política con enfoque de género.",
-    metricPrefix: "",
-    metricValue: 100,
-    metricSuffix: "%",
-    metricLabel: "operativo en alertas tempranas",
+      "Sistema de Vigilancia, Seguimiento y Gestión de Casos de Violencia contra la Mujer en Política, desarrollado en cumplimiento de la Ley 2453 de 2025.",
+    metricText: "SIVIGEM",
     result: "Sistema activo",
     image: "/images/senado.jpg",
   },
   {
-    sector: "Sector Salud",
-    tag: "Análisis geoespacial",
+    sector: "Seguimiento legislativo",
+    tag: "Analítica electoral",
     description:
-      "Optimización geográfica de la cadena de distribución de medicamentos oncológicos en zonas rurales de difícil acceso.",
-    metricPrefix: "-",
-    metricValue: 60,
-    metricSuffix: "%",
-    metricLabel: "tiempos de entrega rural",
-    result: "Impacto directo",
+      "Plataforma de seguimiento de datos electorales y actividad legislativa. Insumo de inteligencia para UTL y equipos de campaña.",
+    metricText: "Dashboard Congreso",
+    result: "En desarrollo",
     image: "/images/salud.jpg",
   },
 ]
@@ -70,7 +61,7 @@ export default function CaseStudies() {
         {/* Cases */}
         <div className="flex flex-col gap-6">
           {cases.map((item, i) => (
-            <FadeIn key={item.sector} delay={i * 0.1}>
+            <FadeIn key={item.metricText} delay={i * 0.1}>
               <div className="bg-background border border-border hover:border-accent/30 transition-colors overflow-hidden">
                 <div className="grid lg:grid-cols-[280px_1fr] items-stretch">
                   {/* Image */}
@@ -87,11 +78,8 @@ export default function CaseStudies() {
                   <div className="p-8 lg:p-12 grid lg:grid-cols-[1fr_2fr_1fr] gap-8 lg:gap-12 items-center">
                     {/* Left - Metric */}
                     <div className="flex flex-col">
-                      <span className="font-mono text-5xl lg:text-6xl font-bold text-foreground leading-none mb-2">
-                        <AnimatedNumber value={item.metricValue} prefix={item.metricPrefix} suffix={item.metricSuffix} />
-                      </span>
-                      <span className="text-xs text-secondary uppercase tracking-wider">
-                        {item.metricLabel}
+                      <span className="font-mono text-3xl lg:text-4xl font-bold text-foreground leading-none mb-2">
+                        {item.metricText}
                       </span>
                     </div>
 

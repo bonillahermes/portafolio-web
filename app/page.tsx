@@ -2,8 +2,8 @@ import Hero from "@/components/hero"
 import TrustBar from "@/components/trust-bar"
 import Services from "@/components/services"
 import Methodology from "@/components/methodology"
-import CaseStudies from "@/components/case-studies"
 import Team from "@/components/team"
+import Platforms from "@/components/platforms"
 import CTA from "@/components/cta"
 
 export default function Page() {
@@ -19,8 +19,8 @@ export default function Page() {
       <section id="metodologia">
         <Methodology />
       </section>
-      <section id="resultados">
-        <CaseStudies />
+      <section id="plataformas">
+        <Platforms />
       </section>
       <section id="equipo">
         <Team />
