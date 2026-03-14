@@ -6,8 +6,8 @@ import { AnimatedNumber } from "./motion"
 import Image from "next/image"
 
 const stats = [
-  { value: "4", label: "Disciplinas integradas" },
-  { value: "3", label: "Sectores de impacto" },
+  { value: "2", label: "Segmentos atendidos" },
+  { value: "5", label: "Plataformas desarrolladas" },
   { value: "End-to-end", label: "Acompañamiento" },
   { value: "LATAM", label: "Cobertura regional" },
 ]
@@ -65,7 +65,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
           />
           <p className="font-mono text-xs tracking-[0.3em] uppercase text-accent">
-            Consultoría en analítica de datos
+            Datos e inteligencia para el sector público
           </p>
         </motion.div>
 
@@ -100,8 +100,8 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.4 }}
           className="text-lg md:text-xl lg:text-2xl text-primary-foreground/60 leading-relaxed max-w-2xl mb-14"
         >
-          Convertimos datos en ventaja estratégica para quienes toman las
-          decisiones que transforman lo público.
+          Analítica de datos, inteligencia artificial y plataformas de gestión
+          para congresistas, UTL y entidades del gobierno nacional.
         </motion.p>
 
         {/* CTA row */}
