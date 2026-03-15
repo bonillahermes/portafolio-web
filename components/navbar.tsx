@@ -51,7 +51,7 @@ export default function Navbar() {
       aria-label="Navegación principal"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-background/95 backdrop-blur-sm border-b border-border shadow-sm"
+          ? "bg-white/90 backdrop-blur-md border-b border-border shadow-sm"
           : "bg-transparent"
       }`}
     >
@@ -62,11 +62,11 @@ export default function Navbar() {
             onClick={handleLogoClick}
             className="flex flex-col"
           >
-            <span className={`text-base font-semibold tracking-tight transition-colors ${isScrolled ? "text-foreground" : "text-primary-foreground"}`}>
+            <span className={`text-base font-semibold tracking-tight transition-colors ${isScrolled ? "text-foreground" : "text-white"}`}>
               Hermes Bonilla
             </span>
-            <span className={`text-[10px] font-mono uppercase tracking-[0.2em] transition-colors ${isScrolled ? "text-secondary" : "text-primary-foreground/60"}`}>
-              Consultoría en datos
+            <span className={`text-[10px] font-mono uppercase tracking-[0.15em] transition-colors ${isScrolled ? "text-muted-foreground" : "text-white/50"}`}>
+              Datos e inteligencia
             </span>
           </button>
 
@@ -82,10 +82,10 @@ export default function Navbar() {
                     scrollToSection(item.href)
                   }
                 }}
-                className={`text-sm tracking-wide transition-colors ${
+                className={`text-sm transition-colors ${
                   isScrolled
-                    ? "text-secondary hover:text-foreground"
-                    : "text-primary-foreground/70 hover:text-primary-foreground"
+                    ? "text-muted-foreground hover:text-foreground"
+                    : "text-white/60 hover:text-white"
                 }`}
               >
                 {item.name}
@@ -99,20 +99,16 @@ export default function Navbar() {
               href="https://wa.me/573009769468?text=Hola%2C%20me%20interesa%20una%20consulta"
               target="_blank"
               rel="noopener noreferrer"
-              className={`text-sm font-semibold px-5 py-2.5 transition-colors ${
-                isScrolled
-                  ? "bg-accent text-accent-foreground hover:bg-accent/90"
-                  : "bg-accent text-accent-foreground hover:bg-accent/90"
-              }`}
+              className="text-sm font-semibold px-5 py-2.5 bg-accent text-white hover:bg-accent/90 transition-colors rounded-lg"
             >
-              Agendar consulta
+              Contacto
             </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`lg:hidden transition-colors ${isScrolled ? "text-foreground" : "text-primary-foreground"}`}
+            className={`lg:hidden transition-colors ${isScrolled ? "text-foreground" : "text-white"}`}
             aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
           >
             {isMobileMenuOpen ? (
@@ -126,7 +122,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-background border-b border-border shadow-lg">
+        <div className="lg:hidden bg-white border-b border-border shadow-lg">
           <div className="px-6 py-6 flex flex-col gap-4">
             {navItems.map((item) => (
               <a
@@ -140,7 +136,7 @@ export default function Navbar() {
                     setIsMobileMenuOpen(false)
                   }
                 }}
-                className="text-sm text-secondary hover:text-foreground transition-colors text-left py-1"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors text-left py-1"
               >
                 {item.name}
               </a>
@@ -149,9 +145,9 @@ export default function Navbar() {
               href="https://wa.me/573009769468?text=Hola%2C%20me%20interesa%20una%20consulta"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-semibold text-accent-foreground bg-accent px-5 py-3 hover:bg-accent/90 transition-colors text-center mt-2"
+              className="text-sm font-semibold px-5 py-3 bg-accent text-white hover:bg-accent/90 transition-colors text-center mt-2 rounded-lg"
             >
-              Agendar consulta
+              Contacto
             </a>
           </div>
         </div>

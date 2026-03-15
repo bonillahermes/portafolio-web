@@ -24,13 +24,13 @@ export default function Hero() {
         priority
       />
       {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-primary/75" />
+      <div className="absolute inset-0 bg-primary/85" />
       {/* Grid pattern */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.06]"
         style={{
           backgroundImage:
-            "linear-gradient(hsl(0 0% 100%) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 100%) 1px, transparent 1px)",
+            "linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)",
           backgroundSize: "80px 80px",
         }}
       />
@@ -39,15 +39,15 @@ export default function Hero() {
       <div className="absolute top-24 right-6 lg:right-16 select-none pointer-events-none">
         <motion.span
           initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 0.03, x: 0 }}
+          animate={{ opacity: 0.04, x: 0 }}
           transition={{ duration: 1.2, delay: 0.5 }}
-          className="font-mono text-[20rem] lg:text-[28rem] font-bold text-primary-foreground leading-none block"
+          className="font-mono text-[20rem] lg:text-[28rem] font-bold text-white leading-none block"
         >
           HB
         </motion.span>
       </div>
 
-      {/* Gold top accent */}
+      {/* Top accent */}
       <div className="absolute top-0 left-0 w-full h-1 bg-accent" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10 pb-16 pt-36 lg:pb-20 lg:pt-48 w-full">
@@ -64,13 +64,13 @@ export default function Hero() {
             animate={{ width: 48 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
           />
-          <p className="font-mono text-xs tracking-[0.3em] uppercase text-accent">
-            Datos e inteligencia para el sector público
+          <p className="font-mono text-xs tracking-[0.2em] uppercase text-accent">
+            Analítica y sistemas para instituciones públicas
           </p>
         </motion.div>
 
         {/* Main headline */}
-        <h1 className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold text-primary-foreground leading-[0.95] tracking-tight text-balance mb-8">
+        <h1 className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold text-white leading-[0.95] tracking-tight text-balance mb-8">
           {["Datos", "que"].map((word, i) => (
             <motion.span
               key={word}
@@ -98,10 +98,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4 }}
-          className="text-lg md:text-xl lg:text-2xl text-primary-foreground/60 leading-relaxed max-w-2xl mb-14"
+          className="text-lg md:text-xl lg:text-2xl text-white/60 leading-relaxed max-w-2xl mb-14"
         >
-          Analítica de datos, inteligencia artificial y plataformas de gestión
-          para congresistas, UTL y entidades del gobierno nacional.
+          Analítica de datos, inteligencia artificial y desarrollo de sistemas
+          orientados a fortalecer la toma de decisiones en entidades públicas,
+          equipos legislativos y organizaciones institucionales.
         </motion.p>
 
         {/* CTA row */}
@@ -115,16 +116,22 @@ export default function Hero() {
             href="https://wa.me/573009769468?text=Hola%2C%20me%20interesa%20una%20consulta%20estrat%C3%A9gica"
             target="_blank"
             rel="noopener noreferrer"
-            className="shimmer-cta group inline-flex items-center gap-3 bg-accent text-accent-foreground px-8 py-4 text-sm font-semibold tracking-wide hover:bg-accent/90 transition-all"
+            className="group inline-flex items-center gap-3 bg-accent text-white px-8 py-4 text-sm font-semibold tracking-wide hover:bg-accent/90 transition-all rounded-lg"
           >
-            Agendar consulta estratégica
+            Solicitar conversación estratégica
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
           <a
             href="#servicios"
-            className="inline-flex items-center gap-2 text-sm text-primary-foreground/50 hover:text-primary-foreground transition-colors px-3 py-4 border border-primary-foreground/10 hover:border-primary-foreground/30"
+            className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-white transition-colors px-4 py-4 border border-white/15 hover:border-white/30 rounded-lg"
           >
-            Explorar servicios
+            Ver capacidades
+          </a>
+          <a
+            href="/brochure"
+            className="inline-flex items-center gap-2 text-sm text-white/40 hover:text-white transition-colors px-4 py-4"
+          >
+            Descargar brochure
           </a>
         </motion.div>
 
@@ -133,7 +140,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.6 }}
-          className="pt-10 border-t border-primary-foreground/10 grid grid-cols-2 lg:grid-cols-4 gap-10"
+          className="pt-10 border-t border-white/10 grid grid-cols-2 lg:grid-cols-4 gap-10"
         >
           {stats.map((stat, i) => {
             const numericValue = Number(stat.value)
@@ -145,14 +152,14 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.7 + i * 0.1 }}
               >
-                <p className="font-mono text-3xl md:text-4xl font-bold text-primary-foreground mb-2">
+                <p className="font-mono text-3xl md:text-4xl font-semibold mb-2 text-accent">
                   {isNumeric ? (
                     <AnimatedNumber value={numericValue} delay={0.9 + i * 0.1} />
                   ) : (
                     stat.value
                   )}
                 </p>
-                <p className="text-xs text-primary-foreground/40 uppercase tracking-widest">
+                <p className="text-xs text-white/40 uppercase tracking-widest">
                   {stat.label}
                 </p>
               </motion.div>
@@ -172,7 +179,7 @@ export default function Hero() {
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
         >
-          <ChevronDown className="w-5 h-5 text-primary-foreground/30" />
+          <ChevronDown className="w-5 h-5 text-white/30" />
         </motion.div>
       </motion.div>
     </section>
