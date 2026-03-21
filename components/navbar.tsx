@@ -9,6 +9,7 @@ const navItems = [
   { name: "Metodología", href: "#metodologia" },
   { name: "Plataformas", href: "#plataformas" },
   { name: "Equipo", href: "#equipo" },
+  { name: "Laboratorio", href: "/laboratorio" },
   { name: "Blog", href: "/blog" },
   { name: "Contacto", href: "#contacto" },
 ]
