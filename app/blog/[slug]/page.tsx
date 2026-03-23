@@ -27,7 +27,10 @@ export function generateMetadata({ params }: Props): Metadata {
       description: post.excerpt,
       type: "article",
       publishedTime: post.date,
+      modifiedTime: post.date,
       authors: [post.author],
+      section: post.category,
+      tags: post.tags,
       siteName: "Hermes Bonilla",
       locale: "es_CO",
       url: `https://hermesbonilla.com/blog/${params.slug}`,
@@ -47,26 +50,55 @@ export default function BlogPostPage({ params }: Props) {
   const post = getPostBySlug(params.slug)
   if (!post) notFound()
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: post.title,
-    description: post.excerpt,
-    author: {
-      "@type": "Person",
-      name: post.author,
-      url: "https://hermesbonilla.com",
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: post.title,
+      description: post.excerpt,
+      author: {
+        "@type": "Person",
+        name: post.author,
+        url: "https://hermesbonilla.com",
+      },
+      datePublished: post.date,
+      dateModified: post.date,
+      publisher: {
+        "@type": "Person",
+        name: "Hermes Bonilla",
+        url: "https://hermesbonilla.com",
+      },
+      mainEntityOfPage: `https://hermesbonilla.com/blog/${params.slug}`,
+      articleSection: post.category,
+      keywords: post.tags.join(", "),
+      inLanguage: "es",
+      wordCount: post.content.split(/\s+/).length,
     },
-    datePublished: post.date,
-    publisher: {
-      "@type": "Person",
-      name: "Hermes Bonilla",
-      url: "https://hermesbonilla.com",
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Inicio",
+          item: "https://hermesbonilla.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Blog",
+          item: "https://hermesbonilla.com/blog",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: post.title,
+          item: `https://hermesbonilla.com/blog/${params.slug}`,
+        },
+      ],
     },
-    mainEntityOfPage: `https://hermesbonilla.com/blog/${params.slug}`,
-    keywords: post.tags.join(", "),
-    inLanguage: "es",
-  }
+  ]
 
   return (
     <article className="pt-32 pb-20 bg-background min-h-screen">

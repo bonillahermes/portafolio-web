@@ -1,3 +1,4 @@
+import { Metadata } from "next"
 import Hero from "@/components/hero"
 import TrustBar from "@/components/trust-bar"
 import Services from "@/components/services"
@@ -5,6 +6,15 @@ import Methodology from "@/components/methodology"
 import Team from "@/components/team"
 import Platforms from "@/components/platforms"
 import CTA from "@/components/cta"
+
+export const metadata: Metadata = {
+  title: "Hermes Bonilla — Datos, IA y Plataformas para el Sector Público",
+  description:
+    "Especialista en analítica de datos, inteligencia artificial y plataformas de gestión para congresistas, UTL y entidades del gobierno colombiano.",
+  alternates: {
+    canonical: "https://hermesbonilla.com",
+  },
+}
 
 export default function Page() {
   return (

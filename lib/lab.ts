@@ -26,12 +26,12 @@ export const labProjects: LabProject[] = [
   },
   {
     slug: "ecp-2023",
-    title: "Cultura Politica Colombia 2023",
+    title: "Cultura Política Colombia 2023",
     description:
-      "Analisis de microdatos de la Encuesta de Cultura Politica del DANE. Confianza institucional, percepcion de corrupcion, perfiles ciudadanos y capital social sobre 46.392 encuestados.",
+      "Análisis de microdatos de la Encuesta de Cultura Política del DANE. Confianza institucional, percepción de corrupción, perfiles ciudadanos y capital social sobre 46.392 encuestados.",
     source: "DANE — Microdatos ECP 2023",
     sourceUrl: "https://microdatos.dane.gov.co/catalog/883/get-microdata",
-    tags: ["DANE", "cultura politica", "datos publicos", "clustering"],
+    tags: ["DANE", "cultura política", "datos públicos", "clustering"],
     date: "2026-03-22",
     component: () => import("@/components/EcpDashboard"),
   },

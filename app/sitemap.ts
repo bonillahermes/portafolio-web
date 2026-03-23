@@ -40,6 +40,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: "https://hermesbonilla.com/brochure",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.4,
+    },
+    {
       url: "https://hermesbonilla.com/legal",
       lastModified: new Date(),
       changeFrequency: "yearly",

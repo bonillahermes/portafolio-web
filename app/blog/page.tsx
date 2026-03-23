@@ -8,6 +8,24 @@ export const metadata: Metadata = {
   title: "Blog — Hermes Bonilla",
   description:
     "Artículos sobre analítica de datos, inteligencia artificial y ciencia de datos aplicada a política y gobierno.",
+  openGraph: {
+    title: "Blog — Hermes Bonilla",
+    description:
+      "Artículos sobre analítica de datos, inteligencia artificial y ciencia de datos aplicada a política y gobierno.",
+    type: "website",
+    siteName: "Hermes Bonilla",
+    locale: "es_CO",
+    url: "https://hermesbonilla.com/blog",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog — Hermes Bonilla",
+    description:
+      "Artículos sobre analítica de datos, inteligencia artificial y ciencia de datos aplicada a política y gobierno.",
+  },
+  alternates: {
+    canonical: "https://hermesbonilla.com/blog",
+  },
 }
 
 export default function BlogPage() {

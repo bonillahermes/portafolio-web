@@ -66,21 +66,48 @@ export default function LabProjectPage({ params }: Props) {
     ),
   })
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    name: project.title,
-    description: project.description,
-    author: {
-      "@type": "Person",
-      name: "Hermes Bonilla",
-      url: "https://hermesbonilla.com",
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      name: project.title,
+      description: project.description,
+      author: {
+        "@type": "Person",
+        name: "Hermes Bonilla",
+        url: "https://hermesbonilla.com",
+      },
+      datePublished: project.date,
+      url: `https://hermesbonilla.com/laboratorio/${params.slug}`,
+      keywords: project.tags.join(", "),
+      inLanguage: "es",
+      applicationCategory: "DataVisualization",
     },
-    datePublished: project.date,
-    url: `https://hermesbonilla.com/laboratorio/${params.slug}`,
-    keywords: project.tags.join(", "),
-    inLanguage: "es",
-  }
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Inicio",
+          item: "https://hermesbonilla.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Laboratorio",
+          item: "https://hermesbonilla.com/laboratorio",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: project.title,
+          item: `https://hermesbonilla.com/laboratorio/${params.slug}`,
+        },
+      ],
+    },
+  ]
 
   return (
     <div className="min-h-screen bg-background">
