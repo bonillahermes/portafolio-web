@@ -1,0 +1,177 @@
+{
+  "metadatos": {
+    "fecha_generacion": "2026-03-22",
+    "fuente": "DANE — Encuesta de Cultura Politica 2023",
+    "codigo": "DANE-DIMPE-ECP-2023",
+    "n_encuestados": 46392,
+    "version": "2.0"
+  },
+  "nacional": {
+    "idx_confianza": 39.488,
+    "idx_corrupcion": 64.317,
+    "brecha_demo": 1.631,
+    "idx_participacion_org": 1.21,
+    "idx_conocimiento_mecanismos": 37.813,
+    "idx_cs_bonding": 3.582,
+    "idx_cs_bridging": 2.273,
+    "idx_intolerancia": 2.53
+  },
+  "por_region": {
+    "Bogota": {
+      "idx_confianza": 35.869,
+      "idx_corrupcion": 66.484,
+      "brecha_demo": 1.772,
+      "idx_participacion_org": 1.06,
+      "idx_conocimiento_mecanismos": 44.825,
+      "idx_cs_bonding": 3.513,
+      "idx_cs_bridging": 2.27,
+      "idx_intolerancia": 2.832
+    },
+    "Oriental": {
+      "idx_confianza": 43.54,
+      "idx_corrupcion": 60.053,
+      "brecha_demo": 1.342,
+      "idx_participacion_org": 1.259,
+      "idx_conocimiento_mecanismos": 37.858,
+      "idx_cs_bonding": 3.684,
+      "idx_cs_bridging": 2.454,
+      "idx_intolerancia": 2.477
+    },
+    "Atlantica": {
+      "idx_confianza": 40.09,
+      "idx_corrupcion": 65.723,
+      "brecha_demo": 1.631,
+      "idx_participacion_org": 1.128,
+      "idx_conocimiento_mecanismos": 40.018,
+      "idx_cs_bonding": 3.619,
+      "idx_cs_bridging": 2.345,
+      "idx_intolerancia": 2.694
+    },
+    "Central": {
+      "idx_confianza": 39.597,
+      "idx_corrupcion": 65.448,
+      "brecha_demo": 1.773,
+      "idx_participacion_org": 1.192,
+      "idx_conocimiento_mecanismos": 34.582,
+      "idx_cs_bonding": 3.499,
+      "idx_cs_bridging": 2.147,
+      "idx_intolerancia": 2.267
+    },
+    "Pacifica": {
+      "idx_confianza": 36.873,
+      "idx_corrupcion": 64.378,
+      "brecha_demo": 1.666,
+      "idx_participacion_org": 1.428,
+      "idx_conocimiento_mecanismos": 32.894,
+      "idx_cs_bonding": 3.602,
+      "idx_cs_bridging": 2.141,
+      "idx_intolerancia": 2.503
+    }
+  },
+  "por_generacion": {
+    "Gen Z (18-27)": {
+      "idx_confianza": 38.489,
+      "idx_corrupcion": 64.756,
+      "brecha_demo": 1.563,
+      "idx_participacion_org": 0.805,
+      "idx_conocimiento_mecanismos": 35.696,
+      "idx_cs_bonding": 3.52,
+      "idx_cs_bridging": 2.298,
+      "idx_intolerancia": 2.377
+    },
+    "Millennials (28-43)": {
+      "idx_confianza": 39.128,
+      "idx_corrupcion": 64.517,
+      "brecha_demo": 1.654,
+      "idx_participacion_org": 1.101,
+      "idx_conocimiento_mecanismos": 41.446,
+      "idx_cs_bonding": 3.558,
+      "idx_cs_bridging": 2.264,
+      "idx_intolerancia": 2.509
+    },
+    "Gen X (44-59)": {
+      "idx_confianza": 39.457,
+      "idx_corrupcion": 64.24,
+      "brecha_demo": 1.65,
+      "idx_participacion_org": 1.413,
+      "idx_conocimiento_mecanismos": 39.736,
+      "idx_cs_bonding": 3.6,
+      "idx_cs_bridging": 2.259,
+      "idx_intolerancia": 2.557
+    },
+    "Baby Boomers (60+)": {
+      "idx_confianza": 41.023,
+      "idx_corrupcion": 63.68,
+      "brecha_demo": 1.629,
+      "idx_participacion_org": 1.484,
+      "idx_conocimiento_mecanismos": 31.248,
+      "idx_cs_bonding": 3.654,
+      "idx_cs_bridging": 2.283,
+      "idx_intolerancia": 2.664
+    }
+  },
+  "por_sexo": {
+    "Hombre": {
+      "idx_confianza": 39.422,
+      "idx_corrupcion": 64.242,
+      "brecha_demo": 1.626,
+      "idx_participacion_org": 1.262,
+      "idx_conocimiento_mecanismos": 40.208,
+      "idx_cs_bonding": 3.59,
+      "idx_cs_bridging": 2.288,
+      "idx_intolerancia": 2.501
+    },
+    "Mujer": {
+      "idx_confianza": 39.55,
+      "idx_corrupcion": 64.385,
+      "brecha_demo": 1.636,
+      "idx_participacion_org": 1.163,
+      "idx_conocimiento_mecanismos": 35.619,
+      "idx_cs_bonding": 3.576,
+      "idx_cs_bridging": 2.259,
+      "idx_intolerancia": 2.557
+    }
+  },
+  "por_educacion": {
+    "Sin educacion": {
+      "idx_confianza": 41.691,
+      "idx_corrupcion": 60.745,
+      "brecha_demo": 1.299,
+      "idx_participacion_org": 1.141,
+      "idx_conocimiento_mecanismos": 10.487,
+      "idx_cs_bonding": 3.664,
+      "idx_cs_bridging": 2.287,
+      "idx_intolerancia": 2.452
+    },
+    "Primaria": {
+      "idx_confianza": 40.119,
+      "idx_corrupcion": 63.926,
+      "brecha_demo": 1.526,
+      "idx_participacion_org": 1.466,
+      "idx_conocimiento_mecanismos": 22.018,
+      "idx_cs_bonding": 3.577,
+      "idx_cs_bridging": 2.186,
+      "idx_intolerancia": 2.599
+    },
+    "Bachillerato": {
+      "idx_confianza": 38.96,
+      "idx_corrupcion": 64.476,
+      "brecha_demo": 1.605,
+      "idx_participacion_org": 1.01,
+      "idx_conocimiento_mecanismos": 33.972,
+      "idx_cs_bonding": 3.556,
+      "idx_cs_bridging": 2.252,
+      "idx_intolerancia": 2.483
+    },
+    "Superior": {
+      "idx_confianza": 39.566,
+      "idx_corrupcion": 64.713,
+      "brecha_demo": 1.77,
+      "idx_participacion_org": 1.316,
+      "idx_conocimiento_mecanismos": 57.403,
+      "idx_cs_bonding": 3.613,
+      "idx_cs_bridging": 2.36,
+      "idx_intolerancia": 2.556
+    }
+  }
+}

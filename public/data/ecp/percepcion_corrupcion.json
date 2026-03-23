@@ -1,0 +1,429 @@
+{
+  "metadatos": {
+    "fecha_generacion": "2026-03-22",
+    "fuente": "DANE — Encuesta de Cultura Politica 2023",
+    "codigo": "DANE-DIMPE-ECP-2023",
+    "n_encuestados": 46392,
+    "version": "2.0"
+  },
+  "ranking": [
+    {
+      "variable": "P2016S6",
+      "actor": "Congreso",
+      "media_ponderada": 3.886,
+      "pct_muy_corrupto": 62.3,
+      "pct_nada_corrupto": 6.1,
+      "n_valido": 42809
+    },
+    {
+      "variable": "P2016S3",
+      "actor": "Gobierno municipal",
+      "media_ponderada": 3.716,
+      "pct_muy_corrupto": 54.0,
+      "pct_nada_corrupto": 6.9,
+      "n_valido": 43112
+    },
+    {
+      "variable": "P2016S2",
+      "actor": "Gobierno departamental",
+      "media_ponderada": 3.64,
+      "pct_muy_corrupto": 49.9,
+      "pct_nada_corrupto": 7.9,
+      "n_valido": 42868
+    },
+    {
+      "variable": "P2016S1",
+      "actor": "Gobierno nacional",
+      "media_ponderada": 3.633,
+      "pct_muy_corrupto": 49.9,
+      "pct_nada_corrupto": 10.5,
+      "n_valido": 43302
+    },
+    {
+      "variable": "P2016S9",
+      "actor": "Policia",
+      "media_ponderada": 3.607,
+      "pct_muy_corrupto": 49.9,
+      "pct_nada_corrupto": 11.0,
+      "n_valido": 43418
+    },
+    {
+      "variable": "P2016S7",
+      "actor": "Rama judicial",
+      "media_ponderada": 3.564,
+      "pct_muy_corrupto": 46.4,
+      "pct_nada_corrupto": 9.4,
+      "n_valido": 42647
+    },
+    {
+      "variable": "P2016S5",
+      "actor": "Organos de control",
+      "media_ponderada": 3.38,
+      "pct_muy_corrupto": 38.9,
+      "pct_nada_corrupto": 16.0,
+      "n_valido": 42305
+    },
+    {
+      "variable": "P2016S8",
+      "actor": "Fuerzas Militares",
+      "media_ponderada": 3.367,
+      "pct_muy_corrupto": 39.3,
+      "pct_nada_corrupto": 16.1,
+      "n_valido": 43208
+    },
+    {
+      "variable": "P2016S4",
+      "actor": "Gremios y empresas privadas",
+      "media_ponderada": 3.35,
+      "pct_muy_corrupto": 38.2,
+      "pct_nada_corrupto": 16.8,
+      "n_valido": 41191
+    }
+  ],
+  "por_region": {
+    "Bogota": [
+      {
+        "actor": "Congreso",
+        "media": 4.106
+      },
+      {
+        "actor": "Gobierno nacional",
+        "media": 3.746
+      },
+      {
+        "actor": "Policia",
+        "media": 3.727
+      },
+      {
+        "actor": "Gobierno municipal",
+        "media": 3.724
+      },
+      {
+        "actor": "Rama judicial",
+        "media": 3.702
+      },
+      {
+        "actor": "Gobierno departamental",
+        "media": 3.701
+      },
+      {
+        "actor": "Fuerzas Militares",
+        "media": 3.412
+      },
+      {
+        "actor": "Gremios y empresas privadas",
+        "media": 3.404
+      },
+      {
+        "actor": "Organos de control",
+        "media": 3.403
+      }
+    ],
+    "Oriental": [
+      {
+        "actor": "Congreso",
+        "media": 3.673
+      },
+      {
+        "actor": "Gobierno municipal",
+        "media": 3.6
+      },
+      {
+        "actor": "Gobierno departamental",
+        "media": 3.51
+      },
+      {
+        "actor": "Policia",
+        "media": 3.465
+      },
+      {
+        "actor": "Gobierno nacional",
+        "media": 3.365
+      },
+      {
+        "actor": "Rama judicial",
+        "media": 3.355
+      },
+      {
+        "actor": "Organos de control",
+        "media": 3.225
+      },
+      {
+        "actor": "Fuerzas Militares",
+        "media": 3.218
+      },
+      {
+        "actor": "Gremios y empresas privadas",
+        "media": 3.175
+      }
+    ],
+    "Atlantica": [
+      {
+        "actor": "Congreso",
+        "media": 3.997
+      },
+      {
+        "actor": "Gobierno nacional",
+        "media": 3.826
+      },
+      {
+        "actor": "Gobierno municipal",
+        "media": 3.809
+      },
+      {
+        "actor": "Gobierno departamental",
+        "media": 3.724
+      },
+      {
+        "actor": "Rama judicial",
+        "media": 3.637
+      },
+      {
+        "actor": "Policia",
+        "media": 3.613
+      },
+      {
+        "actor": "Organos de control",
+        "media": 3.376
+      },
+      {
+        "actor": "Gremios y empresas privadas",
+        "media": 3.372
+      },
+      {
+        "actor": "Fuerzas Militares",
+        "media": 3.324
+      }
+    ],
+    "Central": [
+      {
+        "actor": "Congreso",
+        "media": 3.87
+      },
+      {
+        "actor": "Gobierno municipal",
+        "media": 3.727
+      },
+      {
+        "actor": "Gobierno nacional",
+        "media": 3.694
+      },
+      {
+        "actor": "Policia",
+        "media": 3.657
+      },
+      {
+        "actor": "Gobierno departamental",
+        "media": 3.615
+      },
+      {
+        "actor": "Rama judicial",
+        "media": 3.573
+      },
+      {
+        "actor": "Fuerzas Militares",
+        "media": 3.506
+      },
+      {
+        "actor": "Organos de control",
+        "media": 3.451
+      },
+      {
+        "actor": "Gremios y empresas privadas",
+        "media": 3.438
+      }
+    ],
+    "Pacifica": [
+      {
+        "actor": "Congreso",
+        "media": 3.831
+      },
+      {
+        "actor": "Gobierno municipal",
+        "media": 3.737
+      },
+      {
+        "actor": "Gobierno departamental",
+        "media": 3.69
+      },
+      {
+        "actor": "Rama judicial",
+        "media": 3.601
+      },
+      {
+        "actor": "Policia",
+        "media": 3.586
+      },
+      {
+        "actor": "Gobierno nacional",
+        "media": 3.545
+      },
+      {
+        "actor": "Organos de control",
+        "media": 3.472
+      },
+      {
+        "actor": "Gremios y empresas privadas",
+        "media": 3.371
+      },
+      {
+        "actor": "Fuerzas Militares",
+        "media": 3.365
+      }
+    ]
+  },
+  "por_generacion": {
+    "Gen Z (18-27)": [
+      {
+        "actor": "Congreso",
+        "media": 3.884
+      },
+      {
+        "actor": "Gobierno municipal",
+        "media": 3.724
+      },
+      {
+        "actor": "Policia",
+        "media": 3.68
+      },
+      {
+        "actor": "Gobierno departamental",
+        "media": 3.658
+      },
+      {
+        "actor": "Gobierno nacional",
+        "media": 3.594
+      },
+      {
+        "actor": "Rama judicial",
+        "media": 3.576
+      },
+      {
+        "actor": "Fuerzas Militares",
+        "media": 3.405
+      },
+      {
+        "actor": "Organos de control",
+        "media": 3.389
+      },
+      {
+        "actor": "Gremios y empresas privadas",
+        "media": 3.367
+      }
+    ],
+    "Millennials (28-43)": [
+      {
+        "actor": "Congreso",
+        "media": 3.903
+      },
+      {
+        "actor": "Gobierno municipal",
+        "media": 3.721
+      },
+      {
+        "actor": "Gobierno departamental",
+        "media": 3.65
+      },
+      {
+        "actor": "Gobierno nacional",
+        "media": 3.639
+      },
+      {
+        "actor": "Policia",
+        "media": 3.625
+      },
+      {
+        "actor": "Rama judicial",
+        "media": 3.572
+      },
+      {
+        "actor": "Organos de control",
+        "media": 3.378
+      },
+      {
+        "actor": "Fuerzas Militares",
+        "media": 3.377
+      },
+      {
+        "actor": "Gremios y empresas privadas",
+        "media": 3.358
+      }
+    ],
+    "Gen X (44-59)": [
+      {
+        "actor": "Congreso",
+        "media": 3.89
+      },
+      {
+        "actor": "Gobierno municipal",
+        "media": 3.721
+      },
+      {
+        "actor": "Gobierno nacional",
+        "media": 3.647
+      },
+      {
+        "actor": "Gobierno departamental",
+        "media": 3.635
+      },
+      {
+        "actor": "Policia",
+        "media": 3.585
+      },
+      {
+        "actor": "Rama judicial",
+        "media": 3.558
+      },
+      {
+        "actor": "Organos de control",
+        "media": 3.375
+      },
+      {
+        "actor": "Fuerzas Militares",
+        "media": 3.351
+      },
+      {
+        "actor": "Gremios y empresas privadas",
+        "media": 3.346
+      }
+    ],
+    "Baby Boomers (60+)": [
+      {
+        "actor": "Congreso",
+        "media": 3.855
+      },
+      {
+        "actor": "Gobierno municipal",
+        "media": 3.694
+      },
+      {
+        "actor": "Gobierno nacional",
+        "media": 3.638
+      },
+      {
+        "actor": "Gobierno departamental",
+        "media": 3.612
+      },
+      {
+        "actor": "Rama judicial",
+        "media": 3.548
+      },
+      {
+        "actor": "Policia",
+        "media": 3.537
+      },
+      {
+        "actor": "Organos de control",
+        "media": 3.382
+      },
+      {
+        "actor": "Fuerzas Militares",
+        "media": 3.339
+      },
+      {
+        "actor": "Gremios y empresas privadas",
+        "media": 3.325
+      }
+    ]
+  }
+}

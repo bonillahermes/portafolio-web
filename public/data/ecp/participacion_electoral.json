@@ -1,0 +1,217 @@
+{
+  "metadatos": {
+    "fecha_generacion": "2026-03-22",
+    "fuente": "DANE — Encuesta de Cultura Politica 2023",
+    "codigo": "DANE-DIMPE-ECP-2023",
+    "n_encuestados": 46392,
+    "version": "2.0"
+  },
+  "nacional": {
+    "pct_voto": 90.0,
+    "pct_abstencion": 10.0,
+    "pct_inscrito": 87.4,
+    "pct_identifica_partido": 12.1,
+    "ideologia_media": 5.865,
+    "bloque_ideologico": {
+      "Izquierda": 12.0,
+      "Centro": 65.0,
+      "Derecha": 22.9
+    }
+  },
+  "por_region": {
+    "Bogota": {
+      "pct_voto": 92.3,
+      "ideologia_media": 5.675,
+      "bloque_ideologico": {
+        "Izquierda": 14.9,
+        "Centro": 62.4,
+        "Derecha": 22.6
+      }
+    },
+    "Oriental": {
+      "pct_voto": 89.3,
+      "ideologia_media": 5.681,
+      "bloque_ideologico": {
+        "Izquierda": 13.3,
+        "Centro": 64.7,
+        "Derecha": 22.0
+      }
+    },
+    "Atlantica": {
+      "pct_voto": 90.6,
+      "ideologia_media": 6.291,
+      "bloque_ideologico": {
+        "Izquierda": 8.5,
+        "Centro": 59.6,
+        "Derecha": 32.0
+      }
+    },
+    "Central": {
+      "pct_voto": 88.6,
+      "ideologia_media": 6.216,
+      "bloque_ideologico": {
+        "Izquierda": 7.0,
+        "Centro": 66.5,
+        "Derecha": 26.5
+      }
+    },
+    "Pacifica": {
+      "pct_voto": 90.2,
+      "ideologia_media": 5.304,
+      "bloque_ideologico": {
+        "Izquierda": 16.8,
+        "Centro": 68.0,
+        "Derecha": 15.1
+      }
+    }
+  },
+  "por_generacion": {
+    "Gen Z (18-27)": {
+      "pct_voto": 86.2,
+      "ideologia_media": 5.393,
+      "bloque_ideologico": {
+        "Izquierda": 14.1,
+        "Centro": 70.1,
+        "Derecha": 15.7
+      }
+    },
+    "Millennials (28-43)": {
+      "pct_voto": 90.4,
+      "ideologia_media": 5.724,
+      "bloque_ideologico": {
+        "Izquierda": 12.6,
+        "Centro": 67.8,
+        "Derecha": 19.6
+      }
+    },
+    "Gen X (44-59)": {
+      "pct_voto": 92.5,
+      "ideologia_media": 6.046,
+      "bloque_ideologico": {
+        "Izquierda": 11.6,
+        "Centro": 63.1,
+        "Derecha": 25.3
+      }
+    },
+    "Baby Boomers (60+)": {
+      "pct_voto": 89.0,
+      "ideologia_media": 6.249,
+      "bloque_ideologico": {
+        "Izquierda": 11.1,
+        "Centro": 57.9,
+        "Derecha": 31.0
+      }
+    }
+  },
+  "por_sexo": {
+    "Hombre": {
+      "pct_voto": 90.0,
+      "ideologia_media": 5.829,
+      "bloque_ideologico": {
+        "Izquierda": 13.5,
+        "Centro": 63.2,
+        "Derecha": 23.3
+      }
+    },
+    "Mujer": {
+      "pct_voto": 90.1,
+      "ideologia_media": 5.922,
+      "bloque_ideologico": {
+        "Izquierda": 11.1,
+        "Centro": 65.7,
+        "Derecha": 23.2
+      }
+    }
+  },
+  "regresion_logistica": {
+    "n_observaciones": 31223,
+    "pseudo_r2_mcfadden": 0.0361,
+    "nota": "Sobredeclaracion de voto estructural en encuestas cara a cara (89.5%). Coeficientes validos para interpretacion de direccion y magnitud relativa.",
+    "predictores_significativos": [
+      {
+        "predictor": "Edad",
+        "ame": 0.1276,
+        "p_valor": 0.0,
+        "direccion": "vota_mas",
+        "sig": "***"
+      },
+      {
+        "predictor": "Edad al cuadrado",
+        "ame": -0.1206,
+        "p_valor": 0.0,
+        "direccion": "vota_menos",
+        "sig": "***"
+      },
+      {
+        "predictor": "Bogota",
+        "ame": 0.02,
+        "p_valor": 0.0011,
+        "direccion": "vota_mas",
+        "sig": "**"
+      },
+      {
+        "predictor": "Nivel educativo",
+        "ame": 0.0175,
+        "p_valor": 0.0,
+        "direccion": "vota_mas",
+        "sig": "***"
+      },
+      {
+        "predictor": "Paradoja democratica",
+        "ame": 0.0145,
+        "p_valor": 0.0013,
+        "direccion": "vota_mas",
+        "sig": "**"
+      },
+      {
+        "predictor": "Conocimiento mecanismos",
+        "ame": 0.0142,
+        "p_valor": 0.0,
+        "direccion": "vota_mas",
+        "sig": "***"
+      },
+      {
+        "predictor": "Ciudadano aislado",
+        "ame": 0.0127,
+        "p_valor": 0.009,
+        "direccion": "vota_mas",
+        "sig": "**"
+      },
+      {
+        "predictor": "Capital social bonding",
+        "ame": 0.0121,
+        "p_valor": 0.0,
+        "direccion": "vota_mas",
+        "sig": "***"
+      },
+      {
+        "predictor": "Participacion organizaciones",
+        "ame": 0.0105,
+        "p_valor": 0.0,
+        "direccion": "vota_mas",
+        "sig": "***"
+      },
+      {
+        "predictor": "Identidad campesina",
+        "ame": 0.0071,
+        "p_valor": 0.0454,
+        "direccion": "vota_mas",
+        "sig": "*"
+      },
+      {
+        "predictor": "Confianza institucional",
+        "ame": 0.0055,
+        "p_valor": 0.0038,
+        "direccion": "vota_mas",
+        "sig": "**"
+      },
+      {
+        "predictor": "Percepcion de corrupcion",
+        "ame": -0.01,
+        "p_valor": 0.0,
+        "direccion": "vota_menos",
+        "sig": "***"
+      }
+    ]
+  }
+}

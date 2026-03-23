@@ -1,0 +1,1001 @@
+{
+  "metadatos": {
+    "fecha_generacion": "2026-03-22",
+    "fuente": "DANE — Encuesta de Cultura Politica 2023",
+    "codigo": "DANE-DIMPE-ECP-2023",
+    "n_encuestados": 46392,
+    "version": "2.0"
+  },
+  "nacional": [
+    {
+      "institucion": "Fuerzas Militares",
+      "media": 2.885
+    },
+    {
+      "institucion": "Registraduria",
+      "media": 2.858
+    },
+    {
+      "institucion": "Defensoria del Pueblo",
+      "media": 2.834
+    },
+    {
+      "institucion": "Fiscalia",
+      "media": 2.663
+    },
+    {
+      "institucion": "Policia",
+      "media": 2.644
+    },
+    {
+      "institucion": "Procuraduria",
+      "media": 2.601
+    },
+    {
+      "institucion": "Contraloria",
+      "media": 2.59
+    },
+    {
+      "institucion": "Gobernacion",
+      "media": 2.557
+    },
+    {
+      "institucion": "Alcaldia Municipal",
+      "media": 2.546
+    },
+    {
+      "institucion": "Jueces y magistrados",
+      "media": 2.531
+    },
+    {
+      "institucion": "Presidencia",
+      "media": 2.497
+    },
+    {
+      "institucion": "Asamblea departamental",
+      "media": 2.484
+    },
+    {
+      "institucion": "Concejos municipales",
+      "media": 2.465
+    },
+    {
+      "institucion": "Congreso",
+      "media": 2.332
+    },
+    {
+      "institucion": "Partidos politicos",
+      "media": 2.159
+    }
+  ],
+  "por_region": {
+    "Bogota": [
+      {
+        "institucion": "Fuerzas Militares",
+        "media": 2.771
+      },
+      {
+        "institucion": "Defensoria del Pueblo",
+        "media": 2.703
+      },
+      {
+        "institucion": "Registraduria",
+        "media": 2.657
+      },
+      {
+        "institucion": "Alcaldia Municipal",
+        "media": 2.537
+      },
+      {
+        "institucion": "Procuraduria",
+        "media": 2.511
+      },
+      {
+        "institucion": "Contraloria",
+        "media": 2.474
+      },
+      {
+        "institucion": "Fiscalia",
+        "media": 2.471
+      },
+      {
+        "institucion": "Policia",
+        "media": 2.438
+      },
+      {
+        "institucion": "Concejos municipales",
+        "media": 2.34
+      },
+      {
+        "institucion": "Jueces y magistrados",
+        "media": 2.333
+      },
+      {
+        "institucion": "Presidencia",
+        "media": 2.308
+      },
+      {
+        "institucion": "Congreso",
+        "media": 2.035
+      },
+      {
+        "institucion": "Partidos politicos",
+        "media": 2.02
+      }
+    ],
+    "Oriental": [
+      {
+        "institucion": "Registraduria",
+        "media": 2.999
+      },
+      {
+        "institucion": "Fuerzas Militares",
+        "media": 2.964
+      },
+      {
+        "institucion": "Defensoria del Pueblo",
+        "media": 2.957
+      },
+      {
+        "institucion": "Fiscalia",
+        "media": 2.856
+      },
+      {
+        "institucion": "Presidencia",
+        "media": 2.82
+      },
+      {
+        "institucion": "Procuraduria",
+        "media": 2.796
+      },
+      {
+        "institucion": "Contraloria",
+        "media": 2.765
+      },
+      {
+        "institucion": "Policia",
+        "media": 2.762
+      },
+      {
+        "institucion": "Jueces y magistrados",
+        "media": 2.743
+      },
+      {
+        "institucion": "Gobernacion",
+        "media": 2.655
+      },
+      {
+        "institucion": "Alcaldia Municipal",
+        "media": 2.643
+      },
+      {
+        "institucion": "Asamblea departamental",
+        "media": 2.61
+      },
+      {
+        "institucion": "Concejos municipales",
+        "media": 2.563
+      },
+      {
+        "institucion": "Congreso",
+        "media": 2.545
+      },
+      {
+        "institucion": "Partidos politicos",
+        "media": 2.372
+      }
+    ],
+    "Atlantica": [
+      {
+        "institucion": "Fuerzas Militares",
+        "media": 3.099
+      },
+      {
+        "institucion": "Registraduria",
+        "media": 3.003
+      },
+      {
+        "institucion": "Defensoria del Pueblo",
+        "media": 2.935
+      },
+      {
+        "institucion": "Policia",
+        "media": 2.77
+      },
+      {
+        "institucion": "Fiscalia",
+        "media": 2.687
+      },
+      {
+        "institucion": "Contraloria",
+        "media": 2.609
+      },
+      {
+        "institucion": "Alcaldia Municipal",
+        "media": 2.596
+      },
+      {
+        "institucion": "Procuraduria",
+        "media": 2.594
+      },
+      {
+        "institucion": "Gobernacion",
+        "media": 2.521
+      },
+      {
+        "institucion": "Jueces y magistrados",
+        "media": 2.475
+      },
+      {
+        "institucion": "Concejos municipales",
+        "media": 2.461
+      },
+      {
+        "institucion": "Asamblea departamental",
+        "media": 2.447
+      },
+      {
+        "institucion": "Presidencia",
+        "media": 2.364
+      },
+      {
+        "institucion": "Congreso",
+        "media": 2.312
+      },
+      {
+        "institucion": "Partidos politicos",
+        "media": 2.083
+      }
+    ],
+    "Central": [
+      {
+        "institucion": "Registraduria",
+        "media": 2.873
+      },
+      {
+        "institucion": "Defensoria del Pueblo",
+        "media": 2.819
+      },
+      {
+        "institucion": "Fuerzas Militares",
+        "media": 2.766
+      },
+      {
+        "institucion": "Fiscalia",
+        "media": 2.719
+      },
+      {
+        "institucion": "Gobernacion",
+        "media": 2.623
+      },
+      {
+        "institucion": "Policia",
+        "media": 2.619
+      },
+      {
+        "institucion": "Procuraduria",
+        "media": 2.609
+      },
+      {
+        "institucion": "Contraloria",
+        "media": 2.601
+      },
+      {
+        "institucion": "Jueces y magistrados",
+        "media": 2.593
+      },
+      {
+        "institucion": "Alcaldia Municipal",
+        "media": 2.532
+      },
+      {
+        "institucion": "Concejos municipales",
+        "media": 2.529
+      },
+      {
+        "institucion": "Asamblea departamental",
+        "media": 2.494
+      },
+      {
+        "institucion": "Presidencia",
+        "media": 2.404
+      },
+      {
+        "institucion": "Congreso",
+        "media": 2.398
+      },
+      {
+        "institucion": "Partidos politicos",
+        "media": 2.166
+      }
+    ],
+    "Pacifica": [
+      {
+        "institucion": "Fuerzas Militares",
+        "media": 2.813
+      },
+      {
+        "institucion": "Defensoria del Pueblo",
+        "media": 2.693
+      },
+      {
+        "institucion": "Registraduria",
+        "media": 2.67
+      },
+      {
+        "institucion": "Policia",
+        "media": 2.579
+      },
+      {
+        "institucion": "Presidencia",
+        "media": 2.557
+      },
+      {
+        "institucion": "Fiscalia",
+        "media": 2.479
+      },
+      {
+        "institucion": "Contraloria",
+        "media": 2.43
+      },
+      {
+        "institucion": "Jueces y magistrados",
+        "media": 2.42
+      },
+      {
+        "institucion": "Procuraduria",
+        "media": 2.417
+      },
+      {
+        "institucion": "Alcaldia Municipal",
+        "media": 2.38
+      },
+      {
+        "institucion": "Concejos municipales",
+        "media": 2.368
+      },
+      {
+        "institucion": "Gobernacion",
+        "media": 2.365
+      },
+      {
+        "institucion": "Asamblea departamental",
+        "media": 2.338
+      },
+      {
+        "institucion": "Congreso",
+        "media": 2.278
+      },
+      {
+        "institucion": "Partidos politicos",
+        "media": 2.096
+      }
+    ]
+  },
+  "por_generacion": {
+    "Gen Z (18-27)": [
+      {
+        "institucion": "Registraduria",
+        "media": 2.832
+      },
+      {
+        "institucion": "Fuerzas Militares",
+        "media": 2.794
+      },
+      {
+        "institucion": "Defensoria del Pueblo",
+        "media": 2.792
+      },
+      {
+        "institucion": "Fiscalia",
+        "media": 2.589
+      },
+      {
+        "institucion": "Presidencia",
+        "media": 2.568
+      },
+      {
+        "institucion": "Procuraduria",
+        "media": 2.558
+      },
+      {
+        "institucion": "Contraloria",
+        "media": 2.542
+      },
+      {
+        "institucion": "Policia",
+        "media": 2.531
+      },
+      {
+        "institucion": "Alcaldia Municipal",
+        "media": 2.507
+      },
+      {
+        "institucion": "Jueces y magistrados",
+        "media": 2.5
+      },
+      {
+        "institucion": "Gobernacion",
+        "media": 2.495
+      },
+      {
+        "institucion": "Asamblea departamental",
+        "media": 2.446
+      },
+      {
+        "institucion": "Concejos municipales",
+        "media": 2.428
+      },
+      {
+        "institucion": "Congreso",
+        "media": 2.33
+      },
+      {
+        "institucion": "Partidos politicos",
+        "media": 2.125
+      }
+    ],
+    "Millennials (28-43)": [
+      {
+        "institucion": "Fuerzas Militares",
+        "media": 2.85
+      },
+      {
+        "institucion": "Registraduria",
+        "media": 2.85
+      },
+      {
+        "institucion": "Defensoria del Pueblo",
+        "media": 2.836
+      },
+      {
+        "institucion": "Fiscalia",
+        "media": 2.645
+      },
+      {
+        "institucion": "Procuraduria",
+        "media": 2.6
+      },
+      {
+        "institucion": "Policia",
+        "media": 2.599
+      },
+      {
+        "institucion": "Contraloria",
+        "media": 2.591
+      },
+      {
+        "institucion": "Gobernacion",
+        "media": 2.546
+      },
+      {
+        "institucion": "Alcaldia Municipal",
+        "media": 2.533
+      },
+      {
+        "institucion": "Jueces y magistrados",
+        "media": 2.521
+      },
+      {
+        "institucion": "Presidencia",
+        "media": 2.484
+      },
+      {
+        "institucion": "Asamblea departamental",
+        "media": 2.476
+      },
+      {
+        "institucion": "Concejos municipales",
+        "media": 2.464
+      },
+      {
+        "institucion": "Congreso",
+        "media": 2.308
+      },
+      {
+        "institucion": "Partidos politicos",
+        "media": 2.145
+      }
+    ],
+    "Gen X (44-59)": [
+      {
+        "institucion": "Fuerzas Militares",
+        "media": 2.928
+      },
+      {
+        "institucion": "Registraduria",
+        "media": 2.854
+      },
+      {
+        "institucion": "Defensoria del Pueblo",
+        "media": 2.827
+      },
+      {
+        "institucion": "Fiscalia",
+        "media": 2.683
+      },
+      {
+        "institucion": "Policia",
+        "media": 2.681
+      },
+      {
+        "institucion": "Procuraduria",
+        "media": 2.604
+      },
+      {
+        "institucion": "Contraloria",
+        "media": 2.597
+      },
+      {
+        "institucion": "Gobernacion",
+        "media": 2.561
+      },
+      {
+        "institucion": "Alcaldia Municipal",
+        "media": 2.546
+      },
+      {
+        "institucion": "Jueces y magistrados",
+        "media": 2.518
+      },
+      {
+        "institucion": "Asamblea departamental",
+        "media": 2.48
+      },
+      {
+        "institucion": "Concejos municipales",
+        "media": 2.458
+      },
+      {
+        "institucion": "Presidencia",
+        "media": 2.456
+      },
+      {
+        "institucion": "Congreso",
+        "media": 2.312
+      },
+      {
+        "institucion": "Partidos politicos",
+        "media": 2.151
+      }
+    ],
+    "Baby Boomers (60+)": [
+      {
+        "institucion": "Fuerzas Militares",
+        "media": 2.968
+      },
+      {
+        "institucion": "Registraduria",
+        "media": 2.9
+      },
+      {
+        "institucion": "Defensoria del Pueblo",
+        "media": 2.874
+      },
+      {
+        "institucion": "Policia",
+        "media": 2.767
+      },
+      {
+        "institucion": "Fiscalia",
+        "media": 2.729
+      },
+      {
+        "institucion": "Procuraduria",
+        "media": 2.636
+      },
+      {
+        "institucion": "Gobernacion",
+        "media": 2.627
+      },
+      {
+        "institucion": "Contraloria",
+        "media": 2.623
+      },
+      {
+        "institucion": "Alcaldia Municipal",
+        "media": 2.601
+      },
+      {
+        "institucion": "Jueces y magistrados",
+        "media": 2.593
+      },
+      {
+        "institucion": "Asamblea departamental",
+        "media": 2.537
+      },
+      {
+        "institucion": "Concejos municipales",
+        "media": 2.51
+      },
+      {
+        "institucion": "Presidencia",
+        "media": 2.51
+      },
+      {
+        "institucion": "Congreso",
+        "media": 2.399
+      },
+      {
+        "institucion": "Partidos politicos",
+        "media": 2.222
+      }
+    ]
+  },
+  "por_sexo": {
+    "Hombre": [
+      {
+        "institucion": "Fuerzas Militares",
+        "media": 2.893
+      },
+      {
+        "institucion": "Registraduria",
+        "media": 2.845
+      },
+      {
+        "institucion": "Defensoria del Pueblo",
+        "media": 2.824
+      },
+      {
+        "institucion": "Fiscalia",
+        "media": 2.653
+      },
+      {
+        "institucion": "Policia",
+        "media": 2.62
+      },
+      {
+        "institucion": "Procuraduria",
+        "media": 2.604
+      },
+      {
+        "institucion": "Contraloria",
+        "media": 2.594
+      },
+      {
+        "institucion": "Gobernacion",
+        "media": 2.55
+      },
+      {
+        "institucion": "Alcaldia Municipal",
+        "media": 2.534
+      },
+      {
+        "institucion": "Jueces y magistrados",
+        "media": 2.533
+      },
+      {
+        "institucion": "Presidencia",
+        "media": 2.516
+      },
+      {
+        "institucion": "Asamblea departamental",
+        "media": 2.485
+      },
+      {
+        "institucion": "Concejos municipales",
+        "media": 2.464
+      },
+      {
+        "institucion": "Congreso",
+        "media": 2.331
+      },
+      {
+        "institucion": "Partidos politicos",
+        "media": 2.164
+      }
+    ],
+    "Mujer": [
+      {
+        "institucion": "Fuerzas Militares",
+        "media": 2.878
+      },
+      {
+        "institucion": "Registraduria",
+        "media": 2.87
+      },
+      {
+        "institucion": "Defensoria del Pueblo",
+        "media": 2.842
+      },
+      {
+        "institucion": "Fiscalia",
+        "media": 2.672
+      },
+      {
+        "institucion": "Policia",
+        "media": 2.666
+      },
+      {
+        "institucion": "Procuraduria",
+        "media": 2.598
+      },
+      {
+        "institucion": "Contraloria",
+        "media": 2.587
+      },
+      {
+        "institucion": "Gobernacion",
+        "media": 2.563
+      },
+      {
+        "institucion": "Alcaldia Municipal",
+        "media": 2.557
+      },
+      {
+        "institucion": "Jueces y magistrados",
+        "media": 2.529
+      },
+      {
+        "institucion": "Asamblea departamental",
+        "media": 2.482
+      },
+      {
+        "institucion": "Presidencia",
+        "media": 2.479
+      },
+      {
+        "institucion": "Concejos municipales",
+        "media": 2.467
+      },
+      {
+        "institucion": "Congreso",
+        "media": 2.332
+      },
+      {
+        "institucion": "Partidos politicos",
+        "media": 2.154
+      }
+    ]
+  },
+  "por_educacion": {
+    "Sin educacion": [
+      {
+        "institucion": "Registraduria",
+        "media": 2.896
+      },
+      {
+        "institucion": "Fuerzas Militares",
+        "media": 2.894
+      },
+      {
+        "institucion": "Defensoria del Pueblo",
+        "media": 2.833
+      },
+      {
+        "institucion": "Policia",
+        "media": 2.755
+      },
+      {
+        "institucion": "Fiscalia",
+        "media": 2.728
+      },
+      {
+        "institucion": "Presidencia",
+        "media": 2.672
+      },
+      {
+        "institucion": "Contraloria",
+        "media": 2.628
+      },
+      {
+        "institucion": "Jueces y magistrados",
+        "media": 2.627
+      },
+      {
+        "institucion": "Alcaldia Municipal",
+        "media": 2.614
+      },
+      {
+        "institucion": "Procuraduria",
+        "media": 2.609
+      },
+      {
+        "institucion": "Gobernacion",
+        "media": 2.606
+      },
+      {
+        "institucion": "Congreso",
+        "media": 2.559
+      },
+      {
+        "institucion": "Asamblea departamental",
+        "media": 2.53
+      },
+      {
+        "institucion": "Concejos municipales",
+        "media": 2.525
+      },
+      {
+        "institucion": "Partidos politicos",
+        "media": 2.298
+      }
+    ],
+    "Primaria": [
+      {
+        "institucion": "Fuerzas Militares",
+        "media": 2.894
+      },
+      {
+        "institucion": "Registraduria",
+        "media": 2.89
+      },
+      {
+        "institucion": "Defensoria del Pueblo",
+        "media": 2.84
+      },
+      {
+        "institucion": "Policia",
+        "media": 2.702
+      },
+      {
+        "institucion": "Fiscalia",
+        "media": 2.684
+      },
+      {
+        "institucion": "Contraloria",
+        "media": 2.591
+      },
+      {
+        "institucion": "Procuraduria",
+        "media": 2.585
+      },
+      {
+        "institucion": "Gobernacion",
+        "media": 2.584
+      },
+      {
+        "institucion": "Jueces y magistrados",
+        "media": 2.537
+      },
+      {
+        "institucion": "Alcaldia Municipal",
+        "media": 2.536
+      },
+      {
+        "institucion": "Presidencia",
+        "media": 2.521
+      },
+      {
+        "institucion": "Asamblea departamental",
+        "media": 2.514
+      },
+      {
+        "institucion": "Concejos municipales",
+        "media": 2.494
+      },
+      {
+        "institucion": "Congreso",
+        "media": 2.395
+      },
+      {
+        "institucion": "Partidos politicos",
+        "media": 2.197
+      }
+    ],
+    "Bachillerato": [
+      {
+        "institucion": "Registraduria",
+        "media": 2.854
+      },
+      {
+        "institucion": "Fuerzas Militares",
+        "media": 2.851
+      },
+      {
+        "institucion": "Defensoria del Pueblo",
+        "media": 2.813
+      },
+      {
+        "institucion": "Fiscalia",
+        "media": 2.648
+      },
+      {
+        "institucion": "Policia",
+        "media": 2.625
+      },
+      {
+        "institucion": "Procuraduria",
+        "media": 2.568
+      },
+      {
+        "institucion": "Contraloria",
+        "media": 2.565
+      },
+      {
+        "institucion": "Alcaldia Municipal",
+        "media": 2.53
+      },
+      {
+        "institucion": "Gobernacion",
+        "media": 2.53
+      },
+      {
+        "institucion": "Jueces y magistrados",
+        "media": 2.499
+      },
+      {
+        "institucion": "Presidencia",
+        "media": 2.479
+      },
+      {
+        "institucion": "Asamblea departamental",
+        "media": 2.465
+      },
+      {
+        "institucion": "Concejos municipales",
+        "media": 2.448
+      },
+      {
+        "institucion": "Congreso",
+        "media": 2.326
+      },
+      {
+        "institucion": "Partidos politicos",
+        "media": 2.139
+      }
+    ],
+    "Superior": [
+      {
+        "institucion": "Fuerzas Militares",
+        "media": 2.925
+      },
+      {
+        "institucion": "Defensoria del Pueblo",
+        "media": 2.857
+      },
+      {
+        "institucion": "Registraduria",
+        "media": 2.839
+      },
+      {
+        "institucion": "Fiscalia",
+        "media": 2.662
+      },
+      {
+        "institucion": "Procuraduria",
+        "media": 2.653
+      },
+      {
+        "institucion": "Contraloria",
+        "media": 2.62
+      },
+      {
+        "institucion": "Policia",
+        "media": 2.619
+      },
+      {
+        "institucion": "Gobernacion",
+        "media": 2.573
+      },
+      {
+        "institucion": "Alcaldia Municipal",
+        "media": 2.567
+      },
+      {
+        "institucion": "Jueces y magistrados",
+        "media": 2.56
+      },
+      {
+        "institucion": "Presidencia",
+        "media": 2.487
+      },
+      {
+        "institucion": "Asamblea departamental",
+        "media": 2.483
+      },
+      {
+        "institucion": "Concejos municipales",
+        "media": 2.463
+      },
+      {
+        "institucion": "Congreso",
+        "media": 2.277
+      },
+      {
+        "institucion": "Partidos politicos",
+        "media": 2.146
+      }
+    ]
+  }
+}

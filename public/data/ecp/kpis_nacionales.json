@@ -1,0 +1,95 @@
+{
+  "metadatos": {
+    "fecha_generacion": "2026-03-22",
+    "fuente": "DANE — Encuesta de Cultura Politica 2023",
+    "codigo": "DANE-DIMPE-ECP-2023",
+    "n_encuestados": 46392,
+    "version": "2.0"
+  },
+  "kpis": [
+    {
+      "id": "confianza_institucional_media",
+      "label": "Confianza institucional media",
+      "valor": 39.488,
+      "escala": "0-100"
+    },
+    {
+      "id": "percepcion_corrupcion_media",
+      "label": "Percepcion de corrupcion media",
+      "valor": 64.317,
+      "escala": "0-100"
+    },
+    {
+      "id": "importancia_democracia",
+      "label": "Importancia de vivir en democracia",
+      "valor": 4.342,
+      "escala": "1-5"
+    },
+    {
+      "id": "satisfaccion_democracia",
+      "label": "Satisfaccion con la democracia",
+      "valor": 2.704,
+      "escala": "1-5"
+    },
+    {
+      "id": "voz_politica",
+      "label": "Percepcion de voz politica",
+      "valor": 1.982,
+      "escala": "1-5"
+    },
+    {
+      "id": "brecha_demo",
+      "label": "Brecha aspiracional democratica",
+      "valor": 1.631,
+      "escala": "puntos"
+    },
+    {
+      "id": "es_participante_activo",
+      "label": "Participa en al menos una organizacion",
+      "valor": 15.02,
+      "escala": "%"
+    },
+    {
+      "id": "idx_conocimiento_mecanismos",
+      "label": "Conocimiento de mecanismos constitucionales",
+      "valor": 37.813,
+      "escala": "0-100"
+    },
+    {
+      "id": "idx_cs_bonding",
+      "label": "Capital social bonding (circulo cercano)",
+      "valor": 3.582,
+      "escala": "1-5"
+    },
+    {
+      "id": "idx_cs_bridging",
+      "label": "Capital social bridging (apertura social)",
+      "valor": 2.273,
+      "escala": "1-5"
+    },
+    {
+      "id": "paradoja_democratica",
+      "label": "Ciudadanos en paradoja democratica",
+      "valor": 38.407,
+      "escala": "%"
+    },
+    {
+      "id": "ciudadano_aislado",
+      "label": "Ciudadanos aislados (sin red ni confianza)",
+      "valor": 41.14,
+      "escala": "%"
+    },
+    {
+      "id": "participacion_electoral_declarada",
+      "label": "Voto declarado en presidenciales 2022",
+      "valor": 90.036,
+      "escala": "%"
+    },
+    {
+      "id": "identificacion_partidaria",
+      "label": "Se identifica con algun partido",
+      "valor": 12.122,
+      "escala": "%"
+    }
+  ]
+}

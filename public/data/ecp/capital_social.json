@@ -1,0 +1,212 @@
+{
+  "metadatos": {
+    "fecha_generacion": "2026-03-22",
+    "fuente": "DANE — Encuesta de Cultura Politica 2023",
+    "codigo": "DANE-DIMPE-ECP-2023",
+    "n_encuestados": 46392,
+    "version": "2.0"
+  },
+  "confianza_interpersonal": [
+    {
+      "grupo": "Familia",
+      "media": 4.763,
+      "pct_alta": 94.7
+    },
+    {
+      "grupo": "Otra religion",
+      "media": 3.272,
+      "pct_alta": 40.8
+    },
+    {
+      "grupo": "Colegas de trabajo",
+      "media": 3.173,
+      "pct_alta": 34.6
+    },
+    {
+      "grupo": "Vecinos",
+      "media": 2.765,
+      "pct_alta": 19.9
+    },
+    {
+      "grupo": "Otra nacionalidad",
+      "media": 1.797,
+      "pct_alta": 6.3
+    },
+    {
+      "grupo": "Desconocidos",
+      "media": 1.721,
+      "pct_alta": 5.6
+    }
+  ],
+  "satisfaccion_vital": [
+    {
+      "dimension": "Vida en general",
+      "media": 4.481
+    },
+    {
+      "dimension": "Salud",
+      "media": 4.296
+    },
+    {
+      "dimension": "Situacion economica",
+      "media": 3.521
+    }
+  ],
+  "tolerancia_social": [
+    {
+      "grupo": "Adicciones",
+      "pct_rechazo": 56.5
+    },
+    {
+      "grupo": "Inmigrantes",
+      "pct_rechazo": 41.7
+    },
+    {
+      "grupo": "VIH/SIDA",
+      "pct_rechazo": 41.3
+    },
+    {
+      "grupo": "Ex combatientes",
+      "pct_rechazo": 21.4
+    },
+    {
+      "grupo": "LGBTIQ+",
+      "pct_rechazo": 7.7
+    },
+    {
+      "grupo": "Otro partido",
+      "pct_rechazo": 7.6
+    },
+    {
+      "grupo": "Muy pobres",
+      "pct_rechazo": 5.7
+    },
+    {
+      "grupo": "Otra raza",
+      "pct_rechazo": 5.1
+    },
+    {
+      "grupo": "Otra region",
+      "pct_rechazo": 1.4
+    },
+    {
+      "grupo": "Otra religion",
+      "pct_rechazo": 1.0
+    },
+    {
+      "grupo": "Otra ideologia",
+      "pct_rechazo": 0.7
+    },
+    {
+      "grupo": "Discapacidad",
+      "pct_rechazo": 0.1
+    },
+    {
+      "grupo": "Otro pais",
+      "pct_rechazo": 0.0
+    }
+  ],
+  "nota_metodologica_tolerancia": "NaN implica no mencion, no aceptacion activa. Pregunta ECP: 'De las siguientes personas a quien no quisiera tener de vecino'.",
+  "indices_compuestos": {
+    "bonding_por_region": {
+      "Bogota": 3.513,
+      "Oriental": 3.684,
+      "Atlantica": 3.619,
+      "Central": 3.499,
+      "Pacifica": 3.602
+    },
+    "bridging_por_region": {
+      "Bogota": 2.27,
+      "Oriental": 2.454,
+      "Atlantica": 2.345,
+      "Central": 2.147,
+      "Pacifica": 2.141
+    },
+    "brecha_por_generacion": {
+      "Gen Z (18-27)": 1.219,
+      "Millennials (28-43)": 1.292,
+      "Gen X (44-59)": 1.339,
+      "Baby Boomers (60+)": 1.366
+    },
+    "intolerancia_por_generacion": {
+      "Gen Z (18-27)": 2.377,
+      "Millennials (28-43)": 2.509,
+      "Gen X (44-59)": 2.557,
+      "Baby Boomers (60+)": 2.664
+    }
+  },
+  "perfiles_interaccion": [
+    {
+      "id": "paradoja_democratica",
+      "label": "Paradoja democratica",
+      "pct_nacional": 38.407,
+      "por_region": {
+        "Bogota": 46.684,
+        "Oriental": 32.716,
+        "Atlantica": 40.087,
+        "Central": 39.0,
+        "Pacifica": 34.541
+      },
+      "por_generacion": {
+        "Gen Z (18-27)": 38.704,
+        "Millennials (28-43)": 39.736,
+        "Gen X (44-59)": 38.562,
+        "Baby Boomers (60+)": 35.778
+      }
+    },
+    {
+      "id": "critico_organizado",
+      "label": "Critico organizado",
+      "pct_nacional": 4.503,
+      "por_region": {
+        "Bogota": 4.695,
+        "Oriental": 3.945,
+        "Atlantica": 3.843,
+        "Central": 4.388,
+        "Pacifica": 6.025
+      },
+      "por_generacion": {
+        "Gen Z (18-27)": 3.221,
+        "Millennials (28-43)": 4.162,
+        "Gen X (44-59)": 5.099,
+        "Baby Boomers (60+)": 5.418
+      }
+    },
+    {
+      "id": "ciudadano_aislado",
+      "label": "Ciudadano aislado",
+      "pct_nacional": 41.14,
+      "por_region": {
+        "Bogota": 42.712,
+        "Oriental": 30.997,
+        "Atlantica": 39.744,
+        "Central": 47.219,
+        "Pacifica": 45.318
+      },
+      "por_generacion": {
+        "Gen Z (18-27)": 41.551,
+        "Millennials (28-43)": 41.492,
+        "Gen X (44-59)": 41.239,
+        "Baby Boomers (60+)": 40.069
+      }
+    },
+    {
+      "id": "ciudadano_informado",
+      "label": "Ciudadano informado",
+      "pct_nacional": 34.741,
+      "por_region": {
+        "Bogota": 43.041,
+        "Oriental": 33.697,
+        "Atlantica": 37.31,
+        "Central": 31.301,
+        "Pacifica": 29.84
+      },
+      "por_generacion": {
+        "Gen Z (18-27)": 36.464,
+        "Millennials (28-43)": 41.719,
+        "Gen X (44-59)": 34.927,
+        "Baby Boomers (60+)": 21.616
+      }
+    }
+  ]
+}
