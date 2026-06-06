@@ -1,30 +1,56 @@
-# Potafolio Web
+# Portafolio Web
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+Portafolio profesional de consultoría en datos e inteligencia artificial para el sector
+público colombiano (gobierno nacional, congresistas y Unidades de Trabajo Legislativo).
+Sitio en producción: [hermesbonilla.com](https://hermesbonilla.com).
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/bonillahermes-gmailcoms-projects/v0-diseno-de-hero-moderno)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/L8IgCRUH860)
+## Stack
 
-## Overview
+- Next.js 14 (App Router) y React 18
+- TypeScript (modo estricto)
+- Tailwind CSS 3 con shadcn/ui
+- Framer Motion (animaciones)
+- Recharts y react-simple-maps (dashboards y mapas)
+- next-mdx-remote + gray-matter (blog en MDX)
+- Despliegue en Vercel
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+## Requisitos
 
-## Deployment
+- Node.js 18.17 o superior
+- pnpm (el proyecto usa `pnpm-lock.yaml`; no usar npm ni yarn)
 
-Your project is live at:
+## Desarrollo
 
-**[https://vercel.com/bonillahermes-gmailcoms-projects/v0-diseno-de-hero-moderno](https://vercel.com/bonillahermes-gmailcoms-projects/v0-diseno-de-hero-moderno)**
+```bash
+pnpm install   # instalar dependencias
+pnpm dev       # servidor de desarrollo en http://localhost:3000
+pnpm build     # build de producción
+pnpm start     # servir el build de producción
+pnpm lint      # linting
+```
 
-## Build your app
+Antes de cerrar cualquier cambio, `pnpm lint` y `pnpm build` deben pasar sin errores.
 
-Continue building your app on:
+## Estructura
 
-**[https://v0.dev/chat/projects/L8IgCRUH860](https://v0.dev/chat/projects/L8IgCRUH860)**
+```
+app/          Rutas (App Router): home, blog, laboratorio, brochure, legal, sitemap
+components/   Secciones de la home, dashboards y primitivas de UI (ui/)
+lib/          Utilidades y fuentes de datos: utils, mdx, lab, services
+content/      Entradas del blog en MDX (content/blog/*.mdx)
+public/       Activos estáticos y datos de los dashboards (public/data/)
+```
 
-## How It Works
+## Contexto para IA
 
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+Este repositorio incluye archivos de contexto para asistentes de IA y colaboradores:
+
+- `CLAUDE.md` — contexto persistente del proyecto (stack, estructura, convenciones,
+  sistema de diseño, restricciones).
+- `CONTRIBUTING.md` — convenciones de contribución para humanos e IA.
+
+Ambos se mantienen locales (ver `.gitignore`).
+
+## Licencia
+
+Proyecto privado. Todos los derechos reservados.

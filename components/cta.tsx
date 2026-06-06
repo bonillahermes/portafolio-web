@@ -1,4 +1,4 @@
-import { ArrowRight, MapPin, Shield, Clock } from "lucide-react"
+import { ArrowRight, MapPin, Shield, Clock, Mail } from "lucide-react"
 import { FadeIn } from "./motion"
 
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -101,6 +101,21 @@ export default function CTA() {
                       className="text-white hover:text-accent transition-colors font-medium"
                     >
                       +57 300 976 9468
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 flex items-center justify-center bg-accent/20 rounded-lg shrink-0">
+                    <Mail className="w-4 h-4 text-accent" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-white/35 uppercase tracking-wider mb-1">Correo</p>
+                    <a
+                      href="mailto:consulta@hermesbonilla.com"
+                      className="text-white hover:text-accent transition-colors font-medium"
+                    >
+                      consulta@hermesbonilla.com
                     </a>
                   </div>
                 </div>

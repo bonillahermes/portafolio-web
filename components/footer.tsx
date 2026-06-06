@@ -1,4 +1,5 @@
-import { Linkedin, Github, MapPin } from "lucide-react"
+import { Linkedin, Github, MapPin, Mail } from "lucide-react"
+import { footerServices } from "@/lib/services"
 
 const navLinks = [
   { name: "Servicios", href: "#servicios" },
@@ -87,10 +88,11 @@ export default function Footer() {
               Capacidades
             </p>
             <ul className="flex flex-col gap-3">
-              <li className="text-sm text-muted-foreground">Inteligencia Territorial</li>
-              <li className="text-sm text-muted-foreground">Análisis Legislativo con IA</li>
-              <li className="text-sm text-muted-foreground">Arquitectura de Sistemas</li>
-              <li className="text-sm text-muted-foreground">Evaluación de Impacto</li>
+              {footerServices.map((service) => (
+                <li key={service.title} className="text-sm text-muted-foreground">
+                  {service.title}
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -109,6 +111,15 @@ export default function Footer() {
                 >
                   <WhatsAppIcon className="w-4 h-4 shrink-0" />
                   +57 300 976 9468
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:consulta@hermesbonilla.com"
+                  className="flex items-center gap-3 text-sm text-muted-foreground hover:text-accent transition-colors"
+                >
+                  <Mail className="w-4 h-4 shrink-0" />
+                  consulta@hermesbonilla.com
                 </a>
               </li>
               <li className="flex items-start gap-3 text-sm text-muted-foreground">

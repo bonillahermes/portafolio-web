@@ -2,97 +2,16 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Radar, Sparkles, Scale, ScanSearch, Microscope, Workflow, BadgeDollarSign, Target, ArrowRight } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { FadeIn } from "./motion"
+import {
+  serviceGroups,
+  servicesByGroup,
+  type Service,
+  type ServiceGroupKey,
+} from "@/lib/services"
 
-type Service = {
-  icon: typeof Radar
-  title: string
-  description: string
-  tags: string[]
-  clientType: string
-}
-
-const groups: Record<string, { label: string; description: string; services: Service[] }> = {
-  legislativo: {
-    label: "Equipos legislativos",
-    description: "Herramientas de inteligencia y análisis para el trabajo de congresistas y UTL",
-    services: [
-      {
-        icon: Radar,
-        title: "Inteligencia Territorial",
-        description:
-          "Análisis cuantitativo del territorio representado por el congresista: estructura demográfica, vulnerabilidad socioeconómica y patrones electorales a nivel municipal.",
-        tags: ["Análisis geoespacial", "Segmentación cuantitativa", "Entrega ágil"],
-        clientType: "UTL · Congresistas · Senado · Cámara",
-      },
-      {
-        icon: Sparkles,
-        title: "Copiloto de Control Político",
-        description:
-          "Sistema de inteligencia basado en IA para analizar informes institucionales, datos oficiales y series estadísticas como insumo para la preparación de debates de control político.",
-        tags: ["RAG", "LLM", "Informes ejecutivos"],
-        clientType: "UTL · Debates · Citaciones",
-      },
-      {
-        icon: Scale,
-        title: "Análisis Legislativo con IA",
-        description:
-          "Procesamiento automatizado de proyectos de ley: generación de resúmenes técnicos, comparación entre versiones y construcción de fichas legislativas estructuradas.",
-        tags: ["NLP", "Gaceta del Congreso", "Ficha técnica"],
-        clientType: "UTL · Producción legislativa",
-      },
-      {
-        icon: ScanSearch,
-        title: "Observatorio Legislativo",
-        description:
-          "Monitoreo continuo de agenda legislativa, votaciones y proyectos por temática mediante dashboards y alertas periódicas para equipos legislativos.",
-        tags: ["Dashboard", "Alertas", "Seguimiento"],
-        clientType: "UTL · Multi-cliente",
-      },
-    ],
-  },
-  gobierno: {
-    label: "Entidades públicas",
-    description: "Diagnóstico, desarrollo de sistemas y evaluación para entidades del gobierno",
-    services: [
-      {
-        icon: Microscope,
-        title: "Diagnóstico de Madurez de Datos",
-        description:
-          "Evaluación del estado de procesos, infraestructura analítica y digitalización institucional con hoja de ruta priorizada de mejora.",
-        tags: ["Diagnóstico", "Hoja de ruta", "Procesos"],
-        clientType: "Ministerios · Entidades públicas",
-      },
-      {
-        icon: Workflow,
-        title: "Arquitectura de Sistemas Institucionales",
-        description:
-          "Diseño y desarrollo de sistemas orientados a digitalizar procesos críticos y mejorar la trazabilidad operativa dentro de la entidad.",
-        tags: ["Next.js", "Desarrollo", "Automatización"],
-        clientType: "Ministerios · Organismos · ONG",
-      },
-      {
-        icon: BadgeDollarSign,
-        title: "Gestión Inteligente de Cuentas de Cobro",
-        description:
-          "Plataforma digital para registro, seguimiento y trazabilidad de cuentas de cobro en entidades públicas con parametrización institucional.",
-        tags: ["SaaS", "Gestión financiera", "Trazabilidad"],
-        clientType: "Entidades públicas · UTL · Ministerios",
-      },
-      {
-        icon: Target,
-        title: "Evaluación de Impacto de Política Pública",
-        description:
-          "Análisis cuantitativo del impacto territorial y socioeconómico de programas públicos mediante metodologías verificables.",
-        tags: ["Evaluación de impacto", "Evidencia", "Territorio"],
-        clientType: "Gobierno · Congreso · Organismos internacionales",
-      },
-    ],
-  },
-}
-
-const tabKeys = Object.keys(groups) as (keyof typeof groups)[]
+const tabKeys = serviceGroups.map((group) => group.key)
 
 function FeaturedCard({ service }: { service: Service }) {
   const Icon = service.icon
@@ -205,10 +124,11 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
 }
 
 export default function Services() {
-  const [activeTab, setActiveTab] = useState<string>(tabKeys[0])
-  const group = groups[activeTab]
-  const featured = group.services[0]
-  const others = group.services.slice(1)
+  const [activeTab, setActiveTab] = useState<ServiceGroupKey>(tabKeys[0])
+  const group = serviceGroups.find((g) => g.key === activeTab)!
+  const groupServices = servicesByGroup(activeTab)
+  const featured = groupServices[0]
+  const others = groupServices.slice(1)
 
   return (
     <section className="py-32 lg:py-40 bg-muted">
@@ -237,13 +157,13 @@ export default function Services() {
         {/* Tabs */}
         <FadeIn delay={0.2}>
           <div className="inline-flex items-center bg-white rounded-2xl p-1.5 border border-border shadow-sm mb-12">
-            {tabKeys.map((key) => (
+            {serviceGroups.map((tab) => (
               <button
-                key={key}
-                onClick={() => setActiveTab(key)}
+                key={tab.key}
+                onClick={() => setActiveTab(tab.key)}
                 className="relative px-6 py-3 rounded-xl text-sm font-medium transition-all duration-300"
               >
-                {activeTab === key && (
+                {activeTab === tab.key && (
                   <motion.div
                     layoutId="activeTab"
                     className="absolute inset-0 bg-accent rounded-xl shadow-md"
@@ -251,9 +171,9 @@ export default function Services() {
                   />
                 )}
                 <span className={`relative z-10 transition-colors duration-200 ${
-                  activeTab === key ? "text-white" : "text-muted-foreground hover:text-foreground"
+                  activeTab === tab.key ? "text-white" : "text-muted-foreground hover:text-foreground"
                 }`}>
-                  {groups[key].label}
+                  {tab.label}
                 </span>
               </button>
             ))}
