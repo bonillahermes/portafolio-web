@@ -1,7 +1,6 @@
 "use client"
 
 import Image from "next/image"
-import { motion } from "framer-motion"
 import { FadeIn } from "./motion"
 
 const featured = {
@@ -29,106 +28,103 @@ const others = [
   },
 ]
 
+// Tratamiento monocromo uniforme para una barra de logos digna pese a la
+// mezcla de formatos/fondos: escala de grises y opacidad reducida en reposo,
+// color y opacidad plena al hover. mix-blend-multiply funde el fondo blanco
+// de los JPEG sobre el contenedor claro.
+const logoTreatment =
+  "object-contain object-left grayscale opacity-70 mix-blend-multiply transition duration-300 group-hover:grayscale-0 group-hover:opacity-100"
+
 export default function TrustBar() {
   return (
-    <section className="py-24 lg:py-32 bg-background border-b border-border">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+    <section className="section-shell border-b border-border bg-background">
+      <div className="container-editorial">
         <FadeIn>
-          <div className="text-center mb-14">
-            <div className="flex items-center justify-center gap-4 mb-5">
-              <div className="h-px w-12 bg-accent" />
-              <p className="font-mono text-xs tracking-[0.2em] uppercase text-accent">
-                Clientes
-              </p>
-              <div className="h-px w-12 bg-accent" />
+          <div className="mb-14 lg:mb-20">
+            <div className="mb-5 flex items-center gap-4">
+              <span className="h-px w-12 bg-accent" />
+              <span className="eyebrow">Clientes</span>
             </div>
-            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-foreground">
+            <h2 className="heading-section max-w-2xl text-balance">
               Entidades que han confiado en nosotros
             </h2>
           </div>
         </FadeIn>
 
-        {/* Bento grid */}
-        <div className="grid lg:grid-cols-[1.4fr_1fr] gap-5">
-          {/* Featured — Ministerio del Interior */}
-          <FadeIn delay={0.1}>
-            <motion.div
-              whileHover={{ y: -3 }}
-              transition={{ type: "spring", stiffness: 300, damping: 25 }}
-              className="group relative bg-white border border-border rounded-2xl p-8 lg:p-10 h-full overflow-hidden transition-all hover:border-accent/30 hover:shadow-xl hover:shadow-accent/8"
-            >
-              <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-accent/[0.03] blur-3xl pointer-events-none group-hover:bg-accent/[0.06] transition-colors duration-700" />
-
-              <div className="relative flex flex-col gap-6 h-full">
-                <div className="flex items-start gap-5">
-                  <div className="w-20 h-20 rounded-2xl bg-white ring-1 ring-border group-hover:ring-accent/30 shadow-sm flex items-center justify-center overflow-hidden shrink-0 transition-all">
-                    <div className="relative w-14 h-14">
-                      <Image src={featured.logo} alt={featured.name} fill className="object-contain" />
-                    </div>
-                  </div>
-                  <div className="flex-1 pt-1">
-                    <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent mb-2">
-                      Cliente principal
-                    </p>
-                    <h3 className="text-xl font-semibold text-foreground group-hover:text-accent transition-colors duration-300">
-                      {featured.name}
-                    </h3>
-                  </div>
+        {/* Cliente principal — bloque dominante */}
+        <FadeIn delay={0.1}>
+          <article className="group rounded-lg border border-border bg-background p-8 shadow-subtle transition-shadow duration-300 hover:shadow-card lg:p-10">
+            <div className="grid gap-8 lg:grid-cols-[16rem_1fr] lg:items-start lg:gap-12">
+              <div className="flex h-20 items-center">
+                <div className="relative h-16 w-44">
+                  <Image
+                    src={featured.logo}
+                    alt={`Logo del ${featured.name}`}
+                    fill
+                    className={logoTreatment}
+                  />
                 </div>
+              </div>
 
-                <p className="text-sm text-muted-foreground leading-relaxed">
+              <div>
+                <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-accent">
+                  Cliente principal
+                </p>
+                <h3 className="text-2xl font-semibold tracking-tight text-foreground">
+                  {featured.name}
+                </h3>
+                <p className="measure mt-4 text-sm leading-relaxed text-muted-foreground">
                   {featured.description}
                 </p>
 
-                <div className="mt-auto pt-4 border-t border-border/60">
-                  <p className="text-[10px] font-mono uppercase tracking-[0.15em] text-muted-foreground/50 mb-3">
+                <div className="hairline mt-8 pt-6">
+                  <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground/60">
                     Proyectos desarrollados
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <ul className="flex flex-wrap gap-2">
                     {featured.projects.map((p) => (
-                      <span
+                      <li
                         key={p}
-                        className="text-[11px] font-mono text-accent bg-accent/[0.08] px-3 py-1.5 rounded-full"
+                        className="rounded-full border border-border px-3 py-1.5 font-mono text-[11px] text-muted-foreground"
                       >
                         {p}
-                      </span>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
               </div>
-            </motion.div>
-          </FadeIn>
+            </div>
+          </article>
+        </FadeIn>
 
-          {/* Right column — 3 stacked */}
-          <div className="flex flex-col gap-5">
-            {others.map((client, i) => (
-              <FadeIn key={client.name} delay={0.15 + i * 0.08}>
-                <motion.div
-                  whileHover={{ y: -3 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                  className="group relative bg-white border border-border rounded-2xl p-6 overflow-hidden transition-all hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5"
-                >
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-gradient-to-br from-accent/[0.02] via-transparent to-transparent rounded-2xl" />
-
-                  <div className="relative flex items-center gap-4">
-                    <div className="w-14 h-14 rounded-xl bg-white ring-1 ring-border group-hover:ring-accent/30 shadow-sm flex items-center justify-center overflow-hidden shrink-0 transition-all">
-                      <div className="relative w-9 h-9">
-                        <Image src={client.logo} alt={client.name} fill className="object-contain" />
-                      </div>
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-sm font-semibold text-foreground group-hover:text-accent transition-colors duration-300 leading-snug">
-                        {client.name}
-                      </h3>
-                      <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
-                        {client.description}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              </FadeIn>
-            ))}
-          </div>
+        {/* Clientes secundarios — grilla homogenea con separadores hairline */}
+        <div className="mt-6 grid grid-cols-1 sm:grid-cols-3">
+          {others.map((client, i) => (
+            <FadeIn
+              key={client.name}
+              delay={0.2 + i * 0.08}
+              className="group flex h-full flex-col gap-5 border-t border-border py-8 sm:border-l sm:border-t-0 sm:px-8 sm:first:border-l-0 sm:first:pl-0"
+            >
+              <div className="flex h-12 items-center">
+                <div className="relative h-10 w-28">
+                  <Image
+                    src={client.logo}
+                    alt={`Logo de ${client.name}`}
+                    fill
+                    className={logoTreatment}
+                  />
+                </div>
+              </div>
+              <div>
+                <h3 className="text-sm font-semibold leading-snug text-foreground">
+                  {client.name}
+                </h3>
+                <p className="measure mt-2 text-xs leading-relaxed text-muted-foreground">
+                  {client.description}
+                </p>
+              </div>
+            </FadeIn>
+          ))}
         </div>
       </div>
     </section>

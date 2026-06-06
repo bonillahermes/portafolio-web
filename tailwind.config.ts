@@ -53,6 +53,29 @@ const config: Config = {
         sans: ["var(--font-inter)"],
         mono: ["var(--font-jetbrains-mono)"],
       },
+      fontSize: {
+        display: [
+          "clamp(3rem, 5vw + 1rem, 5.5rem)",
+          { lineHeight: "1.02", letterSpacing: "-0.03em" },
+        ],
+        heading: [
+          "clamp(2.25rem, 2.5vw + 1rem, 3.5rem)",
+          { lineHeight: "1.05", letterSpacing: "-0.025em" },
+        ],
+        eyebrow: ["0.75rem", { lineHeight: "1", letterSpacing: "0.2em" }],
+      },
+      letterSpacing: {
+        eyebrow: "0.2em",
+      },
+      maxWidth: {
+        editorial: "72rem",
+        measure: "65ch",
+      },
+      boxShadow: {
+        subtle: "0 1px 2px 0 rgb(15 23 42 / 0.04)",
+        card: "0 1px 3px 0 rgb(15 23 42 / 0.05), 0 1px 2px -1px rgb(15 23 42 / 0.04)",
+        lift: "0 18px 40px -20px rgb(15 23 42 / 0.18)",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

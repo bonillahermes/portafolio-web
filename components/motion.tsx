@@ -3,6 +3,16 @@
 import { motion, useInView, useReducedMotion } from "framer-motion"
 import { useRef, useState, useEffect, type ReactNode } from "react"
 
+// Patron de entrada por scroll, unico para todas las secciones:
+// fade + desplazamiento corto, easing suave, una sola vez, con margin
+// negativo para que dispare antes de que el elemento entre del todo.
+export const EDITORIAL_EASE = [0.21, 0.47, 0.32, 0.98] as const
+export const REVEAL_MARGIN = "-80px"
+export const REVEAL_OFFSET = 24
+export const REVEAL_DURATION = 0.7
+
+export const revealViewport = { once: true, margin: REVEAL_MARGIN } as const
+
 export function FadeIn({
   children,
   className,
@@ -15,14 +25,14 @@ export function FadeIn({
   direction?: "up" | "down" | "left" | "right" | "none"
 }) {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-80px" })
+  const isInView = useInView(ref, revealViewport)
   const shouldReduce = useReducedMotion()
 
   const directionMap = {
-    up: { y: 40, x: 0 },
-    down: { y: -40, x: 0 },
-    left: { y: 0, x: 40 },
-    right: { y: 0, x: -40 },
+    up: { y: REVEAL_OFFSET, x: 0 },
+    down: { y: -REVEAL_OFFSET, x: 0 },
+    left: { y: 0, x: REVEAL_OFFSET },
+    right: { y: 0, x: -REVEAL_OFFSET },
     none: { y: 0, x: 0 },
   }
 
@@ -48,9 +58,9 @@ export function FadeIn({
             }
       }
       transition={{
-        duration: 0.7,
+        duration: REVEAL_DURATION,
         delay,
-        ease: [0.21, 0.47, 0.32, 0.98],
+        ease: EDITORIAL_EASE,
       }}
       className={className}
     >
@@ -70,7 +80,7 @@ export function StaggerContainer({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={revealViewport}
       className={className}
     >
       {children}
@@ -80,7 +90,7 @@ export function StaggerContainer({
 
 export function CountUp({ target, suffix = "" }: { target: string; suffix?: string }) {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
+  const isInView = useInView(ref, revealViewport)
 
   return (
     <motion.span
@@ -106,8 +116,10 @@ export function AnimatedNumber({
   delay?: number
 }) {
   const ref = useRef<HTMLSpanElement>(null)
-  const isInView = useInView(ref, { once: true, margin: "0px 0px -10% 0px" })
+  const isInView = useInView(ref, revealViewport)
   const shouldReduce = useReducedMotion()
+  // El estado arranca en el valor final: si la animacion nunca dispara
+  // (la seccion no entra en viewport), el numero correcto queda visible.
   const [display, setDisplay] = useState(value)
   const hasAnimated = useRef(false)
 
@@ -155,7 +167,7 @@ export function AnimatedNumber({
 
 export function AnimatedLine({ className }: { className?: string }) {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-80px" })
+  const isInView = useInView(ref, revealViewport)
   const shouldReduce = useReducedMotion()
 
   if (shouldReduce) {
@@ -168,7 +180,7 @@ export function AnimatedLine({ className }: { className?: string }) {
       className={`h-px bg-accent ${className || ""}`}
       initial={{ width: 0 }}
       animate={isInView ? { width: 48 } : { width: 0 }}
-      transition={{ duration: 0.8, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
+      transition={{ duration: 0.8, delay: 0.2, ease: EDITORIAL_EASE }}
     />
   )
 }

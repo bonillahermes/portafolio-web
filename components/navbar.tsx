@@ -63,10 +63,10 @@ export default function Navbar() {
             onClick={handleLogoClick}
             className="flex flex-col"
           >
-            <span className={`text-base font-semibold tracking-tight transition-colors ${isScrolled ? "text-foreground" : "text-white"}`}>
+            <span className="text-base font-semibold tracking-tight text-foreground">
               Hermes Bonilla
             </span>
-            <span className={`text-[10px] font-mono uppercase tracking-[0.15em] transition-colors ${isScrolled ? "text-muted-foreground" : "text-white/50"}`}>
+            <span className="text-[10px] font-mono uppercase tracking-[0.15em] text-muted-foreground">
               Datos e inteligencia
             </span>
           </button>
@@ -83,11 +83,7 @@ export default function Navbar() {
                     scrollToSection(item.href)
                   }
                 }}
-                className={`text-sm transition-colors ${
-                  isScrolled
-                    ? "text-muted-foreground hover:text-foreground"
-                    : "text-white/60 hover:text-white"
-                }`}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 {item.name}
               </a>
@@ -109,7 +105,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`lg:hidden transition-colors ${isScrolled ? "text-foreground" : "text-white"}`}
+            className="lg:hidden text-foreground"
             aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
           >
             {isMobileMenuOpen ? (

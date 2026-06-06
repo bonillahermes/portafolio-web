@@ -29,7 +29,44 @@
     --destructive-foreground: 0 0% 98%;
     --input: 220 13% 90%;
     --ring: 210 60% 38%;
-    --radius: 0.375rem;
+    --radius: 0.25rem;
+  }
+}
+
+@layer components {
+  /* Contenedor editorial: ancho y margenes laterales unicos para todas las secciones */
+  .container-editorial {
+    @apply mx-auto w-full max-w-editorial px-6 lg:px-10;
+  }
+
+  /* Ritmo vertical de seccion: padding generoso y consistente */
+  .section-shell {
+    @apply py-28 md:py-36 lg:py-44;
+  }
+
+  /* Eyebrow: etiqueta mono, mayuscula, tracking amplio en color de acento */
+  .eyebrow {
+    @apply font-mono text-eyebrow uppercase text-accent;
+  }
+
+  /* Titular de seccion editorial */
+  .heading-section {
+    @apply text-heading font-semibold text-foreground;
+  }
+
+  /* Display del hero */
+  .heading-display {
+    @apply text-display font-semibold text-foreground;
+  }
+
+  /* Medida de lectura comoda (~65 caracteres) */
+  .measure {
+    @apply max-w-measure;
+  }
+
+  /* Separador hairline de 1px */
+  .hairline {
+    @apply border-t border-border;
   }
 }
 

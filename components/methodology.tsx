@@ -1,11 +1,7 @@
-"use client"
-
-import { Search, Database, BarChart3, Presentation } from "lucide-react"
-import { FadeIn } from "./motion"
+import { FadeIn, AnimatedLine } from "./motion"
 
 const steps = [
   {
-    icon: Search,
     number: "01",
     title: "Diagnóstico",
     description:
@@ -13,7 +9,6 @@ const steps = [
     detail: "Inmersión en su contexto institucional",
   },
   {
-    icon: Database,
     number: "02",
     title: "Arquitectura de datos",
     description:
@@ -21,7 +16,6 @@ const steps = [
     detail: "Diseño técnico a la medida",
   },
   {
-    icon: BarChart3,
     number: "03",
     title: "Modelado y análisis",
     description:
@@ -29,7 +23,6 @@ const steps = [
     detail: "Rigor cuantitativo verificable",
   },
   {
-    icon: Presentation,
     number: "04",
     title: "Entrega estratégica",
     description:
@@ -40,79 +33,66 @@ const steps = [
 
 export default function Methodology() {
   return (
-    <section className="py-32 lg:py-40 bg-background">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+    <section className="section-shell bg-background">
+      <div className="container-editorial">
         {/* Header */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-20 mb-20">
+        <div className="mb-16 grid gap-8 lg:mb-24 lg:grid-cols-2 lg:gap-20">
           <FadeIn>
-            <div className="flex items-center gap-4 mb-6">
-              <div className="h-px w-12 bg-accent" />
-              <p className="font-mono text-xs tracking-[0.2em] uppercase text-accent">
-                Metodología
-              </p>
+            <div className="mb-5 flex items-center gap-4">
+              <span className="h-px w-12 bg-accent" />
+              <span className="eyebrow">Metodología</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-foreground text-balance leading-[1.05]">
-              Un proceso riguroso,
-              <br className="hidden md:block" />
-              de principio a fin
+            <h2 className="heading-section text-balance">
+              Un proceso riguroso, de principio a fin
             </h2>
           </FadeIn>
           <FadeIn delay={0.15} className="flex flex-col justify-end">
-            <p className="text-base text-muted-foreground leading-relaxed max-w-lg">
+            <p className="measure text-base leading-relaxed text-muted-foreground">
               Cada fase tiene entregables claros. Usted sabe en todo momento qué
               se está haciendo, por qué y cuál es el siguiente paso.
             </p>
           </FadeIn>
         </div>
 
-        {/* Timeline */}
+        {/* Proceso secuencial — eje vertical hairline */}
         <div className="relative">
-          {/* Vertical line — desktop */}
-          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-border -translate-x-1/2" />
+          {/* Eje conector decorativo */}
+          <div
+            aria-hidden="true"
+            className="absolute left-1 top-2 bottom-2 w-px bg-border"
+          />
 
-          <div className="flex flex-col gap-16 lg:gap-24">
-            {steps.map((step, index) => {
-              const Icon = step.icon
-              const isEven = index % 2 === 0
-              return (
-                <FadeIn key={step.number} delay={index * 0.12}>
-                  <div className="relative grid lg:grid-cols-2 gap-8 lg:gap-20 items-center">
-                    {/* Timeline node — desktop */}
-                    <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 z-10 w-12 h-12 rounded-full bg-accent/10 border-4 border-background items-center justify-center">
-                      <span className="font-mono text-xs font-bold text-accent">
-                        {step.number}
-                      </span>
-                    </div>
+          <ol>
+            {steps.map((step, index) => (
+              <li
+                key={step.number}
+                className="relative pb-16 pl-12 last:pb-0 lg:pb-24 lg:pl-16"
+              >
+                {/* Tick de acento que conecta el eje con la fase */}
+                <span
+                  aria-hidden="true"
+                  className="absolute left-1 top-5 block lg:top-7"
+                >
+                  <AnimatedLine />
+                </span>
 
-                    {/* Content — alternating sides */}
-                    <div className={`${isEven ? "lg:pr-20" : "lg:order-2 lg:pl-20"}`}>
-                      <div className="flex items-start gap-4 mb-4">
-                        {/* Mobile number */}
-                        <div className="lg:hidden w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
-                          <span className="font-mono text-xs font-bold text-accent">{step.number}</span>
-                        </div>
-                        <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br from-accent/15 to-accent/5 shrink-0">
-                          <Icon className="w-5 h-5 text-accent" strokeWidth={1.5} />
-                        </div>
-                      </div>
-                      <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent mb-2">
-                        {step.detail}
-                      </p>
-                      <h3 className="text-2xl font-semibold text-foreground tracking-tight mb-3">
-                        {step.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
-                        {step.description}
-                      </p>
-                    </div>
-
-                    {/* Empty side for alignment */}
-                    <div className={`hidden lg:block ${isEven ? "lg:order-2" : ""}`} />
-                  </div>
+                <FadeIn delay={index * 0.12}>
+                  <span className="block font-mono text-5xl font-semibold tabular-nums text-foreground/80 lg:text-6xl">
+                    {step.number}
+                  </span>
+                  <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                    {step.detail}
+                  </p>
+                  <h3 className="mt-2 text-2xl font-semibold tracking-tight text-foreground">
+                    {step.title}
+                  </h3>
+                  <p className="measure mt-3 text-sm leading-relaxed text-muted-foreground">
+                    {step.description}
+                  </p>
                 </FadeIn>
-              )
-            })}
-          </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
     </section>
