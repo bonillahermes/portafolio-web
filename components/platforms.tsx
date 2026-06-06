@@ -12,7 +12,7 @@ const platforms = [
     description: "Sistema de monitoreo del Puesto de Mando Unificado para seguimiento operativo de jornadas electorales en tiempo real.",
     tech: "Next.js · Vercel · Tiempo real",
     status: "En operación",
-    url: "https://v0-electoral-monitoring-system.vercel.app/",
+    url: "https://www.pmuelectoral.com",
   },
   {
     name: "SIVIGEM",
