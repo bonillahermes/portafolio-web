@@ -106,14 +106,15 @@ export function AnimatedNumber({
   delay?: number
 }) {
   const ref = useRef<HTMLSpanElement>(null)
-  const isInView = useInView(ref, { once: true })
+  const isInView = useInView(ref, { once: true, margin: "0px 0px -10% 0px" })
   const shouldReduce = useReducedMotion()
-  const [display, setDisplay] = useState(0)
+  const [display, setDisplay] = useState(value)
   const hasAnimated = useRef(false)
 
   useEffect(() => {
     if (!isInView || shouldReduce || hasAnimated.current) return
     hasAnimated.current = true
+    setDisplay(0)
 
     const timeout = setTimeout(() => {
       const duration = 1500

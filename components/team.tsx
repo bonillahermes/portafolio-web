@@ -133,14 +133,31 @@ export default function Team() {
               className="flex gap-4 w-max group-hover/marquee:[animation-play-state:paused]"
               style={{ animation: "marquee 40s linear infinite" }}
             >
-              {[...stack, ...stack].map((tech, i) => (
+              {stack.map((tech) => (
                 <div
-                  key={`${tech.name}-${i}`}
+                  key={tech.name}
                   className="flex items-center gap-3 bg-white border border-border rounded-xl px-5 py-3.5 shrink-0 hover:border-accent/30 hover:shadow-md transition-all"
                 >
                   <div className="w-8 h-8 flex items-center justify-center rounded-lg bg-muted shrink-0">
                     <div className="relative w-5 h-5">
                       <Image src={tech.logo} alt={tech.name} fill className="object-contain" />
+                    </div>
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-foreground whitespace-nowrap">{tech.name}</p>
+                    <p className="text-[10px] text-muted-foreground whitespace-nowrap">{tech.category}</p>
+                  </div>
+                </div>
+              ))}
+              {stack.map((tech) => (
+                <div
+                  key={`dup-${tech.name}`}
+                  aria-hidden="true"
+                  className="flex items-center gap-3 bg-white border border-border rounded-xl px-5 py-3.5 shrink-0 hover:border-accent/30 hover:shadow-md transition-all"
+                >
+                  <div className="w-8 h-8 flex items-center justify-center rounded-lg bg-muted shrink-0">
+                    <div className="relative w-5 h-5">
+                      <Image src={tech.logo} alt="" fill className="object-contain" />
                     </div>
                   </div>
                   <div>

@@ -4,6 +4,7 @@ import "./globals.css"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { Analytics } from "@vercel/analytics/next"
+import { serviceTitles } from "@/lib/services"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -80,14 +81,7 @@ export default function RootLayout({
                 addressCountry: "CO",
               },
               areaServed: ["Colombia", "LATAM"],
-              serviceType: [
-                "Inteligencia Territorial",
-                "Análisis Legislativo con IA",
-                "Plataformas de Gestión para Gobierno",
-                "Evaluación de Impacto de Política Pública",
-                "Control Político con IA",
-                "Diagnóstico de Madurez de Datos",
-              ],
+              serviceType: serviceTitles,
             }),
           }}
         />

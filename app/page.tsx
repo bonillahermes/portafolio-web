@@ -6,6 +6,7 @@ import Methodology from "@/components/methodology"
 import Team from "@/components/team"
 import Platforms from "@/components/platforms"
 import CTA from "@/components/cta"
+import HashScroll from "@/components/hash-scroll"
 
 export const metadata: Metadata = {
   title: "Hermes Bonilla — Datos, IA y Plataformas para el Sector Público",
@@ -19,6 +20,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+      <HashScroll />
       <section id="inicio">
         <Hero />
       </section>
