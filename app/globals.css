@@ -11,24 +11,26 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 215 25% 17%;
-    --primary: 215 25% 17%;
+    --foreground: 216 33% 14%;
+    --primary: 216 33% 14%;
     --primary-foreground: 0 0% 100%;
-    --accent: 210 60% 38%;
+    --accent: 212 72% 33%;
     --accent-foreground: 0 0% 100%;
-    --muted: 220 14% 96%;
-    --muted-foreground: 215 10% 45%;
-    --border: 220 13% 90%;
+    --accent-soft: 211 55% 90%;
+    --accent-bright: 208 80% 64%;
+    --muted: 213 27% 96%;
+    --muted-foreground: 215 16% 40%;
+    --border: 214 22% 88%;
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 17%;
+    --card-foreground: 216 33% 14%;
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 17%;
-    --secondary: 215 10% 45%;
+    --popover-foreground: 216 33% 14%;
+    --secondary: 215 16% 40%;
     --secondary-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --input: 220 13% 90%;
-    --ring: 210 60% 38%;
+    --input: 214 22% 88%;
+    --ring: 212 72% 33%;
     --radius: 0.25rem;
   }
 }
@@ -107,8 +109,12 @@
   background: hsl(var(--accent));
 }
 
-/* Marquee animation */
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+/* Encendido escalonado de los departamentos del mapa (hero) */
+@keyframes dept-fill {
+  from {
+    fill: hsl(var(--muted));
+  }
+  to {
+    fill: hsl(var(--accent));
+  }
 }

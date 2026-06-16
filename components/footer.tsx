@@ -1,4 +1,4 @@
-import { Linkedin, Github, MapPin, Mail } from "lucide-react"
+import { Linkedin, Github, MapPin } from "lucide-react"
 import { footerServices } from "@/lib/services"
 
 const navLinks = [
@@ -21,7 +21,7 @@ function WhatsAppIcon({ className }: { className?: string }) {
 export default function Footer() {
   return (
     <footer className="bg-muted border-t border-border">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+      <div className="container-editorial">
         {/* Main footer */}
         <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Brand */}
@@ -113,21 +113,12 @@ export default function Footer() {
                   +57 300 976 9468
                 </a>
               </li>
-              <li>
-                <a
-                  href="mailto:consulta@hermesbonilla.com"
-                  className="flex items-center gap-3 text-sm text-muted-foreground hover:text-accent transition-colors"
-                >
-                  <Mail className="w-4 h-4 shrink-0" />
-                  consulta@hermesbonilla.com
-                </a>
-              </li>
               <li className="flex items-start gap-3 text-sm text-muted-foreground">
                 <MapPin className="w-4 h-4 shrink-0 mt-0.5" />
                 <span>
                   Bogotá, Colombia
                   <br />
-                  <span className="text-muted-foreground/60">Disponible en LATAM</span>
+                  <span className="text-muted-foreground">Disponible en LATAM</span>
                 </span>
               </li>
             </ul>
@@ -137,27 +128,27 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-border py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-xs text-muted-foreground/60">
+            <p className="text-xs text-muted-foreground">
               {"© 2026 Hermes Bonilla. Todos los derechos reservados."}
             </p>
             <div className="flex items-center gap-4">
               <a
                 href="/brochure"
-                className="text-xs text-muted-foreground/60 hover:text-accent transition-colors"
+                className="text-xs text-muted-foreground hover:text-accent transition-colors"
               >
                 Brochure
               </a>
-              <span className="text-muted-foreground/30">·</span>
+              <span className="text-border">·</span>
               <a
                 href="/legal"
-                className="text-xs text-muted-foreground/60 hover:text-accent transition-colors"
+                className="text-xs text-muted-foreground hover:text-accent transition-colors"
               >
                 Política de datos
               </a>
-              <span className="text-muted-foreground/30">·</span>
+              <span className="text-border">·</span>
               <a
                 href="/legal"
-                className="text-xs text-muted-foreground/60 hover:text-accent transition-colors"
+                className="text-xs text-muted-foreground hover:text-accent transition-colors"
               >
                 Términos de uso
               </a>

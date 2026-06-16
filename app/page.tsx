@@ -10,7 +10,7 @@ import HashScroll from "@/components/hash-scroll"
 import { SITE_URL } from "@/lib/site"
 
 export const metadata: Metadata = {
-  title: "Hermes Bonilla — Datos, IA y Plataformas para el Sector Público",
+  title: "Hermes Bonilla",
   description:
     "Especialista en analítica de datos, inteligencia artificial y plataformas de gestión para congresistas, UTL y entidades del gobierno colombiano.",
   alternates: {

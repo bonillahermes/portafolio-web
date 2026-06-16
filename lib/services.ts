@@ -1,25 +1,13 @@
-import {
-  Radar,
-  Sparkles,
-  Scale,
-  ScanSearch,
-  Microscope,
-  Workflow,
-  BadgeDollarSign,
-  Target,
-  type LucideIcon,
-} from "lucide-react"
-
-export type ServiceGroupKey = "legislativo" | "gobierno"
+export type ServiceGroupKey = "congreso" | "gobierno" | "observatorios"
 
 export interface ServiceGroup {
   key: ServiceGroupKey
+  code: string
   label: string
   description: string
 }
 
 export interface Service {
-  icon: LucideIcon
   title: string
   description: string
   tags: string[]
@@ -30,94 +18,107 @@ export interface Service {
 
 export const serviceGroups: ServiceGroup[] = [
   {
-    key: "legislativo",
-    label: "Equipos legislativos",
+    key: "congreso",
+    code: "CON",
+    label: "Congreso y control político",
     description:
-      "Herramientas de inteligencia y análisis para el trabajo de congresistas y UTL",
+      "Inteligencia y análisis para congresistas, UTL, comisiones y bancadas.",
   },
   {
     key: "gobierno",
-    label: "Entidades públicas",
+    code: "GOB",
+    label: "Gobierno y entidades públicas",
     description:
-      "Diagnóstico, desarrollo de sistemas y evaluación para entidades del gobierno",
+      "Diagnóstico, desarrollo de sistemas y evaluación para entidades del Estado.",
+  },
+  {
+    key: "observatorios",
+    code: "OBS",
+    label: "Observatorios y organizaciones",
+    description:
+      "Datos abiertos, veeduría y evidencia para observatorios, ONG y organismos.",
   },
 ]
 
 export const services: Service[] = [
+  // ── Congreso y control político ──
   {
-    icon: Radar,
     title: "Inteligencia Territorial",
     description:
-      "Análisis cuantitativo del territorio representado por el congresista: estructura demográfica, vulnerabilidad socioeconómica y patrones electorales a nivel municipal.",
-    tags: ["Análisis geoespacial", "Segmentación cuantitativa", "Entrega ágil"],
-    clientType: "UTL · Congresistas · Senado · Cámara",
-    group: "legislativo",
+      "Radiografía cuantitativa del territorio: demografía, vulnerabilidad socioeconómica y patrones electorales a nivel municipal.",
+    tags: ["Análisis geoespacial", "Segmentación", "Entrega ágil"],
+    clientType: "UTL · Congresistas · Comisiones · Bancadas",
+    group: "congreso",
     highlightInFooter: true,
   },
   {
-    icon: Sparkles,
     title: "Copiloto de Control Político",
     description:
-      "Sistema de inteligencia basado en IA para analizar informes institucionales, datos oficiales y series estadísticas como insumo para la preparación de debates de control político.",
+      "IA que analiza informes oficiales y series estadísticas para preparar debates y citaciones de control político.",
     tags: ["RAG", "LLM", "Informes ejecutivos"],
-    clientType: "UTL · Debates · Citaciones",
-    group: "legislativo",
+    clientType: "UTL · Comisiones · Debates de control",
+    group: "congreso",
   },
   {
-    icon: Scale,
     title: "Análisis Legislativo con IA",
     description:
-      "Procesamiento automatizado de proyectos de ley: generación de resúmenes técnicos, comparación entre versiones y construcción de fichas legislativas estructuradas.",
+      "Resúmenes técnicos, comparación de versiones y fichas estructuradas de proyectos de ley, automatizados.",
     tags: ["NLP", "Gaceta del Congreso", "Ficha técnica"],
-    clientType: "UTL · Producción legislativa",
-    group: "legislativo",
+    clientType: "UTL · Comisiones · Producción legislativa",
+    group: "congreso",
     highlightInFooter: true,
   },
   {
-    icon: ScanSearch,
     title: "Observatorio Legislativo",
     description:
-      "Monitoreo continuo de agenda legislativa, votaciones y proyectos por temática mediante dashboards y alertas periódicas para equipos legislativos.",
+      "Monitoreo continuo de agenda, votaciones y proyectos por temática, con dashboards y alertas periódicas.",
     tags: ["Dashboard", "Alertas", "Seguimiento"],
-    clientType: "UTL · Multi-cliente",
-    group: "legislativo",
+    clientType: "UTL · Bancadas · Multi-cliente",
+    group: "congreso",
   },
+  // ── Gobierno y entidades públicas ──
   {
-    icon: Microscope,
     title: "Diagnóstico de Madurez de Datos",
     description:
-      "Evaluación del estado de procesos, infraestructura analítica y digitalización institucional con hoja de ruta priorizada de mejora.",
+      "Evaluación de procesos, infraestructura analítica y digitalización, con hoja de ruta priorizada de mejora.",
     tags: ["Diagnóstico", "Hoja de ruta", "Procesos"],
-    clientType: "Ministerios · Entidades públicas",
+    clientType: "Ministerios · Gobernaciones · Alcaldías",
     group: "gobierno",
   },
   {
-    icon: Workflow,
     title: "Arquitectura de Sistemas Institucionales",
     description:
-      "Diseño y desarrollo de sistemas orientados a digitalizar procesos críticos y mejorar la trazabilidad operativa dentro de la entidad.",
+      "Diseño y desarrollo de sistemas que digitalizan procesos críticos y dan trazabilidad operativa a la entidad.",
     tags: ["Next.js", "Desarrollo", "Automatización"],
-    clientType: "Ministerios · Organismos · ONG",
+    clientType: "Ministerios · Organismos · Entidades públicas",
     group: "gobierno",
     highlightInFooter: true,
   },
   {
-    icon: BadgeDollarSign,
     title: "Gestión Inteligente de Cuentas de Cobro",
     description:
-      "Plataforma digital para registro, seguimiento y trazabilidad de cuentas de cobro en entidades públicas con parametrización institucional.",
+      "Plataforma para registro, seguimiento y trazabilidad de cuentas de cobro, parametrizable por institución.",
     tags: ["SaaS", "Gestión financiera", "Trazabilidad"],
-    clientType: "Entidades públicas · UTL · Ministerios",
+    clientType: "Entidades públicas · Ministerios · UTL",
     group: "gobierno",
   },
+  // ── Observatorios y organizaciones ──
   {
-    icon: Target,
+    title: "Observatorios de Datos Públicos",
+    description:
+      "Dashboards interactivos sobre datos abiertos —contratación, cultura política, gasto público— para control ciudadano y veeduría.",
+    tags: ["Datos abiertos", "Control ciudadano", "Visualización"],
+    clientType: "Observatorios · Veedurías · Academia · ONG",
+    group: "observatorios",
+    highlightInFooter: true,
+  },
+  {
     title: "Evaluación de Impacto de Política Pública",
     description:
-      "Análisis cuantitativo del impacto territorial y socioeconómico de programas públicos mediante metodologías verificables.",
+      "Medición cuantitativa del impacto territorial y socioeconómico de programas públicos, con metodologías verificables.",
     tags: ["Evaluación de impacto", "Evidencia", "Territorio"],
-    clientType: "Gobierno · Congreso · Organismos internacionales",
-    group: "gobierno",
+    clientType: "Organismos internacionales · ONG · Gobierno",
+    group: "observatorios",
   },
 ]
 

@@ -35,6 +35,8 @@ const config: Config = {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+          soft: "hsl(var(--accent-soft))",
+          bright: "hsl(var(--accent-bright))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -50,8 +52,8 @@ const config: Config = {
         gold: "hsl(var(--gold))",
       },
       fontFamily: {
-        sans: ["var(--font-inter)"],
-        mono: ["var(--font-jetbrains-mono)"],
+        sans: ["var(--font-sans)"],
+        mono: ["var(--font-mono)"],
       },
       fontSize: {
         display: [

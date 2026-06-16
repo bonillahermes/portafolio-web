@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Inter, JetBrains_Mono } from "next/font/google"
+import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google"
 import "./globals.css"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
@@ -7,18 +7,20 @@ import { Analytics } from "@vercel/analytics/next"
 import { serviceTitles } from "@/lib/services"
 import { SITE_URL } from "@/lib/site"
 
-const inter = Inter({
+const plexSans = IBM_Plex_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-sans",
 })
 
-const jetbrainsMono = JetBrains_Mono({
+const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
+  weight: ["400", "500", "600"],
+  variable: "--font-mono",
 })
 
 export const metadata: Metadata = {
-  title: "Hermes Bonilla — Datos, IA y Plataformas para el Sector Público",
+  title: "Hermes Bonilla",
   description:
     "Analítica de datos, inteligencia artificial y plataformas de gestión para congresistas, UTL y entidades del gobierno nacional colombiano.",
   keywords:
@@ -62,7 +64,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
+      className={`${plexSans.variable} ${plexMono.variable} antialiased`}
     >
       <head>
         <script
@@ -76,7 +78,6 @@ export default function RootLayout({
                 "Analítica de datos, inteligencia artificial y plataformas de gestión para congresistas, UTL y entidades del gobierno nacional colombiano.",
               url: SITE_URL,
               telephone: "+573009769468",
-              email: "consulta@hermesbonilla.com",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Bogotá",

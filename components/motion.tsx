@@ -150,7 +150,7 @@ export function AnimatedNumber({
     return (
       <span>
         {prefix}
-        {value}
+        {value.toLocaleString("es-CO")}
         {suffix}
       </span>
     )
@@ -159,7 +159,7 @@ export function AnimatedNumber({
   return (
     <span ref={ref}>
       {prefix}
-      {display}
+      {display.toLocaleString("es-CO")}
       {suffix}
     </span>
   )
@@ -182,5 +182,67 @@ export function AnimatedLine({ className }: { className?: string }) {
       animate={isInView ? { width: 48 } : { width: 0 }}
       transition={{ duration: 0.8, delay: 0.2, ease: EDITORIAL_EASE }}
     />
+  )
+}
+
+// Eje vertical que se dibuja al entrar en viewport (de arriba hacia abajo).
+// El color y la posición los aporta `className`; aquí solo vive la animación.
+export function AnimatedAxis({ className }: { className?: string }) {
+  const ref = useRef(null)
+  const isInView = useInView(ref, revealViewport)
+  const shouldReduce = useReducedMotion()
+
+  if (shouldReduce) {
+    return <div className={`w-px ${className || ""}`} />
+  }
+
+  return (
+    <motion.div
+      ref={ref}
+      className={`w-px origin-top ${className || ""}`}
+      initial={{ scaleY: 0 }}
+      animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
+      transition={{ duration: 0.9, delay: 0.1, ease: EDITORIAL_EASE }}
+    />
+  )
+}
+
+// Teclea el texto carácter por carácter al entrar en viewport. El estado inicial
+// es el texto completo (SSR / sin-JS lo muestran completo); al entrar se reinicia
+// a 0 y se escribe. `aria-label` mantiene el texto accesible durante la animación.
+export function Typewriter({
+  text,
+  className,
+}: {
+  text: string
+  className?: string
+}) {
+  const ref = useRef<HTMLSpanElement>(null)
+  const isInView = useInView(ref, revealViewport)
+  const shouldReduce = useReducedMotion()
+  const [shown, setShown] = useState(text.length)
+  const started = useRef(false)
+
+  useEffect(() => {
+    if (!isInView || shouldReduce || started.current) return
+    started.current = true
+    setShown(0)
+    let i = 0
+    const id = setInterval(() => {
+      i += 1
+      setShown(i)
+      if (i >= text.length) clearInterval(id)
+    }, 90)
+    return () => clearInterval(id)
+  }, [isInView, shouldReduce, text.length])
+
+  if (shouldReduce) {
+    return <span className={className}>{text}</span>
+  }
+
+  return (
+    <span ref={ref} className={className} aria-label={text}>
+      <span aria-hidden="true">{text.slice(0, shown)}</span>
+    </span>
   )
 }

@@ -1,7 +1,9 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
+import { motion } from "framer-motion"
 import { Menu, X } from "lucide-react"
 
 const navItems = [
@@ -17,24 +19,45 @@ const navItems = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState("")
   const pathname = usePathname()
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
+    const handleScroll = () => setIsScrolled(window.scrollY > 20)
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  // Resalta la sección visible en la navegación (scroll-spy).
+  useEffect(() => {
+    if (pathname !== "/") {
+      setActiveSection("")
+      return
+    }
+    const ids = navItems
+      .filter((i) => i.href.startsWith("#"))
+      .map((i) => i.href.slice(1))
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id)
+        })
+      },
+      { rootMargin: "-45% 0px -50% 0px" }
+    )
+    ids.forEach((id) => {
+      const el = document.getElementById(id)
+      if (el) observer.observe(el)
+    })
+    return () => observer.disconnect()
+  }, [pathname])
 
   const scrollToSection = (href: string) => {
     if (pathname !== "/") {
       window.location.href = `/${href}`
     } else {
       const element = document.querySelector(href)
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" })
-      }
+      if (element) element.scrollIntoView({ behavior: "smooth" })
     }
     setIsMobileMenuOpen(false)
   }
@@ -50,44 +73,67 @@ export default function Navbar() {
   return (
     <nav
       aria-label="Navegación principal"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/90 backdrop-blur-md border-b border-border shadow-sm"
+          ? "border-b border-border bg-white/90 shadow-sm backdrop-blur-md"
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+      <div className="container-editorial">
+        <div className="flex h-16 items-center justify-between lg:h-20">
           {/* Logo */}
           <button
             onClick={handleLogoClick}
-            className="flex flex-col"
+            aria-label="Inicio"
+            className="group flex items-center gap-2.5 text-left"
           >
-            <span className="text-base font-semibold tracking-tight text-foreground">
-              Hermes Bonilla
-            </span>
-            <span className="text-[10px] font-mono uppercase tracking-[0.15em] text-muted-foreground">
-              Datos e inteligencia
+            <Image
+              src="/images/logo-hb.png"
+              alt=""
+              width={32}
+              height={32}
+              className="h-7 w-7 shrink-0 object-contain transition-transform duration-300 group-hover:scale-105"
+            />
+            <span className="flex flex-col">
+              <span className="text-base font-semibold leading-tight tracking-tight text-foreground">
+                Hermes Bonilla
+              </span>
+              <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
+                Datos e inteligencia
+              </span>
             </span>
           </button>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                onClick={(e) => {
-                  if (item.href.startsWith("#")) {
-                    e.preventDefault()
-                    scrollToSection(item.href)
-                  }
-                }}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {item.name}
-              </a>
-            ))}
+          {/* Desktop nav */}
+          <div className="hidden items-center gap-8 lg:flex">
+            {navItems.map((item) => {
+              const isActive =
+                item.href.startsWith("#") && item.href.slice(1) === activeSection
+              return (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={(e) => {
+                    if (item.href.startsWith("#")) {
+                      e.preventDefault()
+                      scrollToSection(item.href)
+                    }
+                  }}
+                  className={`relative text-sm transition-colors hover:text-foreground ${
+                    isActive ? "text-foreground" : "text-muted-foreground"
+                  }`}
+                >
+                  {item.name}
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute -bottom-1.5 left-0 right-0 h-px bg-accent"
+                      transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                    />
+                  )}
+                </a>
+              )
+            })}
           </div>
 
           {/* CTA */}
@@ -96,31 +142,27 @@ export default function Navbar() {
               href="https://wa.me/573009769468?text=Hola%2C%20me%20interesa%20una%20consulta"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-semibold px-5 py-2.5 bg-accent text-white hover:bg-accent/90 transition-colors rounded-lg"
+              className="rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent/90"
             >
               Contacto
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile toggle */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden text-foreground"
+            className="text-foreground lg:hidden"
             aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
           >
-            {isMobileMenuOpen ? (
-              <X className="w-5 h-5" />
-            ) : (
-              <Menu className="w-5 h-5" />
-            )}
+            {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-border shadow-lg">
-          <div className="px-6 py-6 flex flex-col gap-4">
+        <div className="border-b border-border bg-white shadow-lg lg:hidden">
+          <div className="container-editorial flex flex-col gap-4 py-6">
             {navItems.map((item) => (
               <a
                 key={item.name}
@@ -133,7 +175,7 @@ export default function Navbar() {
                     setIsMobileMenuOpen(false)
                   }
                 }}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors text-left py-1"
+                className="py-1 text-left text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
                 {item.name}
               </a>
@@ -142,7 +184,7 @@ export default function Navbar() {
               href="https://wa.me/573009769468?text=Hola%2C%20me%20interesa%20una%20consulta"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-semibold px-5 py-3 bg-accent text-white hover:bg-accent/90 transition-colors text-center mt-2 rounded-lg"
+              className="mt-2 rounded-lg bg-accent px-5 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-accent/90"
             >
               Contacto
             </a>

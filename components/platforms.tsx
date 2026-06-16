@@ -2,8 +2,9 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import Image from "next/image"
 import { ExternalLink, ChevronDown } from "lucide-react"
-import { FadeIn } from "./motion"
+import { FadeIn, EDITORIAL_EASE } from "./motion"
 
 const platforms = [
   {
@@ -12,7 +13,9 @@ const platforms = [
     description: "Sistema de monitoreo del Puesto de Mando Unificado para seguimiento operativo de jornadas electorales en tiempo real.",
     tech: "Next.js · Vercel · Tiempo real",
     status: "En operación",
-    url: "https://www.pmuelectoral.com",
+    // URL correcta es el dominio apex; el subdominio www no está configurado.
+    url: "https://pmuelectoral.com",
+    image: "/images/platforms/pmu-electoral.jpg",
   },
   {
     name: "SIVIGEM",
@@ -20,15 +23,17 @@ const platforms = [
     description: "Sistema de Vigilancia, Seguimiento y Gestión de Casos de Violencia contra la Mujer en Política. Ley 2453 de 2025.",
     tech: "Next.js · Autenticación · Gestión de casos",
     status: "Sistema activo",
-    url: null,
+    url: "https://www.sivigem.com",
+    image: "/images/platforms/sivigem.jpg",
   },
   {
-    name: "Dashboard Congreso",
+    name: "Dashboard Analítico de Votaciones",
     client: "Ministerio del Interior",
-    description: "Plataforma de seguimiento de datos electorales y actividad legislativa para UTL y equipos de campaña.",
+    description: "Dashboard analítico de resultados electorales: preconteo informativo, tendencias por boletín y comparativos para UTL y equipos de campaña.",
     tech: "Next.js · Analítica · Visualización",
     status: "En desarrollo",
     url: "https://v0-next-js-congreso-dashboard.vercel.app/",
+    image: "/images/platforms/dashboard-votaciones.jpg",
   },
   {
     name: "Sistema PNG",
@@ -37,79 +42,99 @@ const platforms = [
     tech: "Next.js · Gestión documental",
     status: "En desarrollo",
     url: null,
+    image: null,
   },
 ]
 
-function AccordionItem({ platform, isOpen, onToggle }: {
-  platform: typeof platforms[number]
+function AccordionItem({
+  platform,
+  isOpen,
+  onToggle,
+}: {
+  platform: (typeof platforms)[number]
   isOpen: boolean
   onToggle: () => void
 }) {
+  const isLive =
+    platform.status === "En operación" || platform.status === "Sistema activo"
+
   return (
     <div className="border-b border-border last:border-b-0">
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between py-6 lg:py-8 text-left group"
+        aria-expanded={isOpen}
+        className="group flex w-full items-center justify-between gap-4 py-6 text-left lg:py-8"
       >
-        <div className="flex items-center gap-4 lg:gap-6 flex-1 min-w-0">
-          <span className="font-mono text-sm font-semibold text-accent shrink-0">
-            {platform.status === "En operación" ? "●" : platform.status === "Sistema activo" ? "●" : "○"}
+        <div className="flex min-w-0 flex-1 items-center gap-4 lg:gap-6">
+          <span
+            aria-hidden="true"
+            className={`shrink-0 font-mono text-sm ${isLive ? "text-accent" : "text-muted-foreground"}`}
+          >
+            {isLive ? "●" : "○"}
           </span>
-          <h3 className="text-lg lg:text-xl font-semibold text-foreground tracking-tight group-hover:text-accent transition-colors">
+          <h3 className="truncate text-lg font-semibold tracking-tight text-foreground transition-colors group-hover:text-accent lg:text-xl">
             {platform.name}
           </h3>
-          <span className="hidden sm:inline-block font-mono text-[10px] tracking-wide uppercase px-3 py-1 border border-accent/20 text-accent rounded-full shrink-0">
+          <span className="hidden shrink-0 font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground sm:inline-block">
             {platform.status}
           </span>
         </div>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
-          className="shrink-0 ml-4"
+          className="ml-4 shrink-0"
         >
-          <ChevronDown className="w-5 h-5 text-muted-foreground" />
+          <ChevronDown className="h-5 w-5 text-muted-foreground" />
         </motion.div>
       </button>
 
-      <AnimatePresence>
+      <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.35, ease: [0.21, 0.47, 0.32, 0.98] }}
+            transition={{ duration: 0.35, ease: EDITORIAL_EASE }}
             className="overflow-hidden"
           >
-            <div className="pb-8 pl-10 lg:pl-12 grid lg:grid-cols-[2fr_1fr] gap-6 items-end">
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-accent/70 mb-3">
-                  {platform.client}
-                </p>
-                <p className="text-sm text-muted-foreground leading-relaxed max-w-lg mb-4">
-                  {platform.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {platform.tech.split(" · ").map((t) => (
-                    <span
-                      key={t}
-                      className="text-[10px] font-mono text-accent/80 bg-accent/[0.06] px-2.5 py-1 rounded-full"
-                    >
-                      {t}
-                    </span>
-                  ))}
+            <div className="pb-8 pl-9 lg:pl-12">
+              <div className="grid items-end gap-6 lg:grid-cols-[2fr_1fr]">
+                <div>
+                  <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.2em] text-accent">
+                    {platform.client}
+                  </p>
+                  <p className="measure mb-4 text-sm leading-relaxed text-muted-foreground">
+                    {platform.description}
+                  </p>
+                  <p className="font-mono text-[11px] text-muted-foreground">
+                    {platform.tech}
+                  </p>
                 </div>
+                {platform.url && (
+                  <div className="lg:text-right">
+                    <a
+                      href={platform.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-accent transition-colors hover:text-accent/80"
+                    >
+                      Ver plataforma
+                      <ExternalLink className="h-3.5 w-3.5" />
+                    </a>
+                  </div>
+                )}
               </div>
-              {platform.url && (
-                <div className="lg:text-right">
-                  <a
-                    href={platform.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm text-accent hover:text-accent/80 transition-colors font-medium"
-                  >
-                    Ver plataforma
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
+
+              {platform.image && (
+                <div className="mt-6 overflow-hidden rounded-lg border border-border">
+                  <Image
+                    src={platform.image}
+                    alt={`Vista de la plataforma ${platform.name}`}
+                    width={1440}
+                    height={900}
+                    sizes="(max-width: 1024px) 100vw, 60vw"
+                    className="h-auto w-full"
+                  />
                 </div>
               )}
             </div>
@@ -121,26 +146,23 @@ function AccordionItem({ platform, isOpen, onToggle }: {
 }
 
 export default function Platforms() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0)
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section className="py-32 lg:py-40 bg-background">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-20 mb-16">
+    <section className="section-shell bg-background">
+      <div className="container-editorial">
+        <div className="mb-16 grid gap-8 lg:mb-20 lg:grid-cols-2 lg:gap-20">
           <FadeIn>
-            <div className="flex items-center gap-4 mb-6">
-              <div className="h-px w-12 bg-accent" />
-              <p className="font-mono text-xs tracking-[0.2em] uppercase text-accent">
-                Sistemas desarrollados
-              </p>
+            <div className="mb-5 flex items-center gap-4">
+              <span className="h-px w-12 bg-accent" />
+              <span className="eyebrow">Sistemas desarrollados</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-foreground mb-4">
-              Plataformas
-            </h2>
+            <h2 className="heading-section text-balance">Plataformas</h2>
           </FadeIn>
           <FadeIn delay={0.15} className="flex flex-col justify-end">
-            <p className="text-base text-muted-foreground leading-relaxed max-w-lg">
-              Sistemas de información desarrollados para entidades del gobierno nacional colombiano y proyectos institucionales.
+            <p className="measure text-base leading-relaxed text-muted-foreground">
+              Sistemas de información desarrollados para entidades del gobierno
+              nacional colombiano y proyectos institucionales.
             </p>
           </FadeIn>
         </div>
