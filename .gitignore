@@ -32,4 +32,9 @@ next-env.d.ts
 # archivos de contexto local para IA
 CLAUDE.md
 CONTRIBUTING.md
+DESIGN_SYSTEM.md
+PERFIL.md
 .editorconfig
+
+# artefactos de build mal ubicados
+public/images/.next/
