@@ -9,6 +9,54 @@ y este proyecto se adhiere al [Versionado Semántico](https://semver.org/lang/es
 
 Sin cambios pendientes.
 
+## [3.0.0] - 2026-06-16
+
+Rediseño completo del home bajo una identidad propia, **"Instrumento de datos"**:
+nueva fundación visual, firma territorial interactiva y secciones reconstruidas.
+Cambio **MAYOR**: rompe el sistema de diseño anterior (tokens cromáticos, escala
+tipográfica y lenguaje visual).
+
+### Added
+
+- **Fundación visual nueva:** tipografía IBM Plex Sans + IBM Plex Mono (reemplaza
+  Inter/JetBrains Mono); paleta fría con acento cartográfico y token
+  `--accent-bright` para superficies oscuras.
+- **Firma del hero:** mapa de Colombia interactivo (`react-simple-maps`) con la
+  huella territorial real de 8 departamentos — marcadores que pulsan, encendido
+  secuencial al cargar y resaltado sincronizado mapa↔lista al hover.
+- **Servicios como panel de instrumentos** (sección oscura): tres audiencias
+  (Congreso y control político, Gobierno y entidades, Observatorios y
+  organizaciones), glow que sigue el cursor, eje de acento que se dibuja, conteo
+  animado, códigos mono y filas accionables a WhatsApp.
+- **Clientes:** muro de 7 logos institucionales que se activan al hover.
+- **Plataformas:** capturas reales de PMU Electoral, SIVIGEM y el dashboard
+  analítico de votaciones.
+- Identidad de marca: favicon e icono Apple con el logo HB.
+- Nuevos módulos: `lib/colombia-sites.ts`, `components/colombia-map.tsx`,
+  `components/colombia-signature.tsx`; documento estratégico `PRODUCT.md`.
+- Stack tecnológico ampliado a 19 herramientas; nuevo servicio "Observatorios de
+  Datos Públicos".
+
+### Changed
+
+- Todas las secciones migradas al sistema nuevo (`.container-editorial`, escala
+  tipográfica, hairlines): hero, trust-bar, servicios, metodología, plataformas,
+  team, CTA, footer y navbar. Resuelta la deuda de contenedor (§9).
+- Servicios: de grilla de cards a panel editorial; eliminados los íconos lucide
+  genéricos.
+- Navbar: logo HB en la marca y subrayado de acento que se desliza bajo la sección
+  activa.
+- Métricas del hero ahora reflejan trayectoria real (+6 años, +30 proyectos,
+  12 sistemas) en vez de eslóganes.
+- Título de la pestaña simplificado a "Hermes Bonilla".
+- Todo el movimiento respeta `prefers-reduced-motion`.
+
+### Removed
+
+- Correo `consulta@hermesbonilla.com` (no disponible) de hero, contacto, footer y
+  JSON-LD; WhatsApp queda como canal único.
+- Íconos lucide sueltos de servicios y el marquee del stack tecnológico.
+
 ## [2.0.2] - 2026-06-15
 
 Correcciones de SEO, canonicalización a www y rendimiento de imágenes (LCP).
