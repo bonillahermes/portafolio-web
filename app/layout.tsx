@@ -5,6 +5,7 @@ import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { Analytics } from "@vercel/analytics/next"
 import { serviceTitles } from "@/lib/services"
+import { SITE_URL } from "@/lib/site"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,10 +25,11 @@ export const metadata: Metadata = {
     "analítica de datos, inteligencia artificial, sector público, gobierno Colombia, UTL, congresistas, plataformas de gestión, políticas públicas, análisis legislativo, control político, evaluación de impacto",
   authors: [{ name: "Hermes Bonilla" }],
   creator: "Hermes Bonilla",
+  metadataBase: new URL(SITE_URL),
   openGraph: {
     type: "website",
     locale: "es_CO",
-    url: "https://hermesbonilla.com",
+    url: SITE_URL,
     title: "Hermes Bonilla — Datos, IA y Plataformas para el Sector Público",
     description:
       "Analítica de datos, inteligencia artificial y plataformas de gestión para congresistas, UTL y entidades del gobierno nacional colombiano.",
@@ -72,7 +74,7 @@ export default function RootLayout({
               name: "Hermes Bonilla",
               description:
                 "Analítica de datos, inteligencia artificial y plataformas de gestión para congresistas, UTL y entidades del gobierno nacional colombiano.",
-              url: "https://hermesbonilla.com",
+              url: SITE_URL,
               telephone: "+573009769468",
               email: "consulta@hermesbonilla.com",
               address: {

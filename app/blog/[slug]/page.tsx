@@ -4,6 +4,7 @@ import Link from "next/link"
 import { ArrowLeft, Clock, Calendar, User } from "lucide-react"
 import { MDXRemote } from "next-mdx-remote/rsc"
 import { getAllPosts, getPostBySlug } from "@/lib/mdx"
+import { SITE_URL } from "@/lib/site"
 
 interface Props {
   params: { slug: string }
@@ -33,7 +34,7 @@ export function generateMetadata({ params }: Props): Metadata {
       tags: post.tags,
       siteName: "Hermes Bonilla",
       locale: "es_CO",
-      url: `https://hermesbonilla.com/blog/${params.slug}`,
+      url: `${SITE_URL}/blog/${params.slug}`,
     },
     twitter: {
       card: "summary_large_image",
@@ -41,7 +42,7 @@ export function generateMetadata({ params }: Props): Metadata {
       description: post.excerpt,
     },
     alternates: {
-      canonical: `https://hermesbonilla.com/blog/${params.slug}`,
+      canonical: `${SITE_URL}/blog/${params.slug}`,
     },
   }
 }
@@ -59,16 +60,16 @@ export default function BlogPostPage({ params }: Props) {
       author: {
         "@type": "Person",
         name: post.author,
-        url: "https://hermesbonilla.com",
+        url: SITE_URL,
       },
       datePublished: post.date,
       dateModified: post.date,
       publisher: {
         "@type": "Person",
         name: "Hermes Bonilla",
-        url: "https://hermesbonilla.com",
+        url: SITE_URL,
       },
-      mainEntityOfPage: `https://hermesbonilla.com/blog/${params.slug}`,
+      mainEntityOfPage: `${SITE_URL}/blog/${params.slug}`,
       articleSection: post.category,
       keywords: post.tags.join(", "),
       inLanguage: "es",
@@ -82,19 +83,19 @@ export default function BlogPostPage({ params }: Props) {
           "@type": "ListItem",
           position: 1,
           name: "Inicio",
-          item: "https://hermesbonilla.com",
+          item: SITE_URL,
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Blog",
-          item: "https://hermesbonilla.com/blog",
+          item: `${SITE_URL}/blog`,
         },
         {
           "@type": "ListItem",
           position: 3,
           name: post.title,
-          item: `https://hermesbonilla.com/blog/${params.slug}`,
+          item: `${SITE_URL}/blog/${params.slug}`,
         },
       ],
     },

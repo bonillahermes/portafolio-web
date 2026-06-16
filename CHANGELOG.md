@@ -9,6 +9,31 @@ y este proyecto se adhiere al [Versionado Semántico](https://semver.org/lang/es
 
 Sin cambios pendientes.
 
+## [2.0.1] - 2026-06-15
+
+Correcciones de SEO, canonicalización a www y rendimiento de imágenes (LCP).
+
+### Added
+
+- `app/robots.ts` (Metadata Route API de Next.js): declara el sitemap y el host
+  canónico del sitio.
+- `lib/site.ts`: constante `SITE_URL` como fuente única de verdad del host canónico.
+
+### Changed
+
+- Canonicalización del sitio a www: host centralizado en `lib/site.ts` como `SITE_URL`
+  (fuente única). Migradas todas las URLs absolutas (canonical, `og:url`, JSON-LD,
+  sitemap, breadcrumbs) de no-www a www.
+- Añadido `metadataBase` en el layout para resolver correctamente las URLs de Open Graph
+  y canonical.
+- Corregido el enlace de "Sitio en producción" del `README.md` a www.
+
+### Fixed
+
+- LCP de imágenes: añadido el atributo `sizes` a los `<Image fill>` de `trust-bar.tsx` y
+  `team.tsx` para evitar servir candidatos de `srcset` sobredimensionados (hasta `w=3840`)
+  en slots de 112–320px.
+
 ## [2.1.0] - 2026-06-15
 
 Capa de infraestructura de contexto y gobierno del repositorio.
@@ -131,6 +156,7 @@ del repositorio anterior a este punto corresponde a otro propósito y no se incl
 - Archivos de ruta de blog huérfanos.
 
 [Unreleased]: https://github.com/bonillahermes/portafolio-web/compare/v2.1.0...HEAD
+[2.0.1]: https://github.com/bonillahermes/portafolio-web/compare/v2.0.0...v2.0.1
 [2.1.0]: https://github.com/bonillahermes/portafolio-web/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/bonillahermes/portafolio-web/compare/v1.4.0...v2.0.0
 [1.4.0]: https://github.com/bonillahermes/portafolio-web/compare/v1.3.0...v1.4.0
