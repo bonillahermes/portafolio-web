@@ -43,13 +43,24 @@ public/       Activos estáticos y datos de los dashboards (public/data/)
 
 ## Contexto para IA
 
-Este repositorio incluye archivos de contexto para asistentes de IA y colaboradores:
+Este repositorio sigue una jerarquía de archivos de contexto para asistentes de IA y
+colaboradores. Los versionados sirven de punto de entrada público; los detallados se
+mantienen locales.
 
-- `CLAUDE.md` — contexto persistente del proyecto (stack, estructura, convenciones,
-  sistema de diseño, restricciones).
+Versionados (en el repositorio):
+
+- `AGENTS.md` — punto de entrada para agentes de IA (estándar abierto); remite al
+  contexto técnico.
+- `CHANGELOG.md` — historial de versiones (formato Keep a Changelog).
+- `.claude/skills/README.md` — doctrina de gobierno de skills.
+
+Locales (no versionados, ver `.gitignore`):
+
+- `CLAUDE.md` — contexto técnico y operativo (stack, estructura, convenciones,
+  restricciones).
+- `DESIGN_SYSTEM.md` — sistema de diseño detallado (tokens, escala, anti-referencias).
 - `CONTRIBUTING.md` — convenciones de contribución para humanos e IA.
-
-Ambos se mantienen locales (ver `.gitignore`).
+- `PERFIL.md` — perfil privado del consultor; no se publica.
 
 ## Licencia
 
