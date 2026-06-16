@@ -3,6 +3,7 @@ import Link from "next/link"
 import { ArrowLeft, ArrowRight, Database } from "lucide-react"
 import { getAllProjects } from "@/lib/lab"
 import { Badge } from "@/components/ui/badge"
+import { SITE_URL } from "@/lib/site"
 
 export const metadata: Metadata = {
   title: "Laboratorio de Datos Públicos — Hermes Bonilla",
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Hermes Bonilla",
     locale: "es_CO",
-    url: "https://hermesbonilla.com/laboratorio",
+    url: `${SITE_URL}/laboratorio`,
   },
   twitter: {
     card: "summary_large_image",
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
       "Dashboards interactivos sobre contratación pública, encuestas y datos abiertos de Colombia.",
   },
   alternates: {
-    canonical: "https://hermesbonilla.com/laboratorio",
+    canonical: `${SITE_URL}/laboratorio`,
   },
 }
 

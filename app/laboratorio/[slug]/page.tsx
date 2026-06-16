@@ -5,6 +5,7 @@ import dynamic from "next/dynamic"
 import { ArrowLeft, Database, ExternalLink } from "lucide-react"
 import { labProjects, getProjectBySlug } from "@/lib/lab"
 import { Badge } from "@/components/ui/badge"
+import { SITE_URL } from "@/lib/site"
 
 interface Props {
   params: { slug: string }
@@ -28,7 +29,7 @@ export function generateMetadata({ params }: Props): Metadata {
       type: "website",
       siteName: "Hermes Bonilla",
       locale: "es_CO",
-      url: `https://hermesbonilla.com/laboratorio/${params.slug}`,
+      url: `${SITE_URL}/laboratorio/${params.slug}`,
     },
     twitter: {
       card: "summary_large_image",
@@ -36,7 +37,7 @@ export function generateMetadata({ params }: Props): Metadata {
       description: project.description,
     },
     alternates: {
-      canonical: `https://hermesbonilla.com/laboratorio/${params.slug}`,
+      canonical: `${SITE_URL}/laboratorio/${params.slug}`,
     },
   }
 }
@@ -75,10 +76,10 @@ export default function LabProjectPage({ params }: Props) {
       author: {
         "@type": "Person",
         name: "Hermes Bonilla",
-        url: "https://hermesbonilla.com",
+        url: SITE_URL,
       },
       datePublished: project.date,
-      url: `https://hermesbonilla.com/laboratorio/${params.slug}`,
+      url: `${SITE_URL}/laboratorio/${params.slug}`,
       keywords: project.tags.join(", "),
       inLanguage: "es",
       applicationCategory: "DataVisualization",
@@ -91,19 +92,19 @@ export default function LabProjectPage({ params }: Props) {
           "@type": "ListItem",
           position: 1,
           name: "Inicio",
-          item: "https://hermesbonilla.com",
+          item: SITE_URL,
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Laboratorio",
-          item: "https://hermesbonilla.com/laboratorio",
+          item: `${SITE_URL}/laboratorio`,
         },
         {
           "@type": "ListItem",
           position: 3,
           name: project.title,
-          item: `https://hermesbonilla.com/laboratorio/${params.slug}`,
+          item: `${SITE_URL}/laboratorio/${params.slug}`,
         },
       ],
     },

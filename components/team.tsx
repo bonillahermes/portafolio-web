@@ -49,6 +49,7 @@ export default function Team() {
                 src="/images/profile.jpeg"
                 alt="Hermes Bonilla"
                 fill
+                sizes="(max-width: 1024px) 320px, 320px"
                 className="object-cover"
               />
             </div>
@@ -140,7 +141,7 @@ export default function Team() {
                 >
                   <div className="w-8 h-8 flex items-center justify-center rounded-lg bg-muted shrink-0">
                     <div className="relative w-5 h-5">
-                      <Image src={tech.logo} alt={tech.name} fill className="object-contain" />
+                      <Image src={tech.logo} alt={tech.name} fill sizes="20px" className="object-contain" />
                     </div>
                   </div>
                   <div>
@@ -157,7 +158,7 @@ export default function Team() {
                 >
                   <div className="w-8 h-8 flex items-center justify-center rounded-lg bg-muted shrink-0">
                     <div className="relative w-5 h-5">
-                      <Image src={tech.logo} alt="" fill className="object-contain" />
+                      <Image src={tech.logo} alt="" fill sizes="20px" className="object-contain" />
                     </div>
                   </div>
                   <div>

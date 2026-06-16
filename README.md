@@ -2,7 +2,7 @@
 
 Portafolio profesional de consultoría en datos e inteligencia artificial para el sector
 público colombiano (gobierno nacional, congresistas y Unidades de Trabajo Legislativo).
-Sitio en producción: [hermesbonilla.com](https://hermesbonilla.com).
+Sitio en producción: [hermesbonilla.com](https://www.hermesbonilla.com).
 
 ## Stack
 

@@ -61,6 +61,7 @@ export default function TrustBar() {
                     src={featured.logo}
                     alt={`Logo del ${featured.name}`}
                     fill
+                    sizes="176px"
                     className={logoTreatment}
                   />
                 </div>
@@ -111,6 +112,7 @@ export default function TrustBar() {
                     src={client.logo}
                     alt={`Logo de ${client.name}`}
                     fill
+                    sizes="112px"
                     className={logoTreatment}
                   />
                 </div>

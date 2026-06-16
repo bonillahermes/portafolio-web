@@ -3,6 +3,7 @@ import Link from "next/link"
 import { ArrowLeft, ArrowRight, Clock, Calendar } from "lucide-react"
 import { getAllPosts } from "@/lib/mdx"
 import { Badge } from "@/components/ui/badge"
+import { SITE_URL } from "@/lib/site"
 
 export const metadata: Metadata = {
   title: "Blog — Hermes Bonilla",
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Hermes Bonilla",
     locale: "es_CO",
-    url: "https://hermesbonilla.com/blog",
+    url: `${SITE_URL}/blog`,
   },
   twitter: {
     card: "summary_large_image",
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
       "Artículos sobre analítica de datos, inteligencia artificial y ciencia de datos aplicada a política y gobierno.",
   },
   alternates: {
-    canonical: "https://hermesbonilla.com/blog",
+    canonical: `${SITE_URL}/blog`,
   },
 }
 

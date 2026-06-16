@@ -7,13 +7,14 @@ import Team from "@/components/team"
 import Platforms from "@/components/platforms"
 import CTA from "@/components/cta"
 import HashScroll from "@/components/hash-scroll"
+import { SITE_URL } from "@/lib/site"
 
 export const metadata: Metadata = {
   title: "Hermes Bonilla — Datos, IA y Plataformas para el Sector Público",
   description:
     "Especialista en analítica de datos, inteligencia artificial y plataformas de gestión para congresistas, UTL y entidades del gobierno colombiano.",
   alternates: {
-    canonical: "https://hermesbonilla.com",
+    canonical: SITE_URL,
   },
 }
 
